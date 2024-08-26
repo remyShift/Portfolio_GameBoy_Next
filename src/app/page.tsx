@@ -1,9 +1,9 @@
-import GlobalTemplate from "@/components/GlobalTemplate/GlobalTemplate";
+import TopBorder from "@/components/TopBorder";
 
 export default function Home() {
 	return (
 		<>
-			<GlobalTemplate />
+			<TopBorder />
 		</>
 	);
 }
