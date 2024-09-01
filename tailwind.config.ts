@@ -15,6 +15,7 @@ const config: Config = {
 			},
 			colors: {
 				topbrown: "#726456",
+				greyscreen: "#CFCCCC",
 			},
 		},
 	},
