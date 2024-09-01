@@ -14,9 +14,17 @@ const config: Config = {
 					"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
 			},
 			colors: {
-				topbrown: "#726456",
-				greyscreen: "#CFCCCC",
+				topBrown: "#726456",
+				cream: "#F8E9D9",
+				wine: "#5C131D",
+				greyScreen: "#CFCCCC",
+				greyTextInfo: "#747474",
 			},
+			fontFamily: {
+				gillSans: ["Gill Sans", "sans-serif"],
+				gillSansBold: ["Gill Sans Bold", "sans-serif"],
+				gillSansBoldItalic: ["Gill Sans Bold Italic", "sans-serif"],
+			}
 		},
 	},
 	plugins: [],
