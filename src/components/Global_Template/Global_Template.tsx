@@ -1,5 +1,6 @@
 import GTop from "./G-Top/G-Top";
 import Pivot from "./G-Pivot/Pivot";
+import GBot from "./G-Bottom/G-Bot";
 
 export default function GlobalTemplate({ children }: { children: React.ReactNode }) {
 	return (
@@ -8,6 +9,7 @@ export default function GlobalTemplate({ children }: { children: React.ReactNode
 				{children}
 			</GTop>
 			<Pivot />
+			<GBot />
 		</div>
 	);
 }

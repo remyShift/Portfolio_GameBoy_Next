@@ -26,6 +26,9 @@ const config: Config = {
 				gillSansItalic: ["var(--font-gill-sans-italic)"],
 				gillSansBoldItalic: ["var(--font-gill-sans-bold-italic)"],
 			},
+			boxShadow: {
+				shadowPiv: "0 0.4rem 0 0 #6A6157, 0 0.6rem 0 0 #BFB2A4",
+			},
 		},
 	},
 	plugins: [],
