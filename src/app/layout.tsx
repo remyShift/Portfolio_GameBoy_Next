@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" className={`${gillSans.variable} ${gillSansBold.variable} ${gillSansItalic.variable} ${gillSansBoldItalic.variable}`}>
-			<body>
+			<body className="w-[100dvw] h-[100dvh]">
 				<GlobalTemplate>
 					{children}
 				</GlobalTemplate>

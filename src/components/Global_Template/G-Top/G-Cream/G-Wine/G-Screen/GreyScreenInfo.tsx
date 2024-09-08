@@ -9,7 +9,7 @@ export default function GreyScreenInfo() {
 
 			{/* Background greyScreen */}
 			<div className="flex-grow flex justify-center items-center">
-				<h1 className="font-gillSansBold text-[10dvh] bg-clip-text text-transparent bg-black/25"
+				<h1 className="font-gillSansBold text-[10dvh] sm:text-[15dvh] md:text-[18dvh] lg:text-[20dvh] bg-clip-text text-transparent bg-black/25"
 					style={{ textShadow: "0 0.1rem 0.4rem #CFCCCC" }}>
 					&lt;/&gt;
 				</h1>
