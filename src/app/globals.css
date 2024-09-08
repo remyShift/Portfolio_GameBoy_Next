@@ -31,6 +31,5 @@
 }
 
 html {
-	@apply bg-black;
-	--res: calc(0.01 * 10vmin)
+	background: #000;
 }

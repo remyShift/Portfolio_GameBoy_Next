@@ -21,10 +21,11 @@ const config: Config = {
 				greyTextInfo: "#747474",
 			},
 			fontFamily: {
-				gillSans: ["Gill Sans", "sans-serif"],
-				gillSansBold: ["Gill Sans Bold", "sans-serif"],
-				gillSansBoldItalic: ["Gill Sans Bold Italic", "sans-serif"],
-			}
+				gillSans: ["var(--font-gill-sans)"],
+				gillSansBold: ["var(--font-gill-sans-bold)"],
+				gillSansItalic: ["var(--font-gill-sans-italic)"],
+				gillSansBoldItalic: ["var(--font-gill-sans-bold-italic)"],
+			},
 		},
 	},
 	plugins: [],
