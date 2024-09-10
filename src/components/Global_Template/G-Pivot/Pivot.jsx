@@ -9,7 +9,7 @@ export default function Pivot() {
 	return (
 		<div className="w-full h-[7%] z-10 rounded-b-lg shadow-shadowPiv">
 			<SpacersPiv />
-			<div className="flex items-start">
+			<div className="flex items-start h-[60%]">
 				<ExtremePivLeft />
 				<PivLeft />
 				<MiddlePiv />
