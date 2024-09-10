@@ -7,7 +7,7 @@ import ExtremePivRight from "./ExtremePivRight";
 
 export default function Pivot() {
 	return (
-		<div className="w-full h-[7%] z-10 rounded-b-lg shadow-shadowPiv">
+		<div className="w-full h-[7%] z-10 rounded-b-lg shadow-shadowsPiv">
 			<SpacersPiv />
 			<div className="flex items-start h-[60%]">
 				<ExtremePivLeft />

@@ -27,10 +27,12 @@ const config: Config = {
 				gillSansBoldItalic: ["var(--font-gill-sans-bold-italic)"],
 			},
 			boxShadow: {
-				shadowPiv: "0 0.1rem 0 0 #6A6157, 0 0.35rem 0 0 #d0c5bb, 0 0.5rem 0 0 #F8E9D9",
+				shadowsPiv: "0 0.1rem 0 0 #6A6157, 0 0.35rem 0 0 #d0c5bb, 0 0.5rem 0 0 #F8E9D9",
+				shadowPivBotAndTop: "inset 0 -0.5rem 0.7rem -0.5rem #111, inset 0 0.5rem 0.4rem -0.6rem #111",
+				shadowPivBot: "inset 0 -0.5rem 0.7rem -0.5rem #111",
 			},
 			borderWidth: {
-				piv: "5px",
+				piv: "1px",
 			},
 			borderColor: {
 				pivGrey: "#6A6157",
