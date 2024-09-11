@@ -4,7 +4,7 @@ export default function TextBorderWine() {
 			<p className="relative font-gillSansBoldItalic text-wine z-10 text-xs sm:text-xl xl:text-2xl text-center">
 				Développeur Fullstack
 				<span
-					className="absolute inset-0 z-[-1] stroke-borderWine text-borderWine"
+					className="absolute inset-0 z-[-1]"
 					style={{
 						WebkitTextStroke: `0.25rem #C6AF87`,
 						color: "#C6AF87",

@@ -4,7 +4,7 @@ import GBot from "./G-Bottom/G-Bot";
 
 export default function GlobalTemplate({ children }: { children: React.ReactNode }) {
 	return (
-		<div className="w-full h-full overflow-y-hidden">
+		<div className="w-full h-full">
 			<GTop>
 				{children}
 			</GTop>
