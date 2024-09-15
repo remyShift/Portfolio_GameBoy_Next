@@ -2,7 +2,7 @@ import Arrow_Btn from "./Arrow_Btn";
 import AB_Btn from "./AB_Btn";
 import Light_Btn from "./Light_Btn";
 import SelectSpeakers_Btn from "./SelectSpeakers_Btn";
-
+import Lights from "./Lights/Lights";
 
 export default function Buttons() {
 	return (
@@ -13,6 +13,7 @@ export default function Buttons() {
 				<SelectSpeakers_Btn />
 			</div>
 			<AB_Btn />
+			<Lights />
 		</div>
 	);
 }
