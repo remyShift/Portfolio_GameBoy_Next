@@ -28,7 +28,7 @@ const config: Config = {
 			},
 			boxShadow: {
 				shadowsPiv: "0 0.1rem 0 0 #6A6157, 0 0.35rem 0 0 #d0c5bb, 0 0.5rem 0 0.15rem #F8E9D9",
-				shadowPivBigger: "0 0.3rem 0 0 #6A6157, 0 0.7rem 0 0 #d0c5bb, 0 0.9rem 0 0.2rem #F8E9D9",
+				shadowPivBigger: "0 0.3rem 0 0 #6A6157, 0 0.8rem 0 0 #d0c5bb, 0 1rem 0 0.2rem #F8E9D9",
 				shadowPivInset: "inset 0 -0.5rem 0.7rem -0.5rem #111, inset 0 0.5rem 0.4rem -0.6rem #111",
 				shadowPivBot: "inset 0 -0.5rem 0.7rem -0.5rem #111",
 			},
