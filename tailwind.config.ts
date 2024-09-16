@@ -25,6 +25,7 @@ const config: Config = {
 				gillSansBold: ["var(--font-gill-sans-bold)"],
 				gillSansItalic: ["var(--font-gill-sans-italic)"],
 				gillSansBoldItalic: ["var(--font-gill-sans-bold-italic)"],
+				pressStart2P: ["var(--font-pressStart2P)"],
 			},
 			boxShadow: {
 				shadowsPiv: "0 0.1rem 0 0 #6A6157, 0 0.35rem 0 0 #d0c5bb, 0 0.5rem 0 0.15rem #F8E9D9",
