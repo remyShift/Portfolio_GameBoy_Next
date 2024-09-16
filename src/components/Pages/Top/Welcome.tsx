@@ -31,8 +31,8 @@ export default function WelcomePage() {
 
 			<div className="flex flex-col justify-end items-center w-1/3 h-full">
 				<p className="font-pressStart2P text-[0.6rem]">Rémy</p>
-				<img src="/assets/icons/Arrow.png" alt="Arrow" className="w-2 h-2 mb-2" />
-				<img src="/assets/img/MeAvatar.png" alt="Me as avatar" className="w-[45%] h-[40%]" />
+				<img src="/assets/icons/Arrow.png" alt="Arrow" className="w-2 h-2" />
+				<img src="/assets/img/MeAvatar.png" alt="Me as avatar" className="w-[45%] h-[35%] object-contain" />
 			</div>
 		</div>
 	);
