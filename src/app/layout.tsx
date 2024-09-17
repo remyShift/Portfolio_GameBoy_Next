@@ -21,8 +21,8 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" className={`${gillSans.variable} ${gillSansBold.variable} ${gillSansItalic.variable} ${gillSansBoldItalic.variable} ${pressStart2P.variable}`}>
-			<body className="w-full h-[100dvh]">
+		<html lang="en" className={`${gillSans.variable} ${gillSansBold.variable} ${gillSansItalic.variable} ${gillSansBoldItalic.variable} ${pressStart2P.variable} h-[100dvh]`}>
+			<body className="w-full h-full">
 				<GlobalTemplate>
 					{children}
 				</GlobalTemplate>
