@@ -32,6 +32,7 @@ const config: Config = {
 				shadowPivBigger: "0 0.3rem 0 0 #6A6157, 0 0.8rem 0 0 #d0c5bb, 0 1rem 0 0.2rem #F8E9D9",
 				shadowPivInset: "inset 0 -0.5rem 0.7rem -0.5rem #111, inset 0 0.5rem 0.4rem -0.6rem #111",
 				shadowPivBot: "inset 0 -0.5rem 0.7rem -0.5rem #111",
+				shadowTop: "0 0.4rem 0.2rem -0.2rem rgba(0, 0, 0, 0.5)"
 			},
 			borderWidth: {
 				piv: "1px",
