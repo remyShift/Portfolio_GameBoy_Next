@@ -4,7 +4,7 @@ import BackgroundSign from "@/components/Global_Template/G-Top/G-Cream/G-Wine/G-
 export default function WelcomePage() {
 	return (
 		<div className="flex flex-row w-full h-full justify-between">
-			<nav className="flex flex-col justify-center items-center w-1/3 h-full">
+			<nav className="flex flex-col justify-center items-center w-1/3 h-full relative z-1">
 				<ul className="flex flex-col gap-4 sm:gap-6 md:gap-10 lg:gap-14 ml-2">
 					<li>
 						<Link href="/about" className="flex flex-row items-center gap-2 font-pressStart2P text-[0.7rem] sm:text-sm md:text-base lg:text-lg hover:underline">

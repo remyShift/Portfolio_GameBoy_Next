@@ -30,6 +30,13 @@
 	font-style: italic;
 }
 
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+}
+
 html {
 	background: #000;
 }
