@@ -9,13 +9,13 @@ export default function WelcomePage() {
 					<li>
 						<Link href="/about" className="flex flex-row items-center gap-2 font-pressStart2P text-[0.7rem] sm:text-sm md:text-base lg:text-lg hover:underline">
 							<img src="/assets/icons/Person.png" alt="Person" className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
-							About
+							À propos
 						</Link>
 					</li>
 					<li className="flex flex-row gap-2">
 						<Link href="/projects" className="flex flex-row items-center gap-2 font-pressStart2P text-[0.7rem] sm:text-sm md:text-base lg:text-lg hover:underline">
 							<img src="/assets/icons/Document.png" alt="Projects" className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
-							Projects
+							Projets
 						</Link>
 					</li>
 					<li className="flex flex-row gap-2">

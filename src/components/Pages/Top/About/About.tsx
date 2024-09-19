@@ -15,7 +15,7 @@ export default function AboutPage() {
 			<div className="flex flex-col justify-center items-center w-1/3 h-full">
 				<p className="font-pressStart2P text-[0.6rem] sm:text-sm md:text-base lg:text-lg">Rémy</p>
 				<img src="/assets/icons/Arrow.png" alt="Arrow" className="w-3 h-2 sm:w-5 sm:h-4 lg:w-6 lg:h-5 mb-1" />
-				<img src="/assets/img/pictureOfMe.png" alt="Picture of me" className="object-contain" />
+				<img src="/assets/img/pictureOfMe.png" alt="Picture of me" className="object-contain w-[90%] border-2 border-wine" />
 			</div>
 		</div>
 	);
