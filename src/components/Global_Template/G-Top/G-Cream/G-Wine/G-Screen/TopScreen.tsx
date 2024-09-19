@@ -8,7 +8,7 @@ export default function TopScreen() {
 
 	const formatPathname = (path: string) => {
 		if (path === "/") return "@ACCUEIL";
-		return `@ACCUEIL/${path.substring(1).toUpperCase().trim()}`; // Suppression des espaces en trop
+		return `@ACCUEIL/${path.substring(1).toUpperCase().trim()}`;
 	};
 
 	const createLinks = (formattedPath: string) => {
