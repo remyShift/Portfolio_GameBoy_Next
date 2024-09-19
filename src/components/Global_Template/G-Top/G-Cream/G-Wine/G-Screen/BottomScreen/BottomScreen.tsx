@@ -9,7 +9,7 @@ export default function BottomScreen() {
 
 	console.log(pathname);
 
-	if (pathname === '/about' || pathname === '/projects') {
+	if (pathname === '/about' || pathname.includes('/projects')) {
 		return (
 			<ScrollCTA />
 		)

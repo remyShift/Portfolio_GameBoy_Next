@@ -1,6 +1,6 @@
 export default function BackgroundSign() {
 	return (
-		<div className="w-1/3 flex-grow flex justify-center items-center">
+		<div className="w-1/3 h-full flex flex-col items-center justify-center">
 			<h1 className="font-gillSansBold text-8xl sm:text-[15dvh] lg:text-[20dvh] xl:text-[25dvh] bg-clip-text text-transparent bg-black/25"
 				style={{ textShadow: "0 0.1rem 0.4rem #CFCCCC" }}>
 				&lt;/&gt;

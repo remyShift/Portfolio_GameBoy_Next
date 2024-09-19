@@ -1,5 +1,9 @@
-export default function ProjectsPage() {
+import ProjectsPage from "@/components/Pages/Top/Projects/Projects";
+
+export default function Projects() {
 	return (
-		<div>ProjectsPage</div>
+		<>
+			<ProjectsPage />
+		</>
 	);
 }

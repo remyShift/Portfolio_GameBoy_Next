@@ -3,23 +3,23 @@ import BackgroundSign from "@/components/Global_Template/G-Top/G-Cream/G-Wine/G-
 
 export default function WelcomePage() {
 	return (
-		<div className="flex flex-row w-full h-full justify-between">
+		<div className="flex flex-row w-full h-full">
 			<nav className="flex flex-col justify-center items-center w-1/3 h-full relative z-1">
 				<ul className="flex flex-col gap-4 sm:gap-6 md:gap-10 lg:gap-14 ml-2">
 					<li>
-						<Link href="/about" className="flex flex-row items-center gap-2 font-pressStart2P text-[0.7rem] sm:text-sm md:text-base lg:text-lg hover:underline">
+						<Link href="/about" className="flex items-center gap-2 font-pressStart2P text-[0.7rem] sm:text-sm md:text-base lg:text-lg hover:underline">
 							<img src="/assets/icons/Person.png" alt="Person" className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
 							À propos
 						</Link>
 					</li>
-					<li className="flex flex-row gap-2">
-						<Link href="/projects" className="flex flex-row items-center gap-2 font-pressStart2P text-[0.7rem] sm:text-sm md:text-base lg:text-lg hover:underline">
+					<li>
+						<Link href="/projects" className="flex items-center gap-2 font-pressStart2P text-[0.7rem] sm:text-sm md:text-base lg:text-lg hover:underline">
 							<img src="/assets/icons/Document.png" alt="Projects" className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
 							Projets
 						</Link>
 					</li>
-					<li className="flex flex-row gap-2">
-						<Link href="/contact" className="flex flex-row items-center gap-2 font-pressStart2P text-[0.7rem] sm:text-sm md:text-base lg:text-lg hover:underline">
+					<li>
+						<Link href="/contact" className="flex items-center gap-2 font-pressStart2P text-[0.7rem] sm:text-sm md:text-base lg:text-lg hover:underline">
 							<img src="/assets/icons/Call.png" alt="Contact" className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
 							Contact
 						</Link>

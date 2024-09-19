@@ -5,7 +5,7 @@ const aboutTitle = "Apprenez à me connaître ...";
 
 export default function AboutPage() {
 	return (
-		<div className="flex flex-row w-full h-full justify-between">
+		<div className="flex flex-row w-full h-full">
 			<div className="flex justify-center items-center w-1/3 h-full">
 				<p className="font-pressStart2P text-pretty text-[0.45rem] sm:text-xs md:text-base lg:text-lg ml-4 xl:ml-8 absolute w-[55%] xl:w-1/2 left-2">{aboutText}</p>
 			</div>
