@@ -14,7 +14,7 @@ export default function TopScreen() {
 	const createLinks = (formattedPath: string) => {
 		const parts = formattedPath.split('/');
 		return parts.map((part, index) => {
-			const linkPath = part === "ACCUEIL" ? part : '/' + parts.slice(1, index + 1).join('/').toLowerCase();
+			const linkPath = part === "@ACCUEIL" ? '/' : '/' + parts.slice(1, index + 1).join('/').toLowerCase();
 			return (
 				<Link key={index} href={linkPath} className="text-greyTextInfo font-gillSansBold text-[0.6rem] sm:text-xs md:text-base lg:text-xl hover:text-wine hover:underline">
 					{part === "@ACCUEIL" ? part : `/${part}`}

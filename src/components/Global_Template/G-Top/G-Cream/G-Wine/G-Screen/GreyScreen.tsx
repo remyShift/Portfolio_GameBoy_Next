@@ -1,5 +1,5 @@
 import TopScreen from "./TopScreen";
-import BottomScreen from "./BottomScreen/BottomScreen";
+import BottomScreen from "./BottomScreen/BottomGreyScreen";
 import "./GreyScreen.css";
 
 export default function GreyScreen({ children }: { children: React.ReactNode }) {
