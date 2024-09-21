@@ -1,4 +1,4 @@
-import ProjectsPage from "@/components/Pages/Top/Projects/ProjectsPage";
+import ProjectsPage from "@/components/PageParts/Top/Projects/ProjectsPage";
 
 export default function Projects() {
 	return (

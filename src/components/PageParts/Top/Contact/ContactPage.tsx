@@ -20,7 +20,7 @@ export default function ContactPage() {
 					</li>
 					<li>
 						<Link href="mailto:remy.engassac@icloud.com" target="_blank" className="flex items-center gap-2 font-pressStart2P text-[0.7rem] sm:text-sm md:text-base lg:text-lg hover:underline">
-							<img src="/assets/icons/Mail.png" alt="Contact" className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
+							<img src="/assets/icons/Mail.png" alt="Mail" className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
 							Mail
 						</Link>
 					</li>

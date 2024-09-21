@@ -1,4 +1,4 @@
-import FunStats from "@/components/Pages/Top/Projects/FunStats";
+import FunStats from "@/components/PageParts/Top/Projects/FunStats";
 
 export default function FunStatsPage() {
 	return (
