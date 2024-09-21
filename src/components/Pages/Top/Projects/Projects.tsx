@@ -2,6 +2,7 @@ import Link from "next/link";
 import BackgroundSign from "@/components/Global_Template/G-Top/G-Cream/G-Wine/G-Screen/BackgroundSign";
 
 export default function ProjectsPage() {
+	const projectsTitle = "Découvrez mes projets: des idées qui prennent vie !";
 	return (
 		<div className="flex flex-row w-full h-full">
 			<nav className="flex flex-col justify-center items-center w-1/3 h-full relative z-1">
@@ -21,7 +22,10 @@ export default function ProjectsPage() {
 				</ul>
 			</nav>
 
-			<BackgroundSign />
+			<div className="flex flex-col justify-center items-center w-1/3 h-full">
+				<h1 className="font-pressStart2P text-pretty text-center absolute w-[90%] top-10 md:top-16 lg:top-18 xl:top-18 text-xs sm:text-base md:text-2xl lg:text-3xl">{projectsTitle}</h1>
+				<BackgroundSign />
+			</div>
 
 			<div className="flex flex-col justify-center items-center w-1/3 h-full gap-1">
 				<img src="/assets/gif/boyWorking.gif" alt="Boy working gif" className="w-auto h-auto mt-12 mr-6" />

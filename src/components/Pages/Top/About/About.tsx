@@ -11,7 +11,7 @@ export default function AboutPage() {
 			</div>
 
 			<div className="flex flex-col justify-center items-center w-1/3 h-full">
-				<h1 className="font-pressStart2P text-pretty text-center absolute w-[90%] top-10 md:top-16 lg:top-18 xl:top-18 text-xs sm:text-lg md:text-2xl lg:text-3xl">{aboutTitle}</h1>
+				<h1 className="font-pressStart2P text-pretty text-center absolute w-[85%] top-10 md:top-16 lg:top-18 xl:top-18 text-xs sm:text-base md:text-2xl lg:text-3xl">{aboutTitle}</h1>
 				<BackgroundSign />
 			</div>
 
