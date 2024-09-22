@@ -77,7 +77,7 @@ export default function ContactPage() {
 					</div>
 					<div className="flex justify-center items-center w-full">
 						{isValid && (
-							<button type="submit" className="w-1/2 h-auto p-1 rounded bg-wine hover:bg-wine/80 text-cream text-center text-wrap text-[0.5rem] sm:text-[0.7rem] md:text-xs lg:text-base font-pressStart2P">Envoyer</button>
+							<button type="submit" className="w-1/2 h-auto p-1 outline-none focus:outline-black rounded bg-wine hover:bg-wine/80 text-cream text-center text-wrap text-[0.5rem] sm:text-[0.7rem] md:text-xs lg:text-base font-pressStart2P">Envoyer</button>
 						)}
 					</div>
 				</form>
