@@ -5,15 +5,24 @@ import BackgroundSign from "@/components/Global_Template/G-Top/G-Cream/G-Wine/G-
 import { useState, useEffect } from "react";
 
 export default function ContactPage() {
-	const [lastName, setLastName] = useState("");
 	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
 	const [message, setMessage] = useState("");
-	const [isButtonVisible, setIsButtonVisible] = useState(false);
+	const [isValid, setIsValid] = useState(false);
 
 	useEffect(() => {
-		setIsButtonVisible(lastName && firstName && email && message ? true : false);
-	}, [lastName, firstName, email, message]);
+		setIsValid(firstName && lastName && email && message ? true : false);
+	}, [firstName, lastName, email, message]);
+
+	const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		console.log('data from form :', { firstName, lastName, email, message });
+		await fetch('/api/send', {
+			method: 'POST',
+			body: JSON.stringify({ firstName, lastName, email, message }),
+		});
+	};
 
 	return (
 		<div className="flex flex-row w-full h-full">
@@ -46,28 +55,28 @@ export default function ContactPage() {
 			</div>
 
 			<div className="flex flex-col justify-end items-start w-1/3 h-full relative z-1">
-				<form className="w-[90%] h-full justify-end flex flex-col gap-2 sm:gap-1 md:gap-4">
+				<form onSubmit={onSubmitHandler} className="w-[90%] h-full justify-end flex flex-col gap-2 sm:gap-1 md:gap-4">
 					<div className="w-full flex flex-col">
 						<label htmlFor="lastName" className="font-pressStart2P text-[0.7rem] sm:text-xs md:text-sm lg:text-base">Nom :</label>
-						<input type="text" id="lastName" name="lastName" onChange={(e) => setLastName(e.target.value)} className="w-full bg-gray-300 border-[0.09rem] px-1 md:py-1 font-cabin border-gray-400 focus:border-gray-800 focus:outline-none" />
+						<input type="text" id="lastName" onChange={(e) => setLastName(e.target.value)} className="w-full bg-gray-300 border-[0.09rem] px-1 md:py-1 font-cabin border-gray-400 focus:border-gray-800 focus:outline-none" />
 					</div>
 
 					<div className="w-full flex flex-col">
 						<label htmlFor="firstName" className="font-pressStart2P text-[0.7rem] sm:text-xs md:text-sm lg:text-base">Prénom :</label>
-						<input type="text" id="firstName" name="firstName" onChange={(e) => setFirstName(e.target.value)} className="w-full bg-gray-300 border-[0.09rem] px-1 md:py-1 font-cabin border-gray-400 focus:border-gray-800 focus:outline-none" />
+						<input type="text" id="firstName" onChange={(e) => setFirstName(e.target.value)} className="w-full bg-gray-300 border-[0.09rem] px-1 md:py-1 font-cabin border-gray-400 focus:border-gray-800 focus:outline-none" />
 					</div>
 
 					<div className="w-full flex flex-col">
 						<label htmlFor="email" className="font-pressStart2P text-[0.7rem] sm:text-xs md:text-sm lg:text-base">Mail :</label>
-						<input type="email" id="email" name="email" onChange={(e) => setEmail(e.target.value)} className="w-full bg-gray-300 border-[0.09rem] px-1 md:py-1 font-cabin border-gray-400 focus:border-gray-800 focus:outline-none" />
+						<input type="email" id="email" onChange={(e) => setEmail(e.target.value)} className="w-full bg-gray-300 border-[0.09rem] px-1 md:py-1 font-cabin border-gray-400 focus:border-gray-800 focus:outline-none" />
 					</div>
 
 					<div className="w-full flex flex-col">
 						<label htmlFor="message" className="font-pressStart2P text-[0.7rem] sm:text-xs md:text-sm lg:text-base">Message :</label>
-						<textarea id="message" name="message" onChange={(e) => setMessage(e.target.value)} className="w-full md:h-40 bg-gray-300 border-[0.09rem] px-1 md:py-1 font-cabin border-gray-400 focus:border-gray-800 focus:outline-none resize-none" />
+						<textarea id="message" onChange={(e) => setMessage(e.target.value)} className="w-full md:h-40 bg-gray-300 border-[0.09rem] px-1 md:py-1 font-cabin border-gray-400 focus:border-gray-800 focus:outline-none resize-none" />
 					</div>
 					<div className="flex justify-center items-center w-full">
-						{isButtonVisible && (
+						{isValid && (
 							<button type="submit" className="w-1/2 h-auto p-1 rounded bg-wine hover:bg-wine/80 text-cream text-center text-wrap text-[0.5rem] sm:text-[0.7rem] md:text-xs lg:text-base font-pressStart2P">Envoyer</button>
 						)}
 					</div>
