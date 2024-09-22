@@ -48,6 +48,11 @@ const config: Config = {
 				wine: '#C6AF87',
 			},
 		},
+		variants: {
+			extend: {
+				inset: ["group-hover"],
+			}
+		}
 	},
 	plugins: [
 

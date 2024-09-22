@@ -13,7 +13,7 @@ export default function Lights() {
 
 	return (
 		<div className="w-[5%] h-full flex justify-end overflow-x-hidden">
-			<img src={`/assets/SVG/${lights}.svg`} alt="Lights" className="relative right-[-20%] w-full h-[20%]" />
+			<img src={`/assets/SVG/${lights}.svg`} alt="Lights" className="relative right-[-21%] sm:right-[-30%] md:right-[-21%] w-full h-[15%]" />
 		</div>
 	);
 }

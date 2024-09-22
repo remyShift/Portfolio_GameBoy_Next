@@ -1,25 +1,13 @@
-import Light_Btn from "../../../Global_Template/G-Bottom/Buttons/Light_Btn";
-import SelectSpeakers_Btn from "../../../Global_Template/G-Bottom/Buttons/SelectSpeakers_Btn";
-import Lights from "../../../Global_Template/G-Bottom/Buttons/Lights";
-import StacksList from "./Stacks/StacksList";
-import Divider from "./Divider";
+import Card from "./Card";
+import projectsData from "../../../../projects.json";
 
 export default function ProjectsList() {
+	const projects = projectsData.projects;
 	return (
-		<div className="w-full h-[95%] flex flex-row">
-			<div className="w-full flex flex-col justify-center items-center">
-				<Light_Btn />
-				<Divider>
-					Stacks
-				</Divider>
-				<StacksList />
-				<Divider>
-					Projects
-				</Divider>
-				{/* <Card /> */}
-				<SelectSpeakers_Btn />
-			</div>
-			<Lights />
+		<div className="flex flex-wrap justify-center gap-4">
+			{projects.map((project, index) => (
+				<Card key={index} project={project} />
+			))}
 		</div>
 	);
 }

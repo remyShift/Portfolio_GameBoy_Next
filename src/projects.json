@@ -1,0 +1,110 @@
+{
+	"projects": [
+		{
+			"name": "Dataviz et API",
+			"description": "Projet de data visualisation en live avec l'appel d'une API, pour pratiquer les appels API et la data visualisation.",
+			"image": "/assets/img/projects/ADA/dataviz.png",
+			"stacks": [
+				"js",
+				"html",
+				"css"
+			]
+		},
+		{
+			"name": "Enigma",
+			"description": "Projet de jeu sur la fantasy console Pico8, pour pratiquer la programmation et la création de jeu.",
+			"image": "/assets/img/projects/ADA/enigma.p8.png",
+			"stacks": [
+				"lua"
+			]
+		},
+		{
+			"name": "Hey GPT!",
+			"description": "Projet de chatbot avec l'API OpenAI sous forme d'extension de navigateur, pour pratiquer l'IA et la programmation.",
+			"image": "/assets/img/projects/ADA/heygpt.png",
+			"stacks": [
+				"js",
+				"html",
+				"css"
+			]
+		},
+		{
+			"name": "Box Générateur",
+			"description": "Projet de création de div avec des shadows selon les attributs choisis par l'utilisateur, pour pratiquer React et TailwindCSS.",
+			"image": "/assets/img/projects/PMP/PMP-boxgeneration.png",
+			"stacks": [
+				"react",
+				"tailwindcss"
+			]
+		},
+		{
+			"name": "Calculatrice",
+			"description": "Projet de calculatrice reprenant le design de celle d'IOS, pour pratiquer React et TailwindCSS.",
+			"image": "/assets/img/projects/PMP/PMP-calculator.png",
+			"stacks": [
+				"react",
+				"tailwindcss"
+			]
+		},
+		{
+			"name": "Scroll Infinie",
+			"description": "Projet de scroll infini avec des img récupérées d'une API, pour pratiquer les appels API et les observer.",
+			"image": "/assets/img/projects/PMP/PMP-infinitescroll.png",
+			"stacks": [
+				"js",
+				"html",
+				"css"
+			]
+		},
+		{
+			"name": "Landing Page Nike",
+			"description": "Projet de landing page avec un design simple et épuré, pour pratiquer HTML, CSS et JS.",
+			"image": "/assets/img/projects/PMP/PMP-landingpage.png",
+			"stacks": [
+				"js",
+				"html",
+				"css"
+			]
+		},
+		{
+			"name": "Filtre de recherche",
+			"description": "Projet de filtre de recherche sur une liste d'utilisateurs, pour pratiquer la recherche et le filtrage en JS.",
+			"image": "/assets/img/projects/PMP/PMP-listfilter.png",
+			"stacks": [
+				"js",
+				"html",
+				"css"
+			]
+		},
+		{
+			"name": "Jeux des memories",
+			"description": "Projet de jeu des memories, pour pratiquer les animations et la logique de jeu en JS.",
+			"image": "/assets/img/projects/PMP/PMP-memoryCardGame.png",
+			"stacks": [
+				"js",
+				"html",
+				"css"
+			]
+		},
+		{
+			"name": "Lecteur de Musique",
+			"description": "Projet de lecteur de musique, pour pratiquer la lecture de fichiers audio en JS.",
+			"image": "/assets/img/projects/PMP/PMP-musicplayer.png",
+			"stacks": [
+				"js",
+				"html",
+				"css"
+			]
+		},
+		{
+			"name": "Test de rapidité de frappe",
+			"description": "Projet de test de rapidité de frappe, pour pratiquer HTML, CSS et JS.",
+			"image": "/assets/img/projects/PMP/PMP-typingspeedtest.png",
+			"stacks": [
+				"js",
+				"html",
+				"css"
+			]
+		}
+	]
+}

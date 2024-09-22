@@ -36,3 +36,9 @@ html {
 		}
 	}
 }
+
+@layer base {
+	.font-outline-2 {
+		-webkit-text-stroke: 1px black;
+	}
+}
