@@ -2,34 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-	font-family: 'Gill Sans';
-	src: url('/fonts/GillSans/GillSans.otf') format('opentype');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Gill Sans Bold';
-	src: url('/fonts/GillSans/GillSans-Bold.otf') format('opentype');
-	font-weight: 900;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Gill Sans Italic';
-	src: url('/fonts/GillSans/GillSans-Italic.otf') format('opentype');
-	font-weight: normal;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'Gill Sans Bold Italic';
-	src: url('/fonts/GillSans/GillSans-Bold-Italic.otf') format('opentype');
-	font-weight: 900;
-	font-style: italic;
-}
-
 *,
 *::before,
 *::after {

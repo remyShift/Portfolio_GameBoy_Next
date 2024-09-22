@@ -31,12 +31,12 @@ export default function TopScreen() {
 		<div className="flex justify-between pt-2 relative z-1">
 			<div className="flex pl-2">
 				{links.map((link, index) => (
-					<Link key={index} href={link.path} className="text-greyTextInfo font-gillSansBold text-[0.6rem] sm:text-xs md:text-base lg:text-xl hover:text-wine hover:underline">
+					<Link key={index} href={link.path} className="text-greyTextInfo font-cabinBold text-[0.6rem] sm:text-xs md:text-base lg:text-xl hover:text-wine hover:underline">
 						{link.label}
 					</Link>
 				))}
 			</div>
-			<h1 className="text-greyTextInfo font-gillSansBold text-[0.6rem] sm:text-xs md:text-base lg:text-xl pr-2.5">
+			<h1 className="text-greyTextInfo font-cabinBold text-[0.6rem] sm:text-xs md:text-base lg:text-xl pr-2.5">
 				{generateBatteryStatus()}
 			</h1>
 		</div>
