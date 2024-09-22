@@ -40,6 +40,13 @@ const config: Config = {
 			borderColor: {
 				pivGrey: "#6A6157",
 			},
+			textStrokeWidth: {
+				DEFAULT: '0.15rem',
+				bigger: '0.25rem',
+			},
+			textStrokeColor: {
+				wine: '#C6AF87',
+			},
 		},
 	},
 	plugins: [],

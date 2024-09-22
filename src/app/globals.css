@@ -12,3 +12,27 @@
 html {
 	background: #000;
 }
+
+@layer utilities {
+	.text-stroke {
+		-webkit-text-stroke: 0.15rem #C6AF87;
+	}
+
+	@screen sm {
+		.text-stroke {
+			-webkit-text-stroke: 0.17rem #C6AF87;
+		}
+	}
+
+	@screen md {
+		.text-stroke {
+			-webkit-text-stroke: 0.2rem #C6AF87;
+		}
+	}
+
+	@screen lg {
+		.text-stroke {
+			-webkit-text-stroke: 0.23rem #C6AF87;
+		}
+	}
+}

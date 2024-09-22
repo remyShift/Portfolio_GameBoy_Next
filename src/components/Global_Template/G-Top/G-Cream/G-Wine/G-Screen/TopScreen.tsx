@@ -15,7 +15,7 @@ export default function TopScreen() {
 		return parts.map((part, index) => {
 			const linkPath = part === "@ACCUEIL" ? '/' : '/' + parts.slice(1, index + 1).join('/').toLowerCase();
 			return {
-				label: part === "@ACCUEIL" ? part : validPaths.includes('/' + part.toLowerCase()) ? `/${part}` : `/404`,
+				label: part === "@ACCUEIL" ? "@ACCUEIL" : validPaths.includes('/' + part.toLowerCase()) ? `/${part}` : `/404`,
 				path: linkPath
 			};
 		});
