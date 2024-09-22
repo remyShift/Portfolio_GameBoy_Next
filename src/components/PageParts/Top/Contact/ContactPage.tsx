@@ -63,7 +63,7 @@ export default function ContactPage() {
 				<BackgroundSign />
 			</div>
 
-			<div className="flex flex-col justify-end items-start w-1/3 h-full relative z-1">
+			<div className="flex flex-col justify-end w-1/3 h-full relative z-1">
 				<form onSubmit={onSubmitHandler} className="w-[90%] h-full justify-end flex flex-col gap-2 sm:gap-1 md:gap-4">
 					<div className="w-full flex flex-col">
 						<label htmlFor="lastName" className="font-pressStart2P text-[0.7rem] sm:text-xs md:text-sm lg:text-base">Nom :</label>
