@@ -28,7 +28,7 @@ export default function TopScreen() {
 	}
 
 	return (
-		<div className="flex justify-between pt-2 relative z-1">
+		<header className="flex justify-between pt-2 relative z-1">
 			<div className="flex pl-2">
 				{links.map((link, index) => (
 					<Link key={index} href={link.path} className="text-greyTextInfo font-cabinBold text-[0.6rem] sm:text-xs md:text-base lg:text-xl hover:text-wine hover:underline">
@@ -39,6 +39,6 @@ export default function TopScreen() {
 			<h1 className="text-greyTextInfo font-cabinBold text-[0.6rem] sm:text-xs md:text-base lg:text-xl pr-2.5">
 				{generateBatteryStatus()}
 			</h1>
-		</div>
+		</header>
 	);
 }

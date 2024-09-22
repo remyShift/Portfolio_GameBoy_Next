@@ -67,22 +67,22 @@ export default function ContactPage() {
 				<form onSubmit={onSubmitHandler} className="w-[90%] h-full justify-end flex flex-col gap-2 sm:gap-1 md:gap-4">
 					<div className="w-full flex flex-col">
 						<label htmlFor="lastName" className="font-pressStart2P text-[0.7rem] sm:text-xs md:text-sm lg:text-base">Nom :</label>
-						<input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} className="w-full bg-gray-300 border-[0.09rem] px-1 md:py-1 font-cabin border-gray-400 focus:border-gray-800 focus:outline-none" />
+						<input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} className="rounded w-full bg-gray-300 border-[0.09rem] px-1 md:py-1 font-cabin border-gray-400 focus:border-gray-800 focus:outline-none" />
 					</div>
 
 					<div className="w-full flex flex-col">
 						<label htmlFor="firstName" className="font-pressStart2P text-[0.7rem] sm:text-xs md:text-sm lg:text-base">Prénom :</label>
-						<input type="text" id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="w-full bg-gray-300 border-[0.09rem] px-1 md:py-1 font-cabin border-gray-400 focus:border-gray-800 focus:outline-none" />
+						<input type="text" id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="rounded w-full bg-gray-300 border-[0.09rem] px-1 md:py-1 font-cabin border-gray-400 focus:border-gray-800 focus:outline-none" />
 					</div>
 
 					<div className="w-full flex flex-col">
 						<label htmlFor="email" className="font-pressStart2P text-[0.7rem] sm:text-xs md:text-sm lg:text-base">Mail :</label>
-						<input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full bg-gray-300 border-[0.09rem] px-1 md:py-1 font-cabin border-gray-400 focus:border-gray-800 focus:outline-none" />
+						<input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} className="rounded w-full bg-gray-300 border-[0.09rem] px-1 md:py-1 font-cabin border-gray-400 focus:border-gray-800 focus:outline-none" />
 					</div>
 
 					<div className="w-full flex flex-col">
 						<label htmlFor="message" className="font-pressStart2P text-[0.7rem] sm:text-xs md:text-sm lg:text-base">Message :</label>
-						<textarea id="message" value={message} onChange={(e) => setMessage(e.target.value)} className="w-full md:h-40 bg-gray-300 border-[0.09rem] px-1 md:py-1 font-cabin border-gray-400 focus:border-gray-800 focus:outline-none resize-none" />
+						<textarea id="message" value={message} onChange={(e) => setMessage(e.target.value)} className="rounded w-full md:h-40 bg-gray-300 border-[0.09rem] px-1 md:py-1 font-cabin border-gray-400 focus:border-gray-800 focus:outline-none resize-none" />
 					</div>
 					<div className="flex justify-center items-center w-full">
 						{isValid && (
