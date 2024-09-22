@@ -11,7 +11,7 @@ export default function Light_Btn() {
 	}
 
 	return (
-		<div className="w-full h-1/2 flex flex-col items-center justify-start">
+		<div className="w-full h-1/3  flex flex-col items-center justify-start">
 			<img src="/assets/SVG/LightBtn.svg" alt="Light" className={createClassName()} />
 		</div>
 	);
