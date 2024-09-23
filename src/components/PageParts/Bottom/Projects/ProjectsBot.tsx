@@ -5,7 +5,7 @@ import StacksList from "./Stacks/StacksList";
 import Divider from "./Divider";
 import Spacer from "./Spacer";
 import ProjectsList from "./ProjectsList";
-
+import Link from "next/link";
 export default function ProjectsBot() {
 	return (
 		<div className="w-full h-full flex flex-row pt-2">
@@ -20,8 +20,8 @@ export default function ProjectsBot() {
 					Projects
 				</Divider>
 				<ProjectsList />
-				<Divider>
-					Contact
+				<Divider onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+					⬆︎ Top ⬆︎
 				</Divider>
 				<SelectSpeakers_Btn />
 			</div>
