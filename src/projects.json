@@ -117,5 +117,15 @@
 			],
 			"link": "https://remyshift.github.io/PMP-JS_Typing_Speed_Test/"
 		}
+	],
+	"stacks": [
+		"html",
+		"css",
+		"js",
+		"tailwindcss",
+		"c",
+		"lua",
+		"next",
+		"react"
 	]
 }
