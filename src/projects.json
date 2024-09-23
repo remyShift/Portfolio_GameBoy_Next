@@ -8,7 +8,8 @@
 				"js",
 				"html",
 				"css"
-			]
+			],
+			"link": "https://remyshift.github.io/ADA-Dataviz/"
 		},
 		{
 			"name": "Enigma",
@@ -16,7 +17,8 @@
 			"image": "/assets/img/projects/ADA/enigma.p8.png",
 			"stacks": [
 				"lua"
-			]
+			],
+			"link": "https://remyshift.github.io/ADA-Pico-8/"
 		},
 		{
 			"name": "Hey GPT!",
@@ -26,7 +28,8 @@
 				"js",
 				"html",
 				"css"
-			]
+			],
+			"link": "https://github.com/remyShift/ADA-Extension-Navigateur"
 		},
 		{
 			"name": "Box Générateur",
@@ -35,7 +38,8 @@
 			"stacks": [
 				"react",
 				"tailwindcss"
-			]
+			],
+			"link": "https://remyshift.github.io/PMP-React_Box_Generation/"
 		},
 		{
 			"name": "Calculatrice",
@@ -44,7 +48,8 @@
 			"stacks": [
 				"react",
 				"tailwindcss"
-			]
+			],
+			"link": "https://remyshift.github.io/PMP-React_Calculator/"
 		},
 		{
 			"name": "Scroll Infinie",
@@ -54,17 +59,19 @@
 				"js",
 				"html",
 				"css"
-			]
+			],
+			"link": "https://remyshift.github.io/PMP-JS_ImagesLibrary/"
 		},
 		{
-			"name": "Landing Page Nike",
+			"name": "Landing Page",
 			"description": "Projet de landing page avec un design simple et épuré, pour pratiquer HTML, CSS et JS.",
 			"image": "/assets/img/projects/PMP/PMP-landingpage.png",
 			"stacks": [
 				"js",
 				"html",
 				"css"
-			]
+			],
+			"link": "https://remyshift.github.io/PMP-JS_Animated_Landing_Page/"
 		},
 		{
 			"name": "Filtre de recherche",
@@ -74,7 +81,8 @@
 				"js",
 				"html",
 				"css"
-			]
+			],
+			"link": "https://remyshift.github.io/PMP-JS_ListFilter/"
 		},
 		{
 			"name": "Jeux des memories",
@@ -84,7 +92,8 @@
 				"js",
 				"html",
 				"css"
-			]
+			],
+			"link": "https://remyshift.github.io/PMP-JS_MemoryCard_Game/"
 		},
 		{
 			"name": "Lecteur de Musique",
@@ -94,7 +103,8 @@
 				"js",
 				"html",
 				"css"
-			]
+			],
+			"link": "https://remyshift.github.io/PMP-JS_Audio_Player/"
 		},
 		{
 			"name": "Test de rapidité de frappe",
@@ -104,7 +114,8 @@
 				"js",
 				"html",
 				"css"
-			]
+			],
+			"link": "https://remyshift.github.io/PMP-JS_Typing_Speed_Test/"
 		}
 	]
 }
