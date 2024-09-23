@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useValidPaths } from "@/context/store";
+import { div } from "framer-motion/client";
 
 export default function TopScreen() {
 	const { validPaths } = useValidPaths();
@@ -31,12 +32,14 @@ export default function TopScreen() {
 		<header className="flex justify-between mt-1 sm:mt-2 relative z-1">
 			<div className="flex pl-2">
 				{links.map((link, index) => (
-					<Link key={index} href={link.path} className="text-greyTextInfo font-openSansBold text-[0.6rem] sm:text-xs md:text-base lg:text-xl hover:text-wine hover:underline">
-						{link.label}
+					<div key={index} className="flex items-center gap-0.5 md:gap-2">
+						<Link href={link.path} className="text-greyTextInfo font-openSansBold text-[0.6rem] sm:text-xs md:text-base lg:text-xl hover:text-wine hover:underline">
+							{link.label}
+						</Link>
 						{(index < links.length - 1) && (
-							<span className="text-greyTextInfo mx-0.5 font-openSansBold text-[0.6rem] sm:text-xs md:text-base lg:text-xl"> &gt; </span>
+							<span className="text-greyTextInfo font-openSansBold text-[0.6rem] sm:text-xs md:text-base lg:text-xl"> &gt; </span>
 						)}
-					</Link>
+					</div>
 				))}
 			</div>
 			<h1 className="text-greyTextInfo font-openSansBold text-[0.6rem] sm:text-xs md:text-base lg:text-xl pr-2.5">
