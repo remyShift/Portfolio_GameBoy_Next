@@ -40,6 +40,9 @@ const pressStart2P = Press_Start_2P({
 export const metadata: Metadata = {
 	title: "Portfolio remyShift",
 	description: "Portfolio Gameboy de Rémy",
+	icons: {
+		icon: "/assets/icons/gameboy.ico",
+	},
 };
 
 export default function RootLayout({
