@@ -6,9 +6,9 @@ export default function Card({ project, index }: { project: any, index: number }
 	const isEven = index % 2 === 0;
 
 	return (
-		<a href={project.link} className="flex flex-col justify-between items-center bg-wine border-[#C6AF87] hover:bg-wine/80 border-solid border-4 rounded-xl shadow md:flex-row md:w-[90%] md:h-[7%]">
+		<a href={project.link} target="_blank" className="flex flex-col justify-between items-center bg-wine border-[#C6AF87] hover:bg-wine/80 border-solid border-4 rounded-xl shadow md:flex-row w-[80%] md:w-[75%] md:h-[7%]">
 			{isEven && (
-				<img className="object-contain w-full rounded-t-lg md:h-full md:w-[40%] md:rounded-none md:rounded-l-lg" src={project.image} alt={project.name} />
+				<img className="object-cover w-full rounded-t-lg md:h-full md:w-[40%] md:rounded-none md:rounded-l-lg" src={project.image} alt={project.name} />
 			)}
 			<div className={`flex flex-col h-full justify-between p-4 leading-normal ${isEven ? 'md:items-end' : 'md:items-start'}`}>
 				<h5 className="mb-2 text-xl md:text-2xl font-cabinBold text-white">{project.name}</h5>
@@ -21,7 +21,7 @@ export default function Card({ project, index }: { project: any, index: number }
 			</div>
 			{
 				!isEven && (
-					<img className="object-cover w-full rounded-t-lg md:h-full md:w-[40%] md:rounded-none md:rounded-r-lg" src={project.image} alt={project.name} />
+					<img className="object-cover w-full rounded-b-lg md:h-full md:w-[40%] md:rounded-none md:rounded-r-lg" src={project.image} alt={project.name} />
 				)
 			}
 		</a >
