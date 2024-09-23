@@ -5,9 +5,9 @@
 			"description": "Projet de data visualisation en live avec l'appel d'une API, pour pratiquer les appels API et la data visualisation.",
 			"image": "/assets/img/projects/ADA/dataviz.png",
 			"stacks": [
-				"js",
 				"html",
-				"css"
+				"css",
+				"js"
 			],
 			"link": "https://remyshift.github.io/ADA-Dataviz/"
 		},
@@ -25,9 +25,9 @@
 			"description": "Projet de chatbot avec l'API OpenAI sous forme d'extension de navigateur, pour pratiquer l'IA et la programmation.",
 			"image": "/assets/img/projects/ADA/heygpt.png",
 			"stacks": [
-				"js",
 				"html",
-				"css"
+				"css",
+				"js"
 			],
 			"link": "https://github.com/remyShift/ADA-Extension-Navigateur"
 		},
@@ -56,9 +56,9 @@
 			"description": "Projet de scroll infini avec des img récupérées d'une API, pour pratiquer les appels API et les observer.",
 			"image": "/assets/img/projects/PMP/PMP-infinitescroll.png",
 			"stacks": [
-				"js",
 				"html",
-				"css"
+				"css",
+				"js"
 			],
 			"link": "https://remyshift.github.io/PMP-JS_ImagesLibrary/"
 		},
@@ -67,9 +67,9 @@
 			"description": "Projet de landing page avec un design simple et épuré, pour pratiquer HTML, CSS et JS.",
 			"image": "/assets/img/projects/PMP/PMP-landingpage.png",
 			"stacks": [
-				"js",
 				"html",
-				"css"
+				"css",
+				"js"
 			],
 			"link": "https://remyshift.github.io/PMP-JS_Animated_Landing_Page/"
 		},
@@ -78,9 +78,9 @@
 			"description": "Projet de filtre de recherche sur une liste d'utilisateurs, pour pratiquer la recherche et le filtrage en JS.",
 			"image": "/assets/img/projects/PMP/PMP-listfilter.png",
 			"stacks": [
-				"js",
 				"html",
-				"css"
+				"css",
+				"js"
 			],
 			"link": "https://remyshift.github.io/PMP-JS_ListFilter/"
 		},
@@ -89,9 +89,9 @@
 			"description": "Projet de jeu des memories, pour pratiquer les animations et la logique de jeu en JS.",
 			"image": "/assets/img/projects/PMP/PMP-memoryCardGame.png",
 			"stacks": [
-				"js",
 				"html",
-				"css"
+				"css",
+				"js"
 			],
 			"link": "https://remyshift.github.io/PMP-JS_MemoryCard_Game/"
 		},
@@ -100,9 +100,9 @@
 			"description": "Projet de lecteur de musique, pour pratiquer la lecture de fichiers audio en JS.",
 			"image": "/assets/img/projects/PMP/PMP-musicplayer.png",
 			"stacks": [
-				"js",
 				"html",
-				"css"
+				"css",
+				"js"
 			],
 			"link": "https://remyshift.github.io/PMP-JS_Audio_Player/"
 		},
@@ -111,9 +111,9 @@
 			"description": "Projet de test de rapidité de frappe, pour pratiquer HTML, CSS et JS.",
 			"image": "/assets/img/projects/PMP/PMP-typingspeedtest.png",
 			"stacks": [
-				"js",
 				"html",
-				"css"
+				"css",
+				"js"
 			],
 			"link": "https://remyshift.github.io/PMP-JS_Typing_Speed_Test/"
 		}

@@ -6,7 +6,7 @@ export default function ProjectsList() {
 	return (
 		<div className="flex flex-wrap justify-center gap-4">
 			{projects.map((project, index) => (
-				<Card key={index} project={project} />
+				<Card key={index} project={project} index={index} />
 			))}
 		</div>
 	);
