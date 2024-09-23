@@ -14,7 +14,7 @@ export default function TimelineContent({ title, date, description }: TimelineCo
 					{title}
 				</p>
 				<p
-					className="text-xs sm:text-sm lg:text-base font-openSansItalic text-white"
+					className="text-[0.5rem] sm:text-xs md:text-sm lg:text-base font-openSansItalic text-white"
 				>
 					{date}
 				</p>
