@@ -8,7 +8,7 @@ export default function Select_Btn() {
 	const pathname = usePathname();
 
 	const createClassName = (): { img1: string, img2: string } => {
-		return pathname.includes("/projects") ? {
+		return pathname.includes("/projects") || pathname.includes("/about") ? {
 			img1: "w-[10%] max-w-[120px]",
 			img2: "w-[25%] max-w-[250px] mt-4",
 		} : {

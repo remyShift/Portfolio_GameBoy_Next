@@ -7,7 +7,7 @@ export default function Light_Btn() {
 	const pathname = usePathname();
 
 	const createClassName = (): string => {
-		return pathname.includes("/projects") ? "w-[10%] max-w-[110px] mb-4" : "w-[25%] max-w-[110px]";
+		return pathname.includes("/projects") || pathname.includes("/about") ? "w-[10%] max-w-[110px] mb-4" : "w-[25%] max-w-[110px]";
 	}
 
 	return (

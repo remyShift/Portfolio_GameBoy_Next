@@ -3,9 +3,9 @@ import SelectSpeakers_Btn from "../../../Global_Template/G-Bottom/Buttons/Select
 import Lights from "../../../Global_Template/G-Bottom/Buttons/Lights";
 import StacksList from "./Stacks/StacksList";
 import Divider from "./Divider";
-import Spacer from "./Spacer";
+import Spacer from "../Spacer";
 import ProjectsList from "./ProjectsList";
-import Link from "next/link";
+
 export default function ProjectsBot() {
 	return (
 		<div className="w-full h-full flex flex-row pt-2">
@@ -21,7 +21,7 @@ export default function ProjectsBot() {
 				</Divider>
 				<ProjectsList />
 				<Divider onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-					⬆︎ Top ⬆︎
+					⬆︎
 				</Divider>
 				<SelectSpeakers_Btn />
 			</div>

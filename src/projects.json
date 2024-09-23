@@ -1,7 +1,7 @@
 {
 	"projects": [
 		{
-			"name": "Dataviz et API",
+			"name": "ADA - Dataviz et API",
 			"description": "Projet de visualisation de données en temps réel via des appels API, visant à améliorer les compétences en data visualisation et en intégration d'API.",
 			"image": "/assets/img/projects/ADA/dataviz.png",
 			"stacks": [
@@ -12,7 +12,7 @@
 			"link": "https://remyshift.github.io/ADA-Dataviz/"
 		},
 		{
-			"name": "Enigma",
+			"name": "ADA - Enigma",
 			"description": "Jeu développé sur la console fantasy Pico8, conçu pour renforcer les compétences en programmation et en développement de jeux.",
 			"image": "/assets/img/projects/ADA/enigma.p8.png",
 			"stacks": [
@@ -21,7 +21,7 @@
 			"link": "https://remyshift.github.io/ADA-Pico-8/"
 		},
 		{
-			"name": "Hey GPT!",
+			"name": "ADA - Hey GPT!",
 			"description": "Extension de navigateur utilisant l'API OpenAI pour créer un chatbot, permettant de pratiquer l'intelligence artificielle et la programmation.",
 			"image": "/assets/img/projects/ADA/heygpt.png",
 			"stacks": [
@@ -64,7 +64,7 @@
 		},
 		{
 			"name": "Landing Page",
-			"description": "Page d'atterrissage au design simple et épuré, développée pour pratiquer HTML, CSS et JS.",
+			"description": "Landing page au design simple et épuré, développée pour pratiquer HTML, CSS et JS.",
 			"image": "/assets/img/projects/PMP/PMP-landingpage.png",
 			"stacks": [
 				"html",
@@ -117,15 +117,5 @@
 			],
 			"link": "https://remyshift.github.io/PMP-JS_Typing_Speed_Test/"
 		}
-	],
-	"stacks": [
-		"html",
-		"css",
-		"js",
-		"tailwindcss",
-		"c",
-		"lua",
-		"next",
-		"react"
 	]
 }
