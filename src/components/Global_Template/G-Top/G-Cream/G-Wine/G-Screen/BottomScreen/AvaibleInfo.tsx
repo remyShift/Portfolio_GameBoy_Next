@@ -15,7 +15,7 @@ export default function AvaibleInfo() {
 		);
 	}
 	return (
-		<div className="flex justify-center mb-1">
+		<div className="flex justify-center sm:mb-1">
 			{generateAvaibleInfo()}
 		</div>
 	);

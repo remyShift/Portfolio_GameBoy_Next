@@ -7,13 +7,5 @@ import AvaibleInfo from "./AvaibleInfo";
 export default function BottomScreen() {
 	const pathname = usePathname();
 
-	if (pathname === '/about' || pathname.includes('/projects')) {
-		return (
-			<ScrollCTA />
-		)
-	}
-
-	return (
-		<AvaibleInfo />
-	);
+	return (pathname === '/about' || pathname.includes('/projects')) ? <ScrollCTA /> : <AvaibleInfo />;
 }
