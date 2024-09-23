@@ -21,7 +21,7 @@ const timelineData = [
 		description: "Résolution de problème algorithmique en C et travail en équipe durant 4 semaines intensives.",
 	},
 	{
-		title: "Etudiant Ada Tech School",
+		title: "Ada Tech School",
 		date: "10 / 2023 - 02 / 2024",
 		description: "Formation en développement fullstack avec une approche pédagogique axée sur le projet et la pratique. Pour voir les projets réalisés, rendez-vous sur la page Projets.",
 	},
@@ -33,7 +33,7 @@ export default function AboutTimeline() {
 			<Spacer />
 			<div className="w-full flex flex-col justify-center items-center">
 				<Light_Btn />
-				<ol className="h-[85%] w-[70%] md:w-auto pt-40 border-l-2 border-wine mx-auto mb-10">
+				<ol className="h-[85%] w-[85%] md:w-auto pt-40 border-l-2 border-wine mx-auto mb-10">
 					{timelineData.map((item, index) => (
 						<TimelineItems key={index} {...item} />
 					))}
