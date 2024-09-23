@@ -21,10 +21,10 @@ const config: Config = {
 				greyTextInfo: "#747474",
 			},
 			fontFamily: {
-				cabin: ["var(--font-cabin)"],
-				cabinBold: ["var(--font-cabinBold)"],
-				cabinItalic: ["var(--font-cabinItalic)"],
-				cabinBoldItalic: ["var(--font-cabinBoldItalic)"],
+				openSans: ["var(--font-openSans)"],
+				openSansBold: ["var(--font-openSansBold)"],
+				openSansItalic: ["var(--font-openSansItalic)"],
+				openSansBoldItalic: ["var(--font-openSansBoldItalic)"],
 				pressStart2P: ["var(--font-pressStart2P)"],
 			},
 			boxShadow: {

@@ -2,33 +2,33 @@ import type { Metadata } from "next";
 import "./globals.css";
 import GlobalTemplate from "@/components/Global_Template/Global_Template";
 import { Press_Start_2P } from "next/font/google";
-import { Cabin } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Open_Sans } from "next/font/google";
 
-const cabin = Cabin({
+const openSans = Open_Sans({
 	weight: ["400"],
 	subsets: ["latin"],
-	variable: "--font-cabin",
+	variable: "--font-openSans",
 });
 
-const cabinBold = Cabin({
+const openSansBold = Open_Sans({
 	weight: ["700"],
 	subsets: ["latin"],
-	variable: "--font-cabinBold",
+	variable: "--font-openSansBold",
 });
 
-const cabinItalic = Cabin({
+const openSansItalic = Open_Sans({
 	weight: ["400"],
 	subsets: ["latin"],
 	style: ["italic"],
-	variable: "--font-cabinItalic",
+	variable: "--font-openSansItalic",
 });
 
-const cabinBoldItalic = Cabin({
+const openSansBoldItalic = Open_Sans({
 	weight: ["700"],
 	subsets: ["latin"],
 	style: ["italic"],
-	variable: "--font-cabinBoldItalic",
+	variable: "--font-openSansBoldItalic",
 });
 
 const pressStart2P = Press_Start_2P({
@@ -48,7 +48,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" className={`${pressStart2P.variable} ${cabin.variable} ${cabinBold.variable} ${cabinItalic.variable} ${cabinBoldItalic.variable} h-[100dvh]`}>
+		<html lang="en" className={`${pressStart2P.variable} ${openSans.variable} ${openSansBold.variable} ${openSansItalic.variable} ${openSansBoldItalic.variable} h-[100dvh]`}>
 			<body className="w-full h-full">
 				<GlobalTemplate>
 					{children}
