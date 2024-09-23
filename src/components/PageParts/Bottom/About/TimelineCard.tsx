@@ -14,12 +14,12 @@ export default function TimelineContent({ title, date, description }: TimelineCo
 					{title}
 				</p>
 				<p
-					className="text-[0.5rem] sm:text-xs md:text-sm lg:text-base font-openSansItalic text-white"
+					className="text-xs sm:text-sm lg:text-base font-openSansItalic text-white"
 				>
 					{date}
 				</p>
 			</div>
-			<p className="mb-6 text-white font-openSans">
+			<p className="mb-6 text-white font-openSans text-sm lg:text-base">
 				{description}
 			</p>
 		</div>
