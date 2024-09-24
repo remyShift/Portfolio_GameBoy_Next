@@ -2,14 +2,12 @@
 
 import Link from "next/link";
 import BackgroundSign from "@/components/Global_Template/G-Top/G-Cream/G-Wine/G-Screen/BackgroundSign";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useContactForm } from "@/context/store";
+import SubmitContactFormBtn from "./SubmitContactFormBtn";
 
 export default function ContactPage() {
-	const [firstName, setFirstName] = useState("");
-	const [lastName, setLastName] = useState("");
-	const [email, setEmail] = useState("");
-	const [message, setMessage] = useState("");
-	const [isValid, setIsValid] = useState(false);
+	const { firstName, lastName, email, message, setFirstName, setLastName, setEmail, setMessage, setIsValid, setTextSendBtn } = useContactForm();
 
 	useEffect(() => {
 		setIsValid(firstName && lastName && email && message ? true : false);
@@ -20,15 +18,15 @@ export default function ContactPage() {
 		setLastName("");
 		setEmail("");
 		setMessage("");
-		setIsValid(false);
 	};
 
-	const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
+	const onSubmitHandler = async () => {
+		setTextSendBtn("En cours...");
 		await fetch('/api/send', {
 			method: 'POST',
 			body: JSON.stringify({ firstName, lastName, email, message }),
 		});
+		setTextSendBtn("Envoyer");
 		clearForm();
 		alert("Mail envoyé ! Merci pour votre message. Je reviens vers vous dans les plus brefs délais.");
 	};
@@ -66,29 +64,24 @@ export default function ContactPage() {
 			<div className="flex flex-col justify-end w-1/3 h-full relative z-1">
 				<form onSubmit={onSubmitHandler} className="w-[95%] sm:w-[90%] h-full flex flex-col justify-end sm:gap-1 md:gap-4">
 					<div className="w-full flex flex-col justify-center">
-						<label htmlFor="lastName" className="font-pressStart2P text-[0.7rem] sm:text-xs md:text-sm lg:text-base">Nom :</label>
-						<input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} className="rounded w-full h-1/2 sm:h-auto bg-gray-300 border-[0.09rem] px-1 md:py-1 font-openSans border-gray-400 focus:border-gray-800 focus:outline-none" />
+						<label htmlFor="lastName" className="font-pressStart2P text-[0.5rem] sm:text-xs md:text-sm lg:text-base">Nom :</label>
+						<input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} className="rounded w-full h-1/2 text-xs sm:text-sm md:text-base lg:text-lg sm:h-auto bg-gray-300 border-[0.09rem] px-1 md:py-1 font-openSans border-gray-400 focus:border-gray-800 focus:outline-none" />
 					</div>
 
 					<div className="w-full flex flex-col justify-center">
-						<label htmlFor="firstName" className="font-pressStart2P text-[0.7rem] sm:text-xs md:text-sm lg:text-base">Prénom :</label>
-						<input type="text" id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="rounded w-full h-1/2 sm:h-auto bg-gray-300 border-[0.09rem] px-1 md:py-1 font-openSans border-gray-400 focus:border-gray-800 focus:outline-none" />
+						<label htmlFor="firstName" className="font-pressStart2P text-[0.5rem] sm:text-xs md:text-sm lg:text-base">Prénom :</label>
+						<input type="text" id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="rounded w-full h-1/2 text-xs sm:text-sm md:text-base lg:text-lg sm:h-auto bg-gray-300 border-[0.09rem] px-1 md:py-1 font-openSans border-gray-400 focus:border-gray-800 focus:outline-none" />
 					</div>
 
 					<div className="w-full flex flex-col justify-center">
-						<label htmlFor="email" className="font-pressStart2P text-[0.7rem] sm:text-xs md:text-sm lg:text-base">Mail :</label>
-						<input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} className="rounded w-full h-1/2 sm:h-auto bg-gray-300 border-[0.09rem] px-1 md:py-1 font-openSans border-gray-400 focus:border-gray-800 focus:outline-none" />
+						<label htmlFor="email" className="font-pressStart2P text-[0.5rem] sm:text-xs md:text-sm lg:text-base">Mail :</label>
+						<input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} className="rounded w-full h-1/2 text-xs sm:text-sm md:text-base lg:text-lg sm:h-auto bg-gray-300 border-[0.09rem] px-1 md:py-1 font-openSans border-gray-400 focus:border-gray-800 focus:outline-none" />
 					</div>
-
 					<div className="w-full flex flex-col justify-center">
-						<label htmlFor="message" className="font-pressStart2P text-[0.7rem] sm:text-xs md:text-sm lg:text-base">Message :</label>
-						<textarea id="message" value={message} onChange={(e) => setMessage(e.target.value)} className="rounded w-full h-1/2 sm:h-auto md:h-40 bg-gray-300 border-[0.09rem] px-1 md:py-1 font-openSans border-gray-400 focus:border-gray-800 focus:outline-none resize-none" />
+						<label htmlFor="message" className="font-pressStart2P text-[0.5rem] sm:text-xs md:text-sm lg:text-base">Message :</label>
+						<textarea id="message" value={message} onChange={(e) => setMessage(e.target.value)} className="rounded w-full h-1/2 text-xs sm:text-sm md:text-base lg:text-lg  sm:h-auto md:h-40 bg-gray-300 border-[0.09rem] px-1 md:py-1 font-openSans border-gray-400 focus:border-gray-800 focus:outline-none resize-none" />
 					</div>
-					<div className="flex justify-center items-center w-full">
-						{isValid && (
-							<button type="submit" className="w-[70%] h-auto p-1 outline-none focus:outline-black rounded bg-wine hover:bg-wine/80 text-cream text-center text-wrap text-[0.5rem] sm:text-[0.7rem] md:text-xs lg:text-base font-pressStart2P">Envoyer</button>
-						)}
-					</div>
+					<SubmitContactFormBtn />
 				</form>
 			</div>
 		</div>
