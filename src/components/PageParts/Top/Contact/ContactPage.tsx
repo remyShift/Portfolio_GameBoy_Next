@@ -64,21 +64,21 @@ export default function ContactPage() {
 			<div className="flex flex-col justify-end w-1/3 h-full relative z-1">
 				<form onSubmit={onSubmitHandler} className="w-[95%] sm:w-[90%] h-full flex flex-col justify-end sm:gap-1 md:gap-4">
 					<div className="w-full flex flex-col justify-center">
-						<label htmlFor="lastName" className="font-pressStart2P text-[0.5rem] sm:text-xs md:text-sm lg:text-base">Nom :</label>
+						<label htmlFor="lastName" className="font-pressStart2P text-[0.6rem] sm:text-xs md:text-sm lg:text-base">Nom :</label>
 						<input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} className="rounded w-full h-1/2 text-xs sm:text-sm md:text-base lg:text-lg sm:h-auto bg-gray-300 border-[0.09rem] px-1 md:py-1 font-openSans border-gray-400 focus:border-gray-800 focus:outline-none" />
 					</div>
 
 					<div className="w-full flex flex-col justify-center">
-						<label htmlFor="firstName" className="font-pressStart2P text-[0.5rem] sm:text-xs md:text-sm lg:text-base">Prénom :</label>
+						<label htmlFor="firstName" className="font-pressStart2P text-[0.6rem] sm:text-xs md:text-sm lg:text-base">Prénom :</label>
 						<input type="text" id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="rounded w-full h-1/2 text-xs sm:text-sm md:text-base lg:text-lg sm:h-auto bg-gray-300 border-[0.09rem] px-1 md:py-1 font-openSans border-gray-400 focus:border-gray-800 focus:outline-none" />
 					</div>
 
 					<div className="w-full flex flex-col justify-center">
-						<label htmlFor="email" className="font-pressStart2P text-[0.5rem] sm:text-xs md:text-sm lg:text-base">Mail :</label>
+						<label htmlFor="email" className="font-pressStart2P text-[0.6rem] sm:text-xs md:text-sm lg:text-base">Mail :</label>
 						<input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} className="rounded w-full h-1/2 text-xs sm:text-sm md:text-base lg:text-lg sm:h-auto bg-gray-300 border-[0.09rem] px-1 md:py-1 font-openSans border-gray-400 focus:border-gray-800 focus:outline-none" />
 					</div>
 					<div className="w-full flex flex-col justify-center">
-						<label htmlFor="message" className="font-pressStart2P text-[0.5rem] sm:text-xs md:text-sm lg:text-base">Message :</label>
+						<label htmlFor="message" className="font-pressStart2P text-[0.6rem] sm:text-xs md:text-sm lg:text-base">Message :</label>
 						<textarea id="message" value={message} onChange={(e) => setMessage(e.target.value)} className="rounded w-full h-1/2 text-xs sm:text-sm md:text-base lg:text-lg  sm:h-auto md:h-40 bg-gray-300 border-[0.09rem] px-1 md:py-1 font-openSans border-gray-400 focus:border-gray-800 focus:outline-none resize-none" />
 					</div>
 					<SubmitContactFormBtn />
