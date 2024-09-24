@@ -45,7 +45,7 @@ const config: Config = {
 				bigger: '0.25rem',
 			},
 			textStrokeColor: {
-				wine: '#C6AF87',
+				sand: '#C6AF87',
 			},
 		},
 	},
