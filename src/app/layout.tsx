@@ -3,38 +3,93 @@ import "./globals.css";
 import GlobalTemplate from "@/components/Global_Template/Global_Template";
 import { Press_Start_2P } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import localFont from "next/font/local";
 
-const gillSans = {
-	fontFamily: "GillSans",
-	fontWeight: "400",
-	fontStyle: "normal",
-	subsets: ["latin"],
+const gillSans = localFont({
+	src: [
+		{
+			path: '../../public/fonts/GillSans/GillSansC.woff',
+			weight: '400',
+			style: 'normal',
+		},
+		{
+			path: '../../public/fonts/GillSans/GillSansC.woff2',
+			weight: '400',
+			style: 'normal',
+		},
+		{
+			path: '../../public/fonts/GillSans/GillSansC.ttf',
+			weight: '400',
+			style: 'normal',
+		}
+	],
 	variable: "--font-gillSans",
-};
+});
 
-const gillSansBold = {
-	fontFamily: "GillSans-Bold",
-	fontWeight: "700",
-	fontStyle: "normal",
-	subsets: ["latin"],
+
+const gillSansBold = localFont({
+	src: [
+		{
+			path: '../../public/fonts/GillSans-Bold/GillSansC-Bold.woff',
+			weight: '700',
+			style: 'normal',
+		},
+		{
+			path: '../../public/fonts/GillSans-Bold/GillSansC-Bold.woff2',
+			weight: '700',
+			style: 'normal',
+		},
+		{
+			path: '../../public/fonts/GillSans-Bold/GillSansC-Bold.ttf',
+			weight: '700',
+			style: 'normal',
+		}
+	],
 	variable: "--font-gillSansBold",
-};
+});
 
-const gillSansItalic = {
-	fontFamily: "GillSans-Italic",
-	fontWeight: "400",
-	fontStyle: "italic",
-	subsets: ["latin"],
+const gillSansItalic = localFont({
+	src: [
+		{
+			path: '../../public/fonts/GillSans-Italic/GillSansC-Italic.woff',
+			weight: '400',
+			style: 'italic',
+		},
+		{
+			path: '../../public/fonts/GillSans-Italic/GillSansC-Italic.woff2',
+			weight: '400',
+			style: 'italic',
+		},
+		{
+			path: '../../public/fonts/GillSans-Italic/GillSansC-Italic.ttf',
+			weight: '400',
+			style: 'italic',
+		}
+	],
 	variable: "--font-gillSansItalic",
-};
+});
 
-const gillSansBoldItalic = {
-	fontFamily: "GillSans-BoldItalic",
-	fontWeight: "700",
-	subsets: ["latin"],
-	fontStyle: "italic",
+const gillSansBoldItalic = localFont({
+	src: [
+		{
+			path: '../../public/fonts/GillSans-BoldItalic/GillSansC-BoldItalic.woff',
+			weight: '700',
+			style: 'italic',
+		},
+		{
+			path: '../../public/fonts/GillSans-BoldItalic/GillSansC-BoldItalic.woff2',
+			weight: '700',
+			style: 'italic',
+		},
+		{
+			path: '../../public/fonts/GillSans-BoldItalic/GillSansC-BoldItalic.ttf',
+			weight: '700',
+			style: 'italic',
+		}
+	],
 	variable: "--font-gillSansBoldItalic",
-};
+});
+
 
 const pressStart2P = Press_Start_2P({
 	weight: ["400"],

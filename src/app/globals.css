@@ -13,7 +13,7 @@ html {
 	background: #000;
 }
 
-@font-face {
+/* @font-face {
 	font-family: 'GillSans';
 	src: local('GillSans'), local('Gill-Sans'),
 		url('/fonts/GillSans/GillSansC.woff2') format('woff2'),
@@ -51,7 +51,7 @@ html {
 		url('/fonts/GillSans/GillSansC-BoldItalic.ttf') format('truetype');
 	font-weight: 700;
 	font-style: italic;
-}
+} */
 
 
 @layer utilities {
