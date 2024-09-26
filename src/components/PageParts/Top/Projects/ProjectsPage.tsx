@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BackgroundSign from "@/components/Global_Template/G-Top/G-Cream/G-Wine/G-Screen/BackgroundSign";
+import Image from 'next/image';
 
 export default function ProjectsPage() {
 	const projectsTitle = "Découvrez mes projets: des idées qui prennent vie !";
@@ -9,7 +10,7 @@ export default function ProjectsPage() {
 				<ul className="flex flex-col gap-4 sm:gap-6 md:gap-10 lg:gap-14 ml-2">
 					<li>
 						<Link href="/projects/fun-stats" className="flex items-center gap-3 font-pressStart2P text-[0.7rem] sm:text-sm md:text-base lg:text-lg hover:underline">
-							<img src="/assets/icons/StatGraph.webp" alt="Fun Stats icon" className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
+							<Image src="/assets/icons/StatGraph.webp" alt="Fun Stats icon" width={32} height={32} className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
 							Fun Stats
 						</Link>
 					</li>

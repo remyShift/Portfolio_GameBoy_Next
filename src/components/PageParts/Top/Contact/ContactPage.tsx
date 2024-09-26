@@ -1,6 +1,7 @@
-"use client";
+"use client"
 
 import Link from "next/link";
+import Image from 'next/image';
 import BackgroundSign from "@/components/Global_Template/G-Top/G-Cream/G-Wine/G-Screen/BackgroundSign";
 import { useEffect } from "react";
 import { useContactForm } from "@/context/store";
@@ -37,19 +38,19 @@ export default function ContactPage() {
 				<ul className="flex flex-col gap-4 sm:gap-6 md:gap-10 lg:gap-14 ml-2">
 					<li>
 						<Link href="https://github.com/remyShift" target="_blank" className="flex items-center gap-2 font-pressStart2P text-[0.7rem] sm:text-sm md:text-base lg:text-lg hover:underline">
-							<img src="/assets/icons/GithubIcon.webp" alt="Person" className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
+							<Image src="/assets/icons/GithubIcon.webp" alt="Person" width={32} height={32} className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
 							Github
 						</Link>
 					</li>
 					<li>
 						<Link href="https://www.linkedin.com/in/r%C3%A9my-c-bb8b11296/" target="_blank" className="flex items-center gap-2 font-pressStart2P text-[0.7rem] sm:text-sm md:text-base lg:text-lg hover:underline">
-							<img src="/assets/icons/LinkedinIcon.webp" alt="Projects" className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
+							<Image src="/assets/icons/LinkedinIcon.webp" alt="Projects" width={32} height={32} className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
 							Linkedin
 						</Link>
 					</li>
 					<li>
 						<Link href="mailto:remy.engassac@icloud.com" target="_blank" className="flex items-center gap-2 font-pressStart2P text-[0.7rem] sm:text-sm md:text-base lg:text-lg hover:underline">
-							<img src="/assets/icons/Mail.webp" alt="Mail" className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
+							<Image src="/assets/icons/Mail.webp" alt="Mail" width={32} height={32} className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
 							Mail
 						</Link>
 					</li>

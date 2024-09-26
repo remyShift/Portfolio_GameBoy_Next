@@ -8,7 +8,7 @@ import AboutTimeline from "../../PageParts/Bottom/About/AboutTimeline";
 export default function GBot() {
 	const pathname = usePathname();
 
-	const height = (pathname.includes("/projects") || pathname.includes("/about")) ? "h-fit" : "h-[41%] md:h-[95%]";
+	const height = (pathname.includes("/projects") || pathname.includes("/about")) ? "h-auto" : "h-[41%] md:h-[95%]";
 
 	return (
 		<div className={`bg-cream w-full ${height} relative top-1 z-[-1] flex items-end`}>

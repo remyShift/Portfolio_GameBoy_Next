@@ -2,7 +2,7 @@
 	"projects": [
 		{
 			"name": "ADA - Dataviz et API",
-			"description": "Projet de visualisation de données en temps réel via des appels API, visant à améliorer les compétences en data visualisation et en intégration d'API.",
+			"description": "Projet de visualisation de données en temps réel via une API, pour améliorer les compétences en data visualisation.",
 			"image": "/assets/img/projects/ADA/dataviz.webp",
 			"stacks": [
 				"html",
@@ -32,7 +32,7 @@
 			"link": "https://github.com/remyShift/ADA-Extension-Navigateur"
 		},
 		{
-			"name": "Box Générateur",
+			"name": "Box Generateur",
 			"description": "Application permettant de générer des divs avec des ombres personnalisées, développée pour pratiquer React et TailwindCSS.",
 			"image": "/assets/img/projects/PMP/PMP-boxgeneration.webp",
 			"stacks": [
@@ -107,7 +107,7 @@
 			"link": "https://remyshift.github.io/PMP-JS_Audio_Player/"
 		},
 		{
-			"name": "Test de rapidité de frappe",
+			"name": "Test de rapidite de frappe",
 			"description": "Application de test de rapidité de frappe, développée pour pratiquer HTML, CSS et JS.",
 			"image": "/assets/img/projects/PMP/PMP-typingspeedtest.webp",
 			"stacks": [
