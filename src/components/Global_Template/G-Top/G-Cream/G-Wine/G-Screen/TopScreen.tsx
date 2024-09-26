@@ -18,7 +18,7 @@ export default function TopScreen() {
 			const label = isWelcomePage ? "@ACCUEIL" : validPaths.includes('/' + part.toLowerCase()) ? part : "404";
 
 			return (
-				<Link href={linkPath} className="text-greyTextInfo font-openSansBold text-[0.6rem] sm:text-xs md:text-base lg:text-xl hover:text-wine hover:underline">
+				<Link href={linkPath} className="text-greyTextInfo font-gillSansBold text-[0.6rem] sm:text-xs md:text-base lg:text-xl hover:text-wine hover:underline">
 					{label}
 				</Link>
 			)
@@ -36,12 +36,12 @@ export default function TopScreen() {
 					<div key={index} className="flex items-center gap-0.5 md:gap-2">
 						{link}
 						{(index < breadcrumbLinks.length - 1) && (
-							<span className="text-greyTextInfo font-openSansBold text-[0.6rem] mr-1 sm:text-xs md:text-base lg:text-xl"> &gt; </span>
+							<span className="text-greyTextInfo font-gillSansBold text-[0.6rem] mr-1 sm:text-xs md:text-base lg:text-xl"> &gt; </span>
 						)}
 					</div>
 				))}
 			</div>
-			<h1 className="text-greyTextInfo font-openSansBold text-[0.6rem] sm:text-xs md:text-base lg:text-xl pr-2.5">
+			<h1 className="text-greyTextInfo font-gillSansBold text-[0.6rem] sm:text-xs md:text-base lg:text-xl pr-2.5">
 				{batteryStatus}
 			</h1>
 		</header >

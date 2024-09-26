@@ -13,6 +13,47 @@ html {
 	background: #000;
 }
 
+@font-face {
+	font-family: 'GillSans';
+	src: local('GillSans'), local('Gill-Sans'),
+		url('/fonts/GillSans/GillSansC.woff2') format('woff2'),
+		url('/fonts/GillSans/GillSansC.woff') format('woff'),
+		url('/fonts/GillSans/GillSansC.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GillSans-Bold';
+	src: local('GillSans-Bold'), local('Gill-Sans-Bold'),
+		url('/fonts/GillSans/GillSansC-Bold.woff2') format('woff2'),
+		url('/fonts/GillSans/GillSansC-Bold.woff') format('woff'),
+		url('/fonts/GillSans/GillSansC-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GillSans-Italic';
+	src: local('GillSans-Italic'), local('Gill-Sans-Italic'),
+		url('/fonts/GillSans/GillSansC-Italic.woff2') format('woff2'),
+		url('/fonts/GillSans/GillSansC-Italic.woff') format('woff'),
+		url('/fonts/GillSans/GillSansC-Italic.ttf') format('truetype');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'GillSans-BoldItalic';
+	src: local('GillSans-BoldItalic'), local('Gill-Sans-Bold-Italic'),
+		url('/fonts/GillSans/GillSansC-BoldItalic.woff2') format('woff2'),
+		url('/fonts/GillSans/GillSansC-BoldItalic.woff') format('woff'),
+		url('/fonts/GillSans/GillSansC-BoldItalic.ttf') format('truetype');
+	font-weight: 700;
+	font-style: italic;
+}
+
+
 @layer utilities {
 	.text-stroke {
 		-webkit-text-stroke: 0.15rem #C6AF87;

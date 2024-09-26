@@ -3,33 +3,38 @@ import "./globals.css";
 import GlobalTemplate from "@/components/Global_Template/Global_Template";
 import { Press_Start_2P } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Open_Sans } from "next/font/google";
 
-const openSans = Open_Sans({
-	weight: ["400"],
+const gillSans = {
+	fontFamily: "GillSans",
+	fontWeight: "400",
+	fontStyle: "normal",
 	subsets: ["latin"],
-	variable: "--font-openSans",
-});
+	variable: "--font-gillSans",
+};
 
-const openSansBold = Open_Sans({
-	weight: ["700"],
+const gillSansBold = {
+	fontFamily: "GillSans-Bold",
+	fontWeight: "700",
+	fontStyle: "normal",
 	subsets: ["latin"],
-	variable: "--font-openSansBold",
-});
+	variable: "--font-gillSansBold",
+};
 
-const openSansItalic = Open_Sans({
-	weight: ["400"],
+const gillSansItalic = {
+	fontFamily: "GillSans-Italic",
+	fontWeight: "400",
+	fontStyle: "italic",
 	subsets: ["latin"],
-	style: ["italic"],
-	variable: "--font-openSansItalic",
-});
+	variable: "--font-gillSansItalic",
+};
 
-const openSansBoldItalic = Open_Sans({
-	weight: ["700"],
+const gillSansBoldItalic = {
+	fontFamily: "GillSans-BoldItalic",
+	fontWeight: "700",
 	subsets: ["latin"],
-	style: ["italic"],
-	variable: "--font-openSansBoldItalic",
-});
+	fontStyle: "italic",
+	variable: "--font-gillSansBoldItalic",
+};
 
 const pressStart2P = Press_Start_2P({
 	weight: ["400"],
@@ -51,7 +56,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" className={`${pressStart2P.variable} ${openSans.variable} ${openSansBold.variable} ${openSansItalic.variable} ${openSansBoldItalic.variable} h-[100dvh]`}>
+		<html lang="en" className={`${pressStart2P.variable} ${gillSans.variable} ${gillSansBold.variable} ${gillSansItalic.variable} ${gillSansBoldItalic.variable} h-[100dvh]`}>
 			<body className="w-full h-full">
 				<GlobalTemplate>
 					{children}
