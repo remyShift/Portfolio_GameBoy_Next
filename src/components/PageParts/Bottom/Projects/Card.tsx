@@ -15,7 +15,7 @@ export default function Card({ project, index }: { project: any, index: number }
 				<p className="font-gillSans text-sm lg:text-base text-white">{project.description}</p>
 				<div className={`flex flex-wrap ${isEven ? 'md:justify-end' : 'md:justify-start'} gap-2 my-2`}>
 					{project.stacks.map((stack: string) => (
-						<img key={stack} className={classStacks} src={`/assets/img/stacks/${stack}.png`} alt={stack} />
+						<img key={stack} className={classStacks} src={`/assets/img/stacks/${stack}.webp`} alt={stack} />
 					))}
 				</div>
 			</div>

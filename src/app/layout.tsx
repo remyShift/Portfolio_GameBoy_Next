@@ -98,8 +98,11 @@ const pressStart2P = Press_Start_2P({
 });
 
 export const metadata: Metadata = {
-	title: "Portfolio remyShift",
-	description: "Portfolio Gameboy de Rémy",
+	title: {
+		default: "Portfolio remyShift",
+		template: "%s | Portfolio remyShift",
+	},
+	description: "Portfolio Gameboy de Rémy Cassagne",
 	icons: {
 		icon: "/assets/icons/gameboy.ico",
 	},

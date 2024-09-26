@@ -3,7 +3,7 @@
 		{
 			"name": "ADA - Dataviz et API",
 			"description": "Projet de visualisation de données en temps réel via des appels API, visant à améliorer les compétences en data visualisation et en intégration d'API.",
-			"image": "/assets/img/projects/ADA/dataviz.png",
+			"image": "/assets/img/projects/ADA/dataviz.webp",
 			"stacks": [
 				"html",
 				"css",
@@ -14,7 +14,7 @@
 		{
 			"name": "ADA - Enigma",
 			"description": "Jeu développé sur la console fantasy Pico8, conçu pour renforcer les compétences en programmation et en développement de jeux.",
-			"image": "/assets/img/projects/ADA/enigma.p8.png",
+			"image": "/assets/img/projects/ADA/enigma.p8.webp",
 			"stacks": [
 				"lua"
 			],
@@ -23,7 +23,7 @@
 		{
 			"name": "ADA - Hey GPT!",
 			"description": "Extension de navigateur utilisant l'API OpenAI pour créer un chatbot, permettant de pratiquer l'intelligence artificielle et la programmation.",
-			"image": "/assets/img/projects/ADA/heygpt.png",
+			"image": "/assets/img/projects/ADA/heygpt.webp",
 			"stacks": [
 				"html",
 				"css",
@@ -34,7 +34,7 @@
 		{
 			"name": "Box Générateur",
 			"description": "Application permettant de générer des divs avec des ombres personnalisées, développée pour pratiquer React et TailwindCSS.",
-			"image": "/assets/img/projects/PMP/PMP-boxgeneration.png",
+			"image": "/assets/img/projects/PMP/PMP-boxgeneration.webp",
 			"stacks": [
 				"react",
 				"tailwindcss"
@@ -44,7 +44,7 @@
 		{
 			"name": "Calculatrice",
 			"description": "Calculatrice inspirée du design d'iOS, développée pour améliorer les compétences en React et TailwindCSS.",
-			"image": "/assets/img/projects/PMP/PMP-calculator.png",
+			"image": "/assets/img/projects/PMP/PMP-calculator.webp",
 			"stacks": [
 				"react",
 				"tailwindcss"
@@ -54,7 +54,7 @@
 		{
 			"name": "Scroll Infini",
 			"description": "Application de scroll infini affichant des images récupérées via une API, conçue pour pratiquer les appels API et l'observation des données.",
-			"image": "/assets/img/projects/PMP/PMP-infinitescroll.png",
+			"image": "/assets/img/projects/PMP/PMP-infinitescroll.webp",
 			"stacks": [
 				"html",
 				"css",
@@ -65,7 +65,7 @@
 		{
 			"name": "Landing Page",
 			"description": "Landing page au design simple et épuré, développée pour pratiquer HTML, CSS et JS.",
-			"image": "/assets/img/projects/PMP/PMP-landingpage.png",
+			"image": "/assets/img/projects/PMP/PMP-landingpage.webp",
 			"stacks": [
 				"html",
 				"css",
@@ -76,7 +76,7 @@
 		{
 			"name": "Filtre de recherche",
 			"description": "Application de filtrage de recherche sur une liste d'utilisateurs, développée pour améliorer les compétences en recherche et filtrage en JS.",
-			"image": "/assets/img/projects/PMP/PMP-listfilter.png",
+			"image": "/assets/img/projects/PMP/PMP-listfilter.webp",
 			"stacks": [
 				"html",
 				"css",
@@ -87,7 +87,7 @@
 		{
 			"name": "Jeux des memories",
 			"description": "Jeu de mémoire conçu pour pratiquer les animations et la logique de jeu en JS.",
-			"image": "/assets/img/projects/PMP/PMP-memoryCardGame.png",
+			"image": "/assets/img/projects/PMP/PMP-memoryCardGame.webp",
 			"stacks": [
 				"html",
 				"css",
@@ -98,7 +98,7 @@
 		{
 			"name": "Lecteur de Musique",
 			"description": "Lecteur de musique développé pour pratiquer la lecture de fichiers audio en JS.",
-			"image": "/assets/img/projects/PMP/PMP-musicplayer.png",
+			"image": "/assets/img/projects/PMP/PMP-musicplayer.webp",
 			"stacks": [
 				"html",
 				"css",
@@ -109,7 +109,7 @@
 		{
 			"name": "Test de rapidité de frappe",
 			"description": "Application de test de rapidité de frappe, développée pour pratiquer HTML, CSS et JS.",
-			"image": "/assets/img/projects/PMP/PMP-typingspeedtest.png",
+			"image": "/assets/img/projects/PMP/PMP-typingspeedtest.webp",
 			"stacks": [
 				"html",
 				"css",

@@ -17,7 +17,7 @@ span.noise-animation::before {
 	top: -10rem;
 	width: calc(100% + 20rem);
 	height: calc(100% + 20rem);
-	background-image: url("/assets/img/noise.png");
+	background-image: url("/assets/img/noise.webp");
 	background-size: auto;
 	background-repeat: repeat;
 	opacity: 0.65;
