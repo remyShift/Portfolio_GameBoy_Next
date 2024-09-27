@@ -8,28 +8,8 @@ import localFont from "next/font/local";
 const gillSans = localFont({
 	src: [
 		{
-			path: '../../public/fonts/GillSans/GillSansC.woff',
-			weight: '400',
-			style: 'normal',
-		},
-		{
-			path: '../../public/fonts/GillSans/GillSansC.woff2',
-			weight: '400',
-			style: 'normal',
-		},
-		{
 			path: '../../public/fonts/GillSans/GillSansC.ttf',
 			weight: '400',
-			style: 'normal',
-		},
-		{
-			path: '../../public/fonts/GillSans-Bold/GillSansC-Bold.woff',
-			weight: '700',
-			style: 'normal',
-		},
-		{
-			path: '../../public/fonts/GillSans-Bold/GillSansC-Bold.woff2',
-			weight: '700',
 			style: 'normal',
 		},
 		{
@@ -38,28 +18,8 @@ const gillSans = localFont({
 			style: 'normal',
 		},
 		{
-			path: '../../public/fonts/GillSans-Italic/GillSansC-Italic.woff',
-			weight: '400',
-			style: 'italic',
-		},
-		{
-			path: '../../public/fonts/GillSans-Italic/GillSansC-Italic.woff2',
-			weight: '400',
-			style: 'italic',
-		},
-		{
 			path: '../../public/fonts/GillSans-Italic/GillSansC-Italic.ttf',
 			weight: '400',
-			style: 'italic',
-		},
-		{
-			path: '../../public/fonts/GillSans-BoldItalic/GillSansC-BoldItalic.woff',
-			weight: '700',
-			style: 'italic',
-		},
-		{
-			path: '../../public/fonts/GillSans-BoldItalic/GillSansC-BoldItalic.woff2',
-			weight: '700',
 			style: 'italic',
 		},
 		{
