@@ -13,7 +13,7 @@ export default function Card({ project, index }: { project: any, index: number }
 				<Image className="object-cover w-full rounded-t-lg md:h-full md:w-[40%] md:rounded-none md:rounded-l-lg" src={project.image} alt={project.name} width={500} height={500} />
 			)}
 			<div className={`flex flex-col h-full justify-between p-4 leading-normal ${isEven ? 'md:items-end' : 'md:items-start'}`}>
-				<h5 className="mb-2 text-xl font-gillSansBold text-white">{project.name}</h5>
+				<h5 className="mb-2 text-xl font-gillSans font-bold text-white">{project.name}</h5>
 				<p className="font-gillSans text-sm lg:text-base text-white">{project.description}</p>
 				<div className={`flex flex-wrap ${isEven ? 'md:justify-end' : 'md:justify-start'} gap-2 my-2`}>
 					{project.stacks.map((stack: string) => (

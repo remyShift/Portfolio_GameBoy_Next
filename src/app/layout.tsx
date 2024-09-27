@@ -21,14 +21,7 @@ const gillSans = localFont({
 			path: '../../public/fonts/GillSans/GillSansC.ttf',
 			weight: '400',
 			style: 'normal',
-		}
-	],
-	variable: "--font-gillSans",
-});
-
-
-const gillSansBold = localFont({
-	src: [
+		},
 		{
 			path: '../../public/fonts/GillSans-Bold/GillSansC-Bold.woff',
 			weight: '700',
@@ -43,13 +36,7 @@ const gillSansBold = localFont({
 			path: '../../public/fonts/GillSans-Bold/GillSansC-Bold.ttf',
 			weight: '700',
 			style: 'normal',
-		}
-	],
-	variable: "--font-gillSansBold",
-});
-
-const gillSansItalic = localFont({
-	src: [
+		},
 		{
 			path: '../../public/fonts/GillSans-Italic/GillSansC-Italic.woff',
 			weight: '400',
@@ -64,13 +51,7 @@ const gillSansItalic = localFont({
 			path: '../../public/fonts/GillSans-Italic/GillSansC-Italic.ttf',
 			weight: '400',
 			style: 'italic',
-		}
-	],
-	variable: "--font-gillSansItalic",
-});
-
-const gillSansBoldItalic = localFont({
-	src: [
+		},
 		{
 			path: '../../public/fonts/GillSans-BoldItalic/GillSansC-BoldItalic.woff',
 			weight: '700',
@@ -87,7 +68,7 @@ const gillSansBoldItalic = localFont({
 			style: 'italic',
 		}
 	],
-	variable: "--font-gillSansBoldItalic",
+	variable: "--font-gillSans",
 });
 
 
@@ -114,7 +95,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" className={`${pressStart2P.variable} ${gillSans.variable} ${gillSansBold.variable} ${gillSansItalic.variable} ${gillSansBoldItalic.variable} h-[100dvh]`}>
+		<html lang="en" className={`${pressStart2P.variable} ${gillSans.variable} h-[100dvh] font-gillSans`}>
 			<body className="w-full h-full">
 				<GlobalTemplate>
 					{children}

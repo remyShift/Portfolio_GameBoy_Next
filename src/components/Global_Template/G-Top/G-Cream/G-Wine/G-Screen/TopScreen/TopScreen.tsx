@@ -16,7 +16,7 @@ export default function TopScreen() {
 					<div key={index} className="flex items-center gap-0.5 md:gap-2">
 						{link}
 						{(index < breadcrumbLinks.length - 1) && (
-							<span className="text-greyTextInfo font-gillSansBold text-[0.6rem] mr-1 sm:text-xs md:text-base lg:text-xl"> &gt; </span>
+							<span className="text-greyTextInfo font-gillSans font-bold text-[0.6rem] mr-1 sm:text-xs md:text-base lg:text-xl"> &gt; </span>
 						)}
 					</div>
 				))}

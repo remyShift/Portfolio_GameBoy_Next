@@ -22,9 +22,6 @@ const config: Config = {
 			},
 			fontFamily: {
 				gillSans: ["var(--font-gillSans)"],
-				gillSansBold: ["var(--font-gillSansBold)"],
-				gillSansItalic: ["var(--font-gillSansItalic)"],
-				gillSansBoldItalic: ["var(--font-gillSansBoldItalic)"],
 				pressStart2P: ["var(--font-pressStart2P)"],
 			},
 			boxShadow: {

@@ -9,12 +9,12 @@ export default function TimelineContent({ title, date, description }: TimelineCo
 		<div className="ml-6 flex flex-col w-full md:max-w-lg border-[#C6AF87] border-2 rounded-lg bg-wine p-4 md:p-6 shadow-lg shadow-black/30">
 			<div className="mb-4 flex justify-between gap-4">
 				<p
-					className="text-sm md:text-lg lg:text-xl font-gillSansBold text-white"
+					className="text-sm md:text-lg lg:text-xl font-gillSans font-bold text-white"
 				>
 					{title}
 				</p>
 				<p
-					className="text-xs md:text-base lg:text-lg font-gillSansItalic text-white"
+					className="text-xs md:text-base lg:text-lg font-gillSans italic text-white"
 				>
 					{date}
 				</p>
