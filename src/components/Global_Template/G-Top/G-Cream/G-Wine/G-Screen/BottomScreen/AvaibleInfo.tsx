@@ -2,6 +2,7 @@
 
 import { useValidPaths } from "@/context/store";
 import { usePathname } from "next/navigation";
+
 export default function AvaibleInfo() {
 
 	const { validPaths } = useValidPaths();
