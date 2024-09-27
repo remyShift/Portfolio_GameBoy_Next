@@ -1,6 +1,6 @@
 "use client"
 
-import TopScreen from "./TopScreen";
+import TopScreen from "./TopScreen/TopScreen";
 import BottomScreen from "./BottomScreen/BottomGreyScreen";
 import "./GreyScreen.css";
 import { useValidPaths } from "@/context/store";

@@ -1,6 +1,7 @@
 "use client"
 
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export default function Light_Btn() {
 
@@ -12,7 +13,7 @@ export default function Light_Btn() {
 
 	return (
 		<div className="w-full h-1/8 flex flex-col items-center justify-center">
-			<img src="/assets/SVG/LightBtn.svg" alt="Light" className={createClassName()} />
+			<Image src="/assets/SVG/LightBtn.svg" alt="Light" className={createClassName()} width={110} height={110} />
 		</div>
 	);
 }

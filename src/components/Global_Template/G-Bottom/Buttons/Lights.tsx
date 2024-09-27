@@ -2,18 +2,16 @@
 
 import { usePathname } from "next/navigation";
 import { useValidPaths } from "@/context/store";
-
+import Image from "next/image";
 export default function Lights() {
 
 	const { validPaths } = useValidPaths();
 	const pathname = usePathname();
-	let lights: string = "";
-
-	validPaths.includes(pathname) ? lights = "GreenLights" : lights = "RedLights";
+	const lights: string = validPaths.includes(pathname) ? "GreenLights" : "RedLights";
 
 	return (
 		<div className="w-[5%] h-full flex justify-end overflow-x-hidden">
-			<img src={`/assets/SVG/${lights}.svg`} alt="Lights" className="relative right-[-21%] sm:right-[-30%] md:right-[-21%] w-full h-[15%]" />
+			<Image src={`/assets/SVG/${lights}.svg`} alt="Lights" className="relative right-[-21%] sm:right-[-30%] md:right-[-21%] w-full h-[15%]" width={100} height={100} />
 		</div>
 	);
 }
