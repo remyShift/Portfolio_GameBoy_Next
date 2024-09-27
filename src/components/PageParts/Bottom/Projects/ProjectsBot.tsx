@@ -12,17 +12,23 @@ export default function ProjectsBot() {
 			<Spacer />
 			<div className="w-full flex flex-col justify-center items-center">
 				<Light_Btn />
+
 				<Divider>
 					Stacks
 				</Divider>
+
 				<StacksList />
+
 				<Divider>
 					Projects
 				</Divider>
+
 				<ProjectsList />
+
 				<Divider onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
 					⬆︎
 				</Divider>
+
 				<SelectSpeakers_Btn />
 			</div>
 			<Lights />

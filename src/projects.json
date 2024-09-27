@@ -53,7 +53,7 @@
 		},
 		{
 			"name": "Scroll Infini",
-			"description": "Application de scroll infini affichant des images récupérées via une API, conçue pour pratiquer les appels API et l'observation des données.",
+			"description": "Application de scroll infini affichant des images récupérées via une API, conçue pour pratiquer les appels API et les observer.",
 			"image": "/assets/img/projects/PMP/PMP-infinitescroll.webp",
 			"stacks": [
 				"html",
@@ -86,7 +86,7 @@
 		},
 		{
 			"name": "Jeux des memories",
-			"description": "Jeu de mémoire conçu pour pratiquer les animations et la logique de jeu en JS.",
+			"description": "Jeu de memory conçu pour pratiquer les animations et la logique de jeu en JS.",
 			"image": "/assets/img/projects/PMP/PMP-memoryCardGame.webp",
 			"stacks": [
 				"html",

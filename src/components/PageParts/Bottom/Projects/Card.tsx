@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import ProjectDescription from './ProjectDescription';
 
 export default function Card({ project, index }: { project: any, index: number }) {
 	let classStacks: string;
@@ -12,20 +13,10 @@ export default function Card({ project, index }: { project: any, index: number }
 			{isEven && (
 				<Image className="object-cover w-full rounded-t-lg md:h-full md:w-[40%] md:rounded-none md:rounded-l-lg" src={project.image} alt={project.name} width={500} height={500} />
 			)}
-			<div className={`flex flex-col h-full justify-between p-4 leading-normal ${isEven ? 'md:items-end' : 'md:items-start'}`}>
-				<h5 className="mb-2 text-xl font-gillSans font-bold text-white">{project.name}</h5>
-				<p className="font-gillSans text-sm lg:text-base text-white">{project.description}</p>
-				<div className={`flex flex-wrap ${isEven ? 'md:justify-end' : 'md:justify-start'} gap-2 my-2`}>
-					{project.stacks.map((stack: string) => (
-						<Image key={stack} className={classStacks} src={`/assets/img/stacks/${stack}.webp`} alt={stack} width={50} height={50} />
-					))}
-				</div>
-			</div>
-			{
-				!isEven && (
-					<Image className="object-cover w-full rounded-b-lg md:h-full md:w-[40%] md:rounded-none md:rounded-r-lg" src={project.image} alt={project.name} width={500} height={500} />
-				)
-			}
+			<ProjectDescription {...project} classStacks={classStacks} isEven={isEven} />
+			{!isEven && (
+				<Image className="object-cover rounded-b-lg md:h-full md:w-[40%] md:rounded-none md:rounded-r-lg" src={project.image} alt={project.name} width={500} height={500} />
+			)}
 		</a >
 	);
 }
