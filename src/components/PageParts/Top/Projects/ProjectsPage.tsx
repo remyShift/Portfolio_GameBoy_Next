@@ -9,7 +9,7 @@ export default function ProjectsPage() {
 			<nav className="flex flex-col justify-center items-center w-1/3 h-full relative z-1">
 				<ul className="flex flex-col gap-4 sm:gap-6 md:gap-10 lg:gap-14 ml-2">
 					<li>
-						<Link href="/projects/fun-stats" className="flex items-center gap-3 font-pressStart2P text-[0.7rem] sm:text-sm md:text-base lg:text-lg hover:underline">
+						<Link href="/projects/fun-stats" className="flex items-center gap-3 font-pressStart2P text-[0.6rem] sm:text-sm md:text-base lg:text-lg hover:underline">
 							<Image src="/assets/icons/StatGraph.webp" alt="Fun Stats icon" width={32} height={32} className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
 							Fun Stats
 						</Link>

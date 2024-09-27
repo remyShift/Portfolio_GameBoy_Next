@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Image from 'next/image';
-import { images } from "@/utils/bottomImages";
+import { images } from "@/utils/Global/bottomImages";
 import ImageComponent from "./BottomImages";
 
 export default function ScrollCTA() {

@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { generateBreadcrumbLinks } from "@/utils/breadcrumbLinks";
+import { generateBreadcrumbLinks } from "@/utils/Global/breadcrumbLinks";
 import BatteryStatus from "./batteryStatus";
 
 export default function TopScreen() {

@@ -2,7 +2,7 @@
 
 import Footer from "../Footer";
 import Image from "next/image";
-import { createClassNameSSBtn } from "@/utils/createClassNameSSBtn";
+import { createClassNameSSBtn } from "@/utils/Global/createClassNameSSBtn";
 import { usePathname } from "next/navigation";
 
 export default function Select_Btn() {
