@@ -2,7 +2,7 @@ interface EmailTemplateProps {
 	firstName: string;
 	lastName: string;
 	email: string;
-	message: string;
+	message: string[];
 }
 
 export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
@@ -14,6 +14,10 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
 	<div>
 		<h1>Bonjour Rémy,</h1>
 		<h2>Tu as reçu un message depuis ton Portfolio de {firstName} {lastName} ({email}) :</h2>
-		<p dangerouslySetInnerHTML={{ __html: message.replace(/\n/g, '<br />') }}></p>
+		{
+			message.map((msg, index) => (
+				<p key={index}>{msg}</p>
+			))
+		}
 	</div>
 );
