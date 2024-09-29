@@ -13,46 +13,6 @@ html {
 	background: #000;
 }
 
-/* @font-face {
-	font-family: 'GillSans';
-	src: local('GillSans'), local('Gill-Sans'),
-		url('/fonts/GillSans/GillSansC.woff2') format('woff2'),
-		url('/fonts/GillSans/GillSansC.woff') format('woff'),
-		url('/fonts/GillSans/GillSansC.ttf') format('truetype');
-	font-weight: 400;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'GillSans-Bold';
-	src: local('GillSans-Bold'), local('Gill-Sans-Bold'),
-		url('/fonts/GillSans/GillSansC-Bold.woff2') format('woff2'),
-		url('/fonts/GillSans/GillSansC-Bold.woff') format('woff'),
-		url('/fonts/GillSans/GillSansC-Bold.ttf') format('truetype');
-	font-weight: 700;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'GillSans-Italic';
-	src: local('GillSans-Italic'), local('Gill-Sans-Italic'),
-		url('/fonts/GillSans/GillSansC-Italic.woff2') format('woff2'),
-		url('/fonts/GillSans/GillSansC-Italic.woff') format('woff'),
-		url('/fonts/GillSans/GillSansC-Italic.ttf') format('truetype');
-	font-weight: normal;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'GillSans-BoldItalic';
-	src: local('GillSans-BoldItalic'), local('Gill-Sans-Bold-Italic'),
-		url('/fonts/GillSans/GillSansC-BoldItalic.woff2') format('woff2'),
-		url('/fonts/GillSans/GillSansC-BoldItalic.woff') format('woff'),
-		url('/fonts/GillSans/GillSansC-BoldItalic.ttf') format('truetype');
-	font-weight: 700;
-	font-style: italic;
-} */
-
 
 @layer utilities {
 	.text-stroke {
@@ -75,5 +35,45 @@ html {
 		.text-stroke {
 			-webkit-text-stroke: 0.23rem #C6AF87;
 		}
+	}
+}
+
+
+@layer base {
+	:root {
+		--background: 240 10% 3.9%;
+		--card: 240 10% 3.9%;
+		--card-foreground: 0 0% 98%;
+		--popover: 240 10% 3.9%;
+		--popover-foreground: 0 0% 98%;
+		--primary: 0 0% 98%;
+		--primary-foreground: 240 5.9% 10%;
+		--secondary: 240 3.7% 15.9%;
+		--secondary-foreground: 0 0% 98%;
+		--muted: 240 3.7% 15.9%;
+		--muted-foreground: 240 5% 64.9%;
+		--accent: 240 3.7% 15.9%;
+		--accent-foreground: 0 0% 98%;
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 0 0% 98%;
+		--border: 240 3.7% 15.9%;
+		--input: 240 3.7% 15.9%;
+		--ring: 240 4.9% 83.9%;
+		--chart-1: 220 70% 50%;
+		--chart-2: 160 60% 45%;
+		--chart-3: 30 80% 55%;
+		--chart-4: 280 65% 60%;
+		--chart-5: 340 75% 55%;
+	}
+}
+
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+
+	body {
+		@apply bg-background text-foreground;
 	}
 }

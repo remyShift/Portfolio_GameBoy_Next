@@ -29,7 +29,6 @@ export default function ContactPage() {
 		});
 		setTextSendBtn("Envoyer");
 		clearForm();
-		alert("Mail envoyé ! Merci pour votre message. Je reviens vers vous dans les plus brefs délais.");
 	};
 
 	return (

@@ -39,6 +39,7 @@ const pressStart2P = Press_Start_2P({
 });
 
 export const metadata: Metadata = {
+	metadataBase: new URL("https://remyshift.com"),
 	title: {
 		default: "Portfolio remyShift",
 		template: "%s | Portfolio remyShift",
