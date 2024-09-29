@@ -56,7 +56,7 @@ export const metadata: Metadata = {
 		],
 		locale: "fr-FR",
 		type: "website",
-		siteName: "Portfolio de Rémy Cassagne",
+		siteName: "remyshift",
 		description: "Bienvenue sur le portfolio de Rémy Cassagne !",
 		url: "https://remyshift.com",
 	},
