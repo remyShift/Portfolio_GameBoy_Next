@@ -5,9 +5,14 @@ import Image from 'next/image';
 import BackgroundSign from "@/components/Global_Template/G-Top/G-Cream/G-Wine/G-Screen/BackgroundSign";
 import { useContactForm } from "@/context/store";
 import SubmitContactFormBtn from "./SubmitContactFormBtn";
+import { useEffect } from "react";
 
 export default function ContactPage() {
-	const { firstName, lastName, email, message, setFirstName, setLastName, setEmail, setMessage, setTextSendBtn } = useContactForm();
+	const { firstName, lastName, email, message, setFirstName, setLastName, setEmail, setMessage, setTextSendBtn, setIsValid } = useContactForm();
+
+	useEffect(() => {
+		(firstName && lastName && email && message) ? setIsValid(true) : setIsValid(false);
+	}, [firstName, lastName, email, message, setIsValid]);
 
 	const clearForm = () => {
 		setFirstName("");
