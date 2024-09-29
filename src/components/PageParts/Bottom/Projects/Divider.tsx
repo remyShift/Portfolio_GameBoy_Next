@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".split("");
 
@@ -17,7 +17,7 @@ function loaderWelcome(target: HTMLElement, count: number, string: string) {
 			clearInterval(interval);
 		}
 		iterations += 1 / 2;
-	}, 50);
+	}, 60);
 }
 
 interface DividerProps {
@@ -27,13 +27,16 @@ interface DividerProps {
 
 export default function Divider({ children, onClick }: DividerProps) {
 	const textRef = useRef(null);
+	const [prevY, setPrevY] = useState<number | null>(null);
 
 	useEffect(() => {
 		const handleIntersection = (entries: IntersectionObserverEntry[]) => {
 			entries.forEach(entry => {
-				if (entry.isIntersecting && textRef.current && children && !onClick) {
+				const currentY = entry.boundingClientRect.top;
+				if (entry.isIntersecting && textRef.current && (prevY === null || currentY < prevY) && children && !onClick) {
 					loaderWelcome(textRef.current, children.toString().length, children.toString());
 				}
+				setPrevY(currentY);
 			});
 		};
 
@@ -47,7 +50,7 @@ export default function Divider({ children, onClick }: DividerProps) {
 				observer.unobserve(textRef.current);
 			}
 		};
-	}, [children]);
+	}, [children, prevY]);
 
 	const handleMouseEnter = () => {
 		if (textRef.current && children && !onClick) {
