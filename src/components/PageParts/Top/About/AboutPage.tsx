@@ -1,6 +1,5 @@
 import BackgroundSign from "@/components/Global_Template/G-Top/G-Cream/G-Wine/G-Screen/BackgroundSign";
 import Image from "next/image";
-import AgeLvl from "./AgeLvl";
 
 const aboutText = "Passionné d’informatique et curieux, je recherche constamment de nouveaux défis. Ma créativité, mon adaptabilité et mes différentes expériences enrichissent les projets auxquels je contribue.";
 const aboutTitle = "Apprenez à me connaître ...";
