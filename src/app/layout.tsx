@@ -47,6 +47,21 @@ export const metadata: Metadata = {
 	icons: {
 		icon: "/assets/icons/gameboy.ico",
 	},
+	openGraph: {
+		images: [
+			{
+				url: "/assets/img/thumbnail.png",
+				alt: "portfolio thumbnail",
+			},
+		],
+		locale: "fr-FR",
+		type: "website",
+		siteName: "Portfolio de Rémy Cassagne",
+		description: "Bienvenue sur le portfolio de Rémy Cassagne !",
+		url: "https://remyshift.com",
+	},
+	keywords: ["portfolio", "dev", "developer", "développeur", "remyshift"],
+
 };
 
 export default function RootLayout({
