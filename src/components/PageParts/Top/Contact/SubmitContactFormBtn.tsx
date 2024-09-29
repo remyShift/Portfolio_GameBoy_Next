@@ -1,7 +1,7 @@
 import { useContactForm } from "@/context/store";
 
 export default function SubmitContactFormBtn() {
-	const { firstName, lastName, email, message, isValid, textSendBtn, setFirstName, setLastName, setEmail, setMessage, setTextSendBtn } = useContactForm();
+	const { isValid, textSendBtn } = useContactForm();
 
 	return (
 		<div className="flex justify-center items-center w-full mb-2">
