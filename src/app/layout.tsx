@@ -51,9 +51,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		images: [
 			{
-				url: "/assets/img/thumbnail.png",
-				width: 20,
-				height: 20,
+				url: "/assets/img/thumbnail1.png",
 				alt: "portfolio thumbnail",
 			},
 		],
