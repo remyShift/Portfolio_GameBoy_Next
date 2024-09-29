@@ -52,8 +52,8 @@ export const metadata: Metadata = {
 		images: [
 			{
 				url: "/assets/img/thumbnail.png",
-				width: 200,
-				height: 200,
+				width: 20,
+				height: 20,
 				alt: "portfolio thumbnail",
 			},
 		],
