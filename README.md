@@ -68,13 +68,15 @@ Once the development server is running, you can view and interact with the portf
 
 ```bash
 Portfolio_GameBoy_Next/
-├── components/   # Reusable components
-├── pages/        # Page components for the portfolio
-├── public/       # Static assets like images and icons
-├── styles/       # Global and Tailwind CSS configurations
-├── tsconfig.json # TypeScript configuration
-├── next.config.js# Next.js configuration
-└── package.json  # Project dependencies and scripts
+├── src/
+│   ├── app/
+│      ├── pages/     # Page components for the portfolio
+│   ├── components/   # Reusable UI components
+├── public/           # Static assets like images and icons
+├── tsconfig.json     # TypeScript configuration
+├── next.config.js    # Next.js configuration
+└── package.json      # Project dependencies and scripts
+
 ```
 
 ## Customization
