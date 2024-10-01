@@ -1,6 +1,6 @@
 # GameBoy-Themed Portfolio
 
-A personal portfolio website built with a retro GameBoy design. This project is built using **Next.js**, styled with **Tailwind CSS**, and utilizes **TypeScript** for a modern, type-safe development experience.
+A personal portfolio website built with a retro GameBoy design. This project is built using **Next.js**, styled with **Tailwind CSS**, and utilizes **TypeScript** for a modern, type-safe development experience. You can see it [here](https://remyshift.dev).
 
 ## Table of Contents
 
