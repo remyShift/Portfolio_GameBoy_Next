@@ -12,7 +12,6 @@ A personal portfolio website built with a retro GameBoy design. This project is 
 - [Project Structure](#project-structure)
 - [Customization](#customization)
 - [Contributors](#contributors)
-- [License](#license)
 
 ## Introduction
 
