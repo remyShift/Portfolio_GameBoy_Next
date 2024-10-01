@@ -22,7 +22,6 @@ This portfolio showcases my work in a fun and nostalgic GameBoy-style interface.
 - **Responsive layout** ensuring compatibility across devices.
 - **Animations** for a global dynamism,
 - **Custom 404 page** for more realism,
-- 
 
 
 ## Installation
