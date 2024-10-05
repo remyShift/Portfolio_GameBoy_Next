@@ -23,12 +23,13 @@ export default function ContactPage() {
 
 	const onSubmitHandler = async () => {
 		setTextSendBtn("En cours...");
-		await fetch('/api/send', {
+		await fetch('/contact/api/send', {
 			method: 'POST',
 			body: JSON.stringify({ firstName, lastName, email, message }),
 		});
 		setTextSendBtn("Envoyer");
 		clearForm();
+		alert("Merci pour votre message !");
 	};
 
 	return (
