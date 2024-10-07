@@ -11,7 +11,7 @@ export default function GBot() {
 	const height = (pathname.includes("/projects") || pathname.includes("/about")) ? "h-auto" : "h-[41%] md:h-[95%]";
 
 	return (
-		<div className={`bg-cream w-full ${height} relative top-1 z-[-1] flex items-end overflow-x-hidden`}>
+		<div className={`bg-cream w-full ${height} relative top-1 z-10 flex items-end overflow-x-hidden`}>
 			{pathname.includes("/projects") || pathname.includes("/about") ? pathname.includes("/projects") ? <ProjectsBot /> : <AboutTimeline /> : <Buttons />}
 		</div>
 	);
