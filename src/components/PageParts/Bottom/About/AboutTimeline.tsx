@@ -21,10 +21,15 @@ const timelineData = [
 		description: "Résolution de problème algorithmique en C et travail en équipe durant 4 semaines intensives.",
 	},
 	{
-		title: "Ada Tech School",
+		title: "Formation - Ada Tech School",
 		date: "10 / 2023 - 02 / 2024",
-		description: "Formation en développement fullstack avec une approche pédagogique axée sur le projet et la pratique. Pour voir les projets réalisés, rendez-vous sur la page Projets.",
+		description: "Formation en développement fullstack avec une approche pédagogique axée sur les projets et la pratique. Pour voir les projets réalisés, rendez-vous sur la page Projets.",
 	},
+	{
+		title: "Formation - Le Wagon",
+		date: "10 / 2024 - 12 / 2024",
+		description: "Le bootcamp web du Wagon est une formation immersive en développement web, axée sur la création et le déploiement d'applications web modernes, dans un cadre intensif et collaboratif.",
+	}
 ];
 
 export default function AboutTimeline() {
