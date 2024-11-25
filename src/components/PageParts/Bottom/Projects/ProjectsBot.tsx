@@ -26,7 +26,7 @@ export default function ProjectsBot() {
 				<ProjectsList />
 
 				<Divider onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-					⬆︎
+					<p className="bounce">⬆︎</p>
 				</Divider>
 
 				<SelectSpeakers_Btn />
