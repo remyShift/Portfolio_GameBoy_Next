@@ -1,6 +1,19 @@
 {
 	"projects": [
 		{
+			"name": "Le Wagon - HairBnb",
+			"description": "Application de réservation de perruques. Réaliser pour mettre en pratique les compétences acquises en HTML, CSS, JS, Ruby on Rails et SQL.",
+			"image": "/assets/img/projects/LW/hairbnb.webp",
+			"stacks": [
+				"html",
+				"css",
+				"js",
+				"rails",
+				"sql"
+			],
+			"link": "https://airbnb-remyshift-b0c77fa27ee3.herokuapp.com/"
+		},
+		{
 			"name": "ADA - Dataviz et API",
 			"description": "Projet de visualisation de données en temps réel via une API, pour améliorer les compétences en data visualisation.",
 			"image": "/assets/img/projects/ADA/dataviz.webp",
