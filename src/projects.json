@@ -1,6 +1,19 @@
 {
 	"projects": [
 		{
+			"name": "Le Wagon - Drum'n Learn",
+			"description": "Application pour apprendre des séquences rythmiques selon le genre de la musique tout en y partageant à la communauté. Projet final de la formation de développeur web chez Le Wagon.",
+			"image": "/assets/img/projects/LW/drumnlearn.webp",
+			"stacks": [
+				"html",
+				"css",
+				"js",
+				"rails",
+				"sql"
+			],
+			"link": "https://airbnb-remyshift-b0c77fa27ee3.herokuapp.com/"
+		},
+		{
 			"name": "Le Wagon - HairBnb",
 			"description": "Application de réservation de perruques. Réaliser pour mettre en pratique les compétences acquises en HTML, CSS, JS, Ruby on Rails et SQL.",
 			"image": "/assets/img/projects/LW/hairbnb.webp",
