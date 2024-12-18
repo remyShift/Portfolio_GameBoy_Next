@@ -44,7 +44,9 @@ export default function Card({ project, index }: { project: any, index: number }
 			{isEven && (
 				<Image className="object-cover w-full rounded-t-lg md:h-full md:w-[40%] md:rounded-none md:rounded-l-lg" src={project.image} alt={project.name} width={500} height={500} />
 			)}
+
 			<ProjectDescription {...project} classStacks={classStacks} isEven={isEven} />
+
 			{!isEven && (
 				<Image className="object-cover rounded-b-lg md:h-full md:w-[40%] md:rounded-none md:rounded-r-lg" src={project.image} alt={project.name} width={500} height={500} />
 			)}
