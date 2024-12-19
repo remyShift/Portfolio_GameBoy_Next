@@ -43,7 +43,7 @@ export default function ContactPage() {
 						</Link>
 					</li>
 					<li>
-						<Link href="https://www.linkedin.com/in/remy-cassagne/" target="_blank" className="flex items-center gap-2 font-pressStart2P text-[0.6rem] sm:text-sm md:text-base lg:text-lg hover:underline">
+						<Link href="https://www.linkedin.com/in/remy-cassagne?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" className="flex items-center gap-2 font-pressStart2P text-[0.6rem] sm:text-sm md:text-base lg:text-lg hover:underline">
 							<Image src="/assets/icons/LinkedinIcon.webp" alt="Projects" width={32} height={32} className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
 							Linkedin
 						</Link>
