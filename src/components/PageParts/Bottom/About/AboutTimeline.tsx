@@ -29,6 +29,11 @@ const timelineData = [
 		title: "Formation - Le Wagon",
 		date: "10 / 2024 - 12 / 2024",
 		description: "Le bootcamp web du Wagon est une formation immersive en développement web, axée sur la création et le déploiement d'applications web modernes, dans un cadre intensif et collaboratif.",
+	},
+	{
+		title: "Stage - Spash",
+		date: "01 / 2025 - 02 / 2025",
+		description: "Développement d'un outil de debugging pour le développement d'une IA afin de faciliter la visualisation des données renvoyées par cette dernière.",
 	}
 ];
 
