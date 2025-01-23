@@ -4,6 +4,7 @@ import Light_Btn from "../../../Global_Template/G-Bottom/Buttons/Light_Btn";
 import Lights from "../../../Global_Template/G-Bottom/Buttons/Lights";
 import SelectSpeakers_Btn from "../../../Global_Template/G-Bottom/Buttons/SelectSpeakers_Btn";
 import Divider from "../Projects/Divider";
+
 const timelineData = [
 	{
 		title: "Commercial chez Maximo",
