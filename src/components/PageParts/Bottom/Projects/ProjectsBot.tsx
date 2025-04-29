@@ -10,7 +10,7 @@ export default function ProjectsBot() {
 	return (
 		<div className="w-full h-full flex flex-row pt-2">
 			<Spacer />
-			<div className="w-full flex flex-col justify-center items-center">
+			<div className="w-full flex flex-col justify-start items-center">
 				<Light_Btn />
 
 				<Divider>
