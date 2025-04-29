@@ -7,24 +7,9 @@ import Divider from "../Projects/Divider";
 
 const timelineData = [
 	{
-		title: "Commercial chez Maximo",
-		date: "09 / 2020",
-		description: "Gestion d'un portfeuille client et prospection pour de la vente de produit surgelés et d'épicerie à domicile.",
-	},
-	{
-		title: "Piscine école 42",
-		date: "09 / 2022",
-		description: "Résolution de problème algorithmique en C et travail en équipe durant 4 semaines intensives.",
-	},
-	{
-		title: "2nde Piscine de l'école 42",
-		date: "08 / 2023",
-		description: "Résolution de problème algorithmique en C et travail en équipe durant 4 semaines intensives.",
-	},
-	{
-		title: "Formation - Ada Tech School",
-		date: "10 / 2023 - 02 / 2024",
-		description: "Formation en développement fullstack avec une approche pédagogique axée sur les projets et la pratique. Pour voir les projets réalisés, rendez-vous sur la page Projets.",
+		title: "Stage - Spash",
+		date: "01 / 2025 - 04 / 2025", 
+		description: "Stage de 4 mois : développement d'un outil de debugging pour visualiser les données renvoyées par une IA qui analyse des matchs de padel. Features développées selon les besoins de l'équipe de développeurs. Technologies utilisées : NextJS, TailwindCSS, Zustand, Docker",
 	},
 	{
 		title: "Formation - Le Wagon",
@@ -32,10 +17,25 @@ const timelineData = [
 		description: "Le bootcamp web du Wagon est une formation immersive en développement web, axée sur la création et le déploiement d'applications web modernes, dans un cadre intensif et collaboratif.",
 	},
 	{
-		title: "Stage - Spash",
-		date: "01 / 2025 - 02 / 2025",
-		description: "Développement d'un outil de debugging pour le développement d'une IA afin de faciliter la visualisation des données renvoyées par cette dernière.",
-	}
+		title: "Formation - Ada Tech School",
+		date: "10 / 2023 - 02 / 2024",
+		description: "Formation en développement fullstack avec une approche pédagogique axée sur les projets et la pratique. Pour voir les projets réalisés, rendez-vous sur la page Projets.",
+	},
+	{
+		title: "2nde Piscine de l'école 42",
+		date: "08 / 2023",
+		description: "Résolution de problème algorithmique en C et travail en équipe durant 4 semaines intensives.",
+	},
+	{
+		title: "Piscine école 42",
+		date: "09 / 2022",
+		description: "Résolution de problème algorithmique en C et travail en équipe durant 4 semaines intensives.",
+	},
+	{
+		title: "Commercial chez Maximo",
+		date: "09 / 2020",
+		description: "Gestion d'un portfeuille client et prospection pour de la vente de produit surgelés et d'épicerie à domicile.",
+	},
 ];
 
 export default function AboutTimeline() {

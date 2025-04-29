@@ -1,6 +1,17 @@
 {
 	"projects": [
 		{
+			"name": "En Cours - KicksFolio",
+			"description": "Projet personnel : Application de gestion et de partage de collection de sneakers. Backend fait avec Ruby on Rails et Frontend avec React Native, Expo et TailwindCSS.",
+			"image": "/assets/img/projects/kicksfolio.png",
+			"stacks": [
+				"rails",
+				"react",
+				"tailwindcss"
+			],
+			"link": "/"
+		},
+		{
 			"name": "Le Wagon - Drum'n Learn",
 			"description": "Application pour apprendre des séquences rythmiques selon le genre de la musique tout en y partageant à la communauté. Projet final de la formation de développeur web chez Le Wagon.",
 			"image": "/assets/img/projects/LW/drumnlearn.webp",
