@@ -1,5 +1,5 @@
 import Card from "./Card";
-import projectsData from "../../../../projects.json";
+import projectsData from "../../../../utils/projects.json";
 
 export default function ProjectsList() {
 	const projects = projectsData.projects;
