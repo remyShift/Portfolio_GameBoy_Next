@@ -2,7 +2,7 @@
 	"projects": [
 		{
 			"name": "En Cours - KicksFolio",
-			"description": "Application de gestion et de partage de collection de sneakers. Backend fait avec Ruby on Rails et Frontend avec React Native, Expo et TailwindCSS.",
+			"description": "Application mobile qui permet aux passionnés de sneakers de répertorier leur collection en ligne, d’en visualiser les détails (modèle, marque, taille, état, prix d’achat, valeur estimée, etc.), et de la partager avec d’autres utilisateurs. L’application propose des options de tri et utilise l’API de StockX pour estimer la valeur moyenne des paires.",
 			"image": "/assets/img/projects/kicksfolio.png",
 			"stacks": [
 				"rails",
