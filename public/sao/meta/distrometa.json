@@ -1,0 +1,11 @@
+{
+  "$schema": "file:///Users/remy_mac/Desktop/everything/Code/%F0%9F%8F%96%EF%B8%8F_Playground/Nebula/root/schemas/DistroMetaSchema.schema.json",
+  "meta": {
+    "rss": "<LINK TO RSS FEED>",
+    "discord": {
+      "clientId": "<FILL IN OR REMOVE DISCORD OBJECT>",
+      "smallImageText": "<FILL IN OR REMOVE DISCORD OBJECT>",
+      "smallImageKey": "<FILL IN OR REMOVE DISCORD OBJECT>"
+    }
+  }
+}

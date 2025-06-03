@@ -1,0 +1,21 @@
+{
+	"$schema": "file:///Users/remy_mac/Desktop/everything/Code/%F0%9F%8F%96%EF%B8%8F_Playground/Nebula/root/schemas/ServerMetaSchema.schema.json",
+	"meta": {
+		"version": "1.0.0",
+		"name": "SaoChronicles (Minecraft 1.21.3)",
+		"description": "SaoChronicles Running Minecraft 1.21.3 (Fabric v0.16.14)",
+		"icon": "How to set the server icon: https://github.com/dscalzi/Nebula#setting-the-server-icon",
+		"address": "localhost:25565",
+		"discord": {
+			"shortId": "<FILL IN OR REMOVE DISCORD OBJECT>",
+			"largeImageText": "<FILL IN OR REMOVE DISCORD OBJECT>",
+			"largeImageKey": "<FILL IN OR REMOVE DISCORD OBJECT>"
+		},
+		"mainServer": true,
+		"autoconnect": true
+	},
+	"fabric": {
+		"version": "0.16.14"
+	},
+	"untrackedFiles": []
+}

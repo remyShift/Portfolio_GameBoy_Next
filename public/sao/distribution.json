@@ -1,0 +1,407 @@
+{
+	"version": "1.0.0",
+	"rss": "<LINK TO RSS FEED>",
+	"discord": {
+		"clientId": "<FILL IN OR REMOVE DISCORD OBJECT>",
+		"smallImageText": "<FILL IN OR REMOVE DISCORD OBJECT>",
+		"smallImageKey": "<FILL IN OR REMOVE DISCORD OBJECT>"
+	},
+	"servers": [
+		{
+			"id": "SaoChronicles-1.21.3",
+			"name": "SaoChronicles (Minecraft 1.21.3)",
+			"description": "SaoChronicles Running Minecraft 1.21.3 (Fabric v0.16.14)",
+			"icon": null,
+			"version": "1.0.0",
+			"address": "localhost:25565",
+			"minecraftVersion": "1.21.3",
+			"discord": {
+				"shortId": "<FILL IN OR REMOVE DISCORD OBJECT>",
+				"largeImageText": "<FILL IN OR REMOVE DISCORD OBJECT>",
+				"largeImageKey": "<FILL IN OR REMOVE DISCORD OBJECT>"
+			},
+			"mainServer": true,
+			"autoconnect": true,
+			"modules": [
+				{
+					"id": "net.fabricmc:fabric-loader:0.16.14",
+					"name": "Fabric (fabric-loader)",
+					"type": "Fabric",
+					"artifact": {
+						"size": 1416842,
+						"MD5": "e041ec21fad8f4dbd2ba7e73c25900d1",
+						"url": "https://remyshift.dev/repo/lib/net/fabricmc/fabric-loader/0.16.14/fabric-loader-0.16.14.jar"
+					},
+					"subModules": [
+						{
+							"id": "1.21.3-fabric-0.16.14",
+							"name": "Fabric (version.json)",
+							"type": "VersionManifest",
+							"artifact": {
+								"size": 2849,
+								"MD5": "ecbdf32948fbbe7f65456a4ab06aeb19",
+								"url": "https://remyshift.dev/repo/versions/1.21.3-fabric-0.16.14/1.21.3-fabric-0.16.14.json"
+							}
+						},
+						{
+							"id": "org.ow2.asm:asm:9.8",
+							"name": "Fabric (asm)",
+							"type": "Library",
+							"artifact": {
+								"size": 126113,
+								"MD5": "f5adf3bfc54fb3d2cd8e3a1f275084bc",
+								"url": "https://remyshift.dev/repo/lib/org/ow2/asm/asm/9.8/asm-9.8.jar"
+							}
+						},
+						{
+							"id": "org.ow2.asm:asm-analysis:9.8",
+							"name": "Fabric (asm-analysis)",
+							"type": "Library",
+							"artifact": {
+								"size": 35151,
+								"MD5": "3d63508405f5610fc2ea673ff5471553",
+								"url": "https://remyshift.dev/repo/lib/org/ow2/asm/asm-analysis/9.8/asm-analysis-9.8.jar"
+							}
+						},
+						{
+							"id": "org.ow2.asm:asm-commons:9.8",
+							"name": "Fabric (asm-commons)",
+							"type": "Library",
+							"artifact": {
+								"size": 73498,
+								"MD5": "c8c3d9ccf240144e74d94ff658b024c9",
+								"url": "https://remyshift.dev/repo/lib/org/ow2/asm/asm-commons/9.8/asm-commons-9.8.jar"
+							}
+						},
+						{
+							"id": "org.ow2.asm:asm-tree:9.8",
+							"name": "Fabric (asm-tree)",
+							"type": "Library",
+							"artifact": {
+								"size": 51934,
+								"MD5": "4ab1aaec43c77a2d9b56e6d6d496f705",
+								"url": "https://remyshift.dev/repo/lib/org/ow2/asm/asm-tree/9.8/asm-tree-9.8.jar"
+							}
+						},
+						{
+							"id": "org.ow2.asm:asm-util:9.8",
+							"name": "Fabric (asm-util)",
+							"type": "Library",
+							"artifact": {
+								"size": 94559,
+								"MD5": "62498ef324bdab15f407d703f7d78d19",
+								"url": "https://remyshift.dev/repo/lib/org/ow2/asm/asm-util/9.8/asm-util-9.8.jar"
+							}
+						},
+						{
+							"id": "net.fabricmc:sponge-mixin:0.15.5+mixin.0.8.7",
+							"name": "Fabric (sponge-mixin)",
+							"type": "Library",
+							"artifact": {
+								"size": 1499194,
+								"MD5": "f810932fdff9aa436d7d4f4ac69ce8c2",
+								"url": "https://remyshift.dev/repo/lib/net/fabricmc/sponge-mixin/0.15.5+mixin.0.8.7/sponge-mixin-0.15.5+mixin.0.8.7.jar"
+							}
+						},
+						{
+							"id": "net.fabricmc:intermediary:1.21.3",
+							"name": "Fabric (intermediary)",
+							"type": "Library",
+							"artifact": {
+								"size": 693060,
+								"MD5": "bc6edae1133bf23325898da22d9eff90",
+								"url": "https://remyshift.dev/repo/lib/net/fabricmc/intermediary/1.21.3/intermediary-1.21.3.jar"
+							}
+						}
+					]
+				},
+				{
+					"id": "dev.tr7zw.skinlayers:skinlayers3d:1.7.5@jar",
+					"name": "3d-Skin-Layers",
+					"type": "FabricMod",
+					"artifact": {
+						"size": 474902,
+						"url": "https://remyshift.dev/servers/SaoChronicles-1.21.3/fabricmods/optionalon/3D%20Skin%20Layers%20Fabric%201.7.5%20Minecraft%201.21.3.jar",
+						"MD5": "1c488e7c5e9ae8e8c2154b2e4c3ebf94"
+					},
+					"required": {
+						"value": false
+					}
+				},
+				{
+					"id": "squeek.appleskin:appleskin:3.0.6+mc1.21.3@jar",
+					"name": "AppleSkin",
+					"type": "FabricMod",
+					"artifact": {
+						"size": 1095505,
+						"url": "https://remyshift.dev/servers/SaoChronicles-1.21.3/fabricmods/optionalon/AppleSkin%20MC%201.21.3%203.0.6.jar",
+						"MD5": "eadbff2f246d5494c530a795be893997"
+					},
+					"required": {
+						"value": false
+					}
+				},
+				{
+					"id": "com.qendolin:betterclouds:1.8.11+1.21.3-fabric@jar",
+					"name": "Better Clouds",
+					"type": "FabricMod",
+					"artifact": {
+						"size": 716240,
+						"url": "https://remyshift.dev/servers/SaoChronicles-1.21.3/fabricmods/optionalon/Better%20Clouds%201.8.11%20Fabric.jar",
+						"MD5": "32387d1c95520d3997ecc2b10e2e57ca"
+					},
+					"required": {
+						"value": false
+					}
+				},
+				{
+					"id": "io.socol.betterthirdperson.platform:betterthirdperson:1.9.0@jar",
+					"name": "Better Third Person",
+					"type": "FabricMod",
+					"artifact": {
+						"size": 52329,
+						"url": "https://remyshift.dev/servers/SaoChronicles-1.21.3/fabricmods/optionalon/Better%20Third%20Person%201.9.0.jar",
+						"MD5": "d194b09f685fda22d7fec693654ee12b"
+					},
+					"required": {
+						"value": false
+					}
+				},
+				{
+					"id": "dzwdz.chat_heads:chat_heads:0.13.18@jar",
+					"name": "Chat Heads",
+					"type": "FabricMod",
+					"artifact": {
+						"size": 79486,
+						"url": "https://remyshift.dev/servers/SaoChronicles-1.21.3/fabricmods/optionalon/Chat%20Heads%200.13.18%20Minecraft%20Mod.jar",
+						"MD5": "b13f94822e62b0755dba9c84146afea3"
+					},
+					"required": {
+						"value": false
+					}
+				},
+				{
+					"id": "com.seibel:distanthorizons:2.3.2-b@jar",
+					"name": "Distant Horizons",
+					"type": "FabricMod",
+					"artifact": {
+						"size": 17932172,
+						"url": "https://remyshift.dev/servers/SaoChronicles-1.21.3/fabricmods/optionalon/Distant%20Horizons%20Fabric%202.3.2.jar",
+						"MD5": "4fcc82a15738a501750772e41842dfb6"
+					},
+					"required": {
+						"value": false
+					}
+				},
+				{
+					"id": "ru.tpsd.eatinganimationmod:eatinganimationid:1.21.3+1.9.73@jar",
+					"name": "Eating Animation",
+					"type": "FabricMod",
+					"artifact": {
+						"size": 1060567,
+						"url": "https://remyshift.dev/servers/SaoChronicles-1.21.3/fabricmods/optionalon/Eating%20Animation%201.21.3.jar",
+						"MD5": "89289d299b512a06f94c93909c1c25ff"
+					},
+					"required": {
+						"value": false
+					}
+				},
+				{
+					"id": "dev.kosmx.emotesCompatFlashback.rp:emotecraft-flashback-addon:1.0@jar",
+					"name": "Emotecraft Flashback Addon",
+					"type": "FabricMod",
+					"artifact": {
+						"size": 31428,
+						"url": "https://remyshift.dev/servers/SaoChronicles-1.21.3/fabricmods/optionalon/Emotecraft%20Flashback%20Addon%201.0%20Minecraft%20Mod.jar",
+						"MD5": "55e71264d26a01bb27c43ae1e4c7ac8d"
+					},
+					"required": {
+						"value": false
+					}
+				},
+				{
+					"id": "traben.entity_model_features:entity_model_features:2.4.1@jar",
+					"name": "Entity Model Features",
+					"type": "FabricMod",
+					"artifact": {
+						"size": 447963,
+						"url": "https://remyshift.dev/servers/SaoChronicles-1.21.3/fabricmods/optionalon/Entity%20Model%20Features%201.21.3%202.4.1.jar",
+						"MD5": "fafcbf364f82570f04a49cd0a2b6e2de"
+					},
+					"required": {
+						"value": false
+					}
+				},
+				{
+					"id": "traben.entity_texture_features:entity_texture_features:6.2.9@jar",
+					"name": "Entity Texture Features",
+					"type": "FabricMod",
+					"artifact": {
+						"size": 649752,
+						"url": "https://remyshift.dev/servers/SaoChronicles-1.21.3/fabricmods/optionalon/Entity%20Texture%20Features%201.21.3.jar",
+						"MD5": "cfa9ce2e98d1e667d9d53b73e1f6f391"
+					},
+					"required": {
+						"value": false
+					}
+				},
+				{
+					"id": "generated.fabricmod:fabric-api:0.114.1+1.21.3@jar",
+					"name": "Fabric API",
+					"type": "FabricMod",
+					"artifact": {
+						"size": 2380714,
+						"url": "https://remyshift.dev/servers/SaoChronicles-1.21.3/fabricmods/optionalon/Fabric%20API%200.114.1%201.21.3.jar",
+						"MD5": "7d323bfa662e68e8cd340f9a84312d39"
+					},
+					"required": {
+						"value": false
+					}
+				},
+				{
+					"id": "generated.fabricmod:fabric installer 1.0.3:0.0.0@jar",
+					"name": "Fabric Installer 1.0.3",
+					"type": "FabricMod",
+					"artifact": {
+						"size": 204454,
+						"url": "https://remyshift.dev/servers/SaoChronicles-1.21.3/fabricmods/optionalon/Fabric%20Installer%201.0.3.jar",
+						"MD5": "b71c7c65261c9b824a9ff44c939f9981"
+					},
+					"required": {
+						"value": false
+					}
+				},
+				{
+					"id": "randommcsomethin.fallingleaves:fallingleaves:1.16.4@jar",
+					"name": "Falling Leaves",
+					"type": "FabricMod",
+					"artifact": {
+						"size": 167572,
+						"url": "https://remyshift.dev/servers/SaoChronicles-1.21.3/fabricmods/optionalon/Falling%20Leaves%201.16.4%201.21.2.jar",
+						"MD5": "7055aa03ec94aaf063b88b9f975f6c17"
+					},
+					"required": {
+						"value": false
+					}
+				},
+				{
+					"id": "org.anti_ad.mc.ipnext:inventoryprofilesnext:2.1.5@jar",
+					"name": "Inventory Profiles Next",
+					"type": "FabricMod",
+					"artifact": {
+						"size": 1303901,
+						"url": "https://remyshift.dev/servers/SaoChronicles-1.21.3/fabricmods/optionalon/Inventory%20Profiles%20Next%201.21.3%202.1.5.jar",
+						"MD5": "ba425d9e14b2bb20418eccd656044ca0"
+					},
+					"required": {
+						"value": false
+					}
+				},
+				{
+					"id": "snownee.jade:jade:16.0.4+fabric@jar",
+					"name": "Jade",
+					"type": "FabricMod",
+					"artifact": {
+						"size": 761927,
+						"url": "https://remyshift.dev/servers/SaoChronicles-1.21.3/fabricmods/optionalon/Jade%201.21.3%20Fabric%2016.0.4.jar",
+						"MD5": "5307b5842e23b84cb124a67e3ee92670"
+					},
+					"required": {
+						"value": false
+					}
+				},
+				{
+					"id": "dev.terminalmc:moremousetweaks:1.0.2+1.21.3@jar",
+					"name": "MoreMouseTweaks",
+					"type": "FabricMod",
+					"artifact": {
+						"size": 289580,
+						"url": "https://remyshift.dev/servers/SaoChronicles-1.21.3/fabricmods/optionalon/More%20Mouse%20Tweaks%201.0.2.jar",
+						"MD5": "00da7da4a0f95cd40cfc39c9ae6cebaf"
+					},
+					"required": {
+						"value": false
+					}
+				},
+				{
+					"id": "net.diebuddies.physics:physicsmod:3.0.21@jar",
+					"name": "Physics Mod",
+					"type": "FabricMod",
+					"artifact": {
+						"size": 139899808,
+						"url": "https://remyshift.dev/servers/SaoChronicles-1.21.3/fabricmods/optionalon/Physics%20Mod%203.0.21%20Minecraft%201.21.2.jar",
+						"MD5": "8361543d509c6e9a95b1313ce48be055"
+					},
+					"required": {
+						"value": false
+					}
+				},
+				{
+					"id": "net.caffeinemc.mods:sodium:0.6.13+mc1.21.3@jar",
+					"name": "Sodium",
+					"type": "FabricMod",
+					"artifact": {
+						"size": 1297507,
+						"url": "https://remyshift.dev/servers/SaoChronicles-1.21.3/fabricmods/optionalon/Sodium%200.6.13%20Minecraft%20Mod.jar",
+						"MD5": "8f90b292168376e5ddc637cfebae58ca"
+					},
+					"required": {
+						"value": false
+					}
+				},
+				{
+					"id": "com.sonicether.soundphysics:sound_physics_remastered:1.21.3-1.4.7@jar",
+					"name": "Sound Physics Remastered",
+					"type": "FabricMod",
+					"artifact": {
+						"size": 196289,
+						"url": "https://remyshift.dev/servers/SaoChronicles-1.21.3/fabricmods/optionalon/Sound%20Physics%20Remastered%201.21.3.jar",
+						"MD5": "b5216908970cd42a11d9965c63169bc5"
+					},
+					"required": {
+						"value": false
+					}
+				},
+				{
+					"id": "dev.imb11.sounds.loaders:sounds:2.4.11+1.21.3+fabric@jar",
+					"name": "Sounds",
+					"type": "FabricMod",
+					"artifact": {
+						"size": 8768416,
+						"url": "https://remyshift.dev/servers/SaoChronicles-1.21.3/fabricmods/optionalon/Sounds%202.4.11%20Minecraft%20Mod.jar",
+						"MD5": "520a87b2b3f200a18a1d07b62c93dcf0"
+					},
+					"required": {
+						"value": false
+					}
+				},
+				{
+					"id": "xaero.minimap:xaerominimap:25.2.6@jar",
+					"name": "Xaero's Minimap",
+					"type": "FabricMod",
+					"artifact": {
+						"size": 1728994,
+						"url": "https://remyshift.dev/servers/SaoChronicles-1.21.3/fabricmods/optionalon/Xaero's%20Minimap%2025.2.6%20Fabric%201.21.3.jar",
+						"MD5": "ae3911ad4d662a9814fb68bea3c7e14a"
+					},
+					"required": {
+						"value": false
+					}
+				},
+				{
+					"id": "xaero.map:xaeroworldmap:1.39.9@jar",
+					"name": "Xaero's World Map",
+					"type": "FabricMod",
+					"artifact": {
+						"size": 965520,
+						"url": "https://remyshift.dev/servers/SaoChronicles-1.21.3/fabricmods/optionalon/Xaero's%20World%20Map%201.39.9%20Fabric%201.21.3.jar",
+						"MD5": "9bb8bdf736bff847f687f9d8deda2ac8"
+					},
+					"required": {
+						"value": false
+					}
+				}
+			]
+		}
+	]
+}
