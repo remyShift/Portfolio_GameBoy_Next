@@ -13,7 +13,7 @@
 			"description": "SaoChronicles Running Minecraft 1.21.3 (Fabric v0.16.14)",
 			"icon": null,
 			"version": "1.0.0",
-			"address": "localhost:25565",
+			"address": "play.saochronicles.fr",
 			"minecraftVersion": "1.21.3",
 			"discord": {
 				"shortId": "<FILL IN OR REMOVE DISCORD OBJECT>",
