@@ -46,12 +46,16 @@ export const metadata: Metadata = {
 	},
 	description: "Portfolio de Rémy Cassagne, développeur fullstack.",
 	icons: {
-		icon: "/assets/icons/gameboy.ico",
+		icon: "https://remyshift.dev/assets/icons/gameboy.ico",
 	},
 	openGraph: {
+		title: "Portfolio remyShift",
+		description: "Bienvenue sur le portfolio de Rémy Cassagne !",
+		url: "https://remyshift.dev",
+		siteName: "remyshift",
 		images: [
 			{
-				url: "/assets/img/thumbnail-og.png",
+				url: "https://remyshift.dev/assets/img/thumbnail-og.png",
 				width: 1200,
 				height: 630,
 				alt: "portfolio thumbnail",
@@ -59,9 +63,12 @@ export const metadata: Metadata = {
 		],
 		locale: "fr-FR",
 		type: "website",
-		siteName: "remyshift",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Portfolio remyShift",
 		description: "Bienvenue sur le portfolio de Rémy Cassagne !",
-		url: "https://remyshift.dev",
+		images: ["https://remyshift.dev/assets/img/thumbnail-og.png"],
 	},
 	keywords: ["portfolio", "dev", "developer", "développeur", "remyshift"],
 

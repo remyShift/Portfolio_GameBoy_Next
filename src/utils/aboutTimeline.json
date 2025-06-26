@@ -1,7 +1,7 @@
 {
 	"timeline": [
 		{
-			"title": "Spash",
+			"title": "Développeur - Spash",
 			"date": "01 / 2025 - 06 / 2025",
 			"description": "Mission de 6 mois : développement d'un outil de debugging pour visualiser les données renvoyées par une IA qui analyse des matchs de padel. Features développées selon les besoins de l'équipe de développeurs. Technologies utilisées : NextJS, TailwindCSS, Zustand, Docker"
 		},
