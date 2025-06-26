@@ -45,6 +45,14 @@ export const metadata: Metadata = {
 		template: "%s | Portfolio remyShift",
 	},
 	description: "Portfolio Gameboy de Rémy Cassagne",
+	robots: {
+		index: true,
+		follow: true,
+		googleBot: {
+			index: true,
+			follow: true,
+		},
+	},
 	icons: {
 		icon: "https://remyshift.dev/assets/icons/gameboy.ico",
 	},
@@ -55,7 +63,7 @@ export const metadata: Metadata = {
 		siteName: "remyshift",
 		images: [
 			{
-				url: "https://remyshift.dev/assets/img/og-image.png",
+				url: "https://remyshift.dev/assets/img/og-image.jpg",
 				width: 1200,
 				height: 630,
 				alt: "portfolio thumbnail",
@@ -68,7 +76,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: "Portfolio remyShift",
 		description: "Bienvenue sur le portfolio de Rémy Cassagne !",
-		images: ["https://remyshift.dev/assets/img/og-image.png"],
+		images: ["https://remyshift.dev/assets/img/og-image.jpg"],
 	},
 	keywords: ["portfolio", "dev", "developer", "développeur", "remyshift"],
 
