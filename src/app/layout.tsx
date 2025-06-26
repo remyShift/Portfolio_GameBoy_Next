@@ -39,21 +39,21 @@ const pressStart2P = Press_Start_2P({
 });
 
 export const metadata: Metadata = {
-	metadataBase: new URL("https://remyshift.com"),
+	metadataBase: new URL("https://remyshift.dev"),
 	title: {
 		default: "Portfolio remyShift",
 		template: "%s | Portfolio remyShift",
 	},
-	description: "Portfolio Gameboy de Rémy Cassagne",
+	description: "Portfolio de Rémy Cassagne, développeur fullstack.",
 	icons: {
 		icon: "/assets/icons/gameboy.ico",
 	},
 	openGraph: {
 		images: [
 			{
-				url: "/assets/img/thumbnail2.png",
-				width: 20,
-				height: 20,
+				url: "/assets/img/thumbnail-og.png",
+				width: 1200,
+				height: 630,
 				alt: "portfolio thumbnail",
 			},
 		],
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
 		type: "website",
 		siteName: "remyshift",
 		description: "Bienvenue sur le portfolio de Rémy Cassagne !",
-		url: "https://remyshift.com",
+		url: "https://remyshift.dev",
 	},
 	keywords: ["portfolio", "dev", "developer", "développeur", "remyshift"],
 
