@@ -55,9 +55,9 @@ export const metadata: Metadata = {
 		siteName: "remyshift",
 		images: [
 			{
-				url: "/assets/img/thumbnail2.png",
-				width: 1200,
-				height: 630,
+				url: "/assets/img/thumbnail.png",
+				width: 100,
+				height: 69,
 				alt: "portfolio thumbnail",
 			},
 		],
