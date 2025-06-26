@@ -39,7 +39,7 @@ const pressStart2P = Press_Start_2P({
 });
 
 export const metadata: Metadata = {
-	metadataBase: new URL("https://remyshift.com"),
+	metadataBase: new URL("https://remyshift.dev"),
 	title: {
 		default: "Portfolio remyShift",
 		template: "%s | Portfolio remyShift",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "Portfolio remyShift",
 		description: "Bienvenue sur le portfolio de Rémy Cassagne !",
-		url: "https://remyshift.com",
+		url: "https://remyshift.dev",
 		siteName: "remyshift",
 		images: [
 			{
