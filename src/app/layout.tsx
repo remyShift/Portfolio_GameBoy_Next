@@ -56,8 +56,8 @@ export const metadata: Metadata = {
 		images: [
 			{
 				url: "/assets/img/thumbnail.png",
-				width: 100,
-				height: 69,
+				width: 1675,
+				height: 1056,
 				alt: "portfolio thumbnail",
 			},
 		],
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: "Portfolio remyShift",
 		description: "Bienvenue sur le portfolio de Rémy Cassagne !",
-		images: ["/assets/img/thumbnail2.png"],
+		images: ["/assets/img/thumbnail.png"],
 	},
 	keywords: ["portfolio", "dev", "developer", "développeur", "remyshift"],
 
