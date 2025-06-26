@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 	},
 	description: "Portfolio Gameboy de Rémy Cassagne",
 	icons: {
-		icon: "/assets/icons/gameboy.ico",
+		icon: "https://remyshift.dev/assets/icons/gameboy.ico",
 	},
 	openGraph: {
 		title: "Portfolio remyShift",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
 		siteName: "remyshift",
 		images: [
 			{
-				url: "/assets/img/thumbnail-og.jpg",
+				url: "https://remyshift.dev/assets/img/thumbnail-og.jpg",
 				width: 1200,
 				height: 630,
 				alt: "portfolio thumbnail",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: "Portfolio remyShift",
 		description: "Bienvenue sur le portfolio de Rémy Cassagne !",
-		images: ["/assets/img/thumbnail-og.jpg"],
+		images: ["https://remyshift.dev/assets/img/thumbnail-og.jpg"],
 	},
 	keywords: ["portfolio", "dev", "developer", "développeur", "remyshift"],
 
