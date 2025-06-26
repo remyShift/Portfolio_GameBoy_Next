@@ -49,19 +49,26 @@ export const metadata: Metadata = {
 		icon: "/assets/icons/gameboy.ico",
 	},
 	openGraph: {
+		title: "Portfolio remyShift",
+		description: "Bienvenue sur le portfolio de Rémy Cassagne !",
+		url: "https://remyshift.com",
+		siteName: "remyshift",
 		images: [
 			{
 				url: "/assets/img/thumbnail2.png",
-				width: 20,
-				height: 20,
+				width: 1200,
+				height: 630,
 				alt: "portfolio thumbnail",
 			},
 		],
 		locale: "fr-FR",
 		type: "website",
-		siteName: "remyshift",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Portfolio remyShift",
 		description: "Bienvenue sur le portfolio de Rémy Cassagne !",
-		url: "https://remyshift.com",
+		images: ["/assets/img/thumbnail2.png"],
 	},
 	keywords: ["portfolio", "dev", "developer", "développeur", "remyshift"],
 
