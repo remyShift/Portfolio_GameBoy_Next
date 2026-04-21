@@ -40,3 +40,5 @@ next-env.d.ts
 /public/sao/servers/
 
 # sao
+# claude code
+.claude/
