@@ -1,22 +1,22 @@
 "use client";
 
-import GTop from "./G-Top/G-Top";
-import Pivot from "./G-Pivot/Pivot";
-import GBot from "./G-Bottom/G-Bot";
+import Top from "./top/Top";
+import Pivot from "./pivot/Pivot";
+import Bottom from "./bottom/Bottom";
 import { usePathname } from "next/navigation";
 
-export default function GlobalTemplate({ children }: { children: React.ReactNode }) {
+export default function GameBoy({ children }: { children: React.ReactNode }) {
 	const pathname = usePathname();
 
 	const overflowY = (pathname.includes("/projects") || pathname.includes("/about")) ? "overflow-y-visible" : "overflow-y-hidden md:overflow-y-visible";
 
 	return (
 		<div className={`w-full h-full ${overflowY}`}>
-			<GTop>
+			<Top>
 				{children}
-			</GTop>
+			</Top>
 			<Pivot />
-			<GBot />
+			<Bottom />
 		</div>
 	);
 }

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import BackgroundSign from "@/components/Global_Template/G-Top/G-Cream/G-Wine/G-Screen/BackgroundSign";
+import BackgroundSign from "@/components/gameboy/screen/BackgroundSign";
 import Image from 'next/image';
 
 export default function ProjectsPage() {

@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 
-export default function Light_Btn() {
+export default function LightButton() {
 	const pathname = usePathname();
 	const isInnerPage = pathname.includes("/projects") || pathname.includes("/about");
 	const className = isInnerPage ? "w-[10%] max-w-[110px] mb-4" : "w-[25%] max-w-[110px]";

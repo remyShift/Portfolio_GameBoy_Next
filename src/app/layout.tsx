@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import GlobalTemplate from "@/components/Global_Template/Global_Template";
+import GameBoy from "@/components/gameboy/GameBoy";
 import { Press_Start_2P } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import localFont from "next/font/local";
@@ -82,9 +82,9 @@ export default function RootLayout({
 	return (
 		<html lang="en" className={`${pressStart2P.variable} ${gillSans.variable} h-[100dvh] font-gillSans`}>
 			<body className="w-full h-full">
-				<GlobalTemplate>
+				<GameBoy>
 					{children}
-				</GlobalTemplate>
+				</GameBoy>
 				<SpeedInsights />
 			</body>
 		</html>

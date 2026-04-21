@@ -1,10 +1,10 @@
 "use client"
 
-import Footer from "../Footer";
+import Footer from "./Footer";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-export default function SelectSpeakers_Btn() {
+export default function SelectStart() {
 	const pathname = usePathname();
 	const isInnerPage = pathname.includes("/projects") || pathname.includes("/about");
 

@@ -1,4 +1,4 @@
-export default function MiddlePiv() {
+export default function MiddlePivot() {
 	return (
 		<div className="bg-cream w-[50%] h-[75%] sm:h-[70%] md:h-[75%] lg:h-[80%] shadow-shadowPivInset"></div>
 	);
