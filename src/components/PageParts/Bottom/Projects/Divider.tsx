@@ -61,14 +61,14 @@ export default function Divider({ children, onClick }: DividerProps) {
 	return (
 		<div className="flex w-[80%] items-center rounded-full my-4 md:my-6 lg:my-10">
 			<div className="flex-1 border-b border-wine"></div>
-			<h1
+			<h2
 				ref={textRef}
 				className={`text-black cursor-default text-xl md:text-2xl lg:text-3xl font-gillSans font-bold ${onClick ? 'rounded-full w-[10%] py-2 text-center flex justify-center items-center hover:bg-wine hover:text-white cursor-pointer border-2 border-wine' : ''}`}
 				onClick={onClick}
 				onMouseEnter={handleMouseEnter}
 			>
 				{children}
-			</h1>
+			</h2>
 			<div className="flex-1 border-b border-wine"></div>
 		</div>
 	);

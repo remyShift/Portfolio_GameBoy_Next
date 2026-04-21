@@ -18,8 +18,8 @@ export default function SelectStart() {
 
 	return (
 		<div className="w-full h-full flex flex-col items-center justify-end">
-			<Image src="/assets/SVG/Speakers.svg" alt="Speakers" className={speakersClass} width={120} height={120} />
-			<Image src="/assets/SVG/SSBtn.svg" alt="Select" className={ssBtnClass} width={250} height={250} />
+			<Image src="/assets/SVG/Speakers.svg" alt="" aria-hidden="true" className={speakersClass} width={120} height={120} />
+			<Image src="/assets/SVG/SSBtn.svg" alt="" aria-hidden="true" className={ssBtnClass} width={250} height={250} />
 			<Footer />
 		</div>
 	);
