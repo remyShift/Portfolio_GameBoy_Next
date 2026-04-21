@@ -57,12 +57,14 @@ export async function POST(request: Request) {
 			from: env.FROM_EMAIL,
 			to: env.TO_EMAIL,
 			subject: 'Portfolio Contact',
-			react: EmailTemplate({
-				firstName,
-				lastName,
-				email,
-				message: message.split('\n'),
-			}),
+			react: (
+				<EmailTemplate
+					firstName={firstName}
+					lastName={lastName}
+					email={email}
+					message={message.split('\n')}
+				/>
+			),
 		});
 
 		if (error) {

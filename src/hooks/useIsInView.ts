@@ -8,7 +8,7 @@ type Options = {
 export function useIsInView<T extends HTMLElement>({
 	threshold = 0.1,
 	once = true,
-}: Options = {}): { ref: RefObject<T>; isInView: boolean } {
+}: Options = {}): { ref: RefObject<T | null>; isInView: boolean } {
 	const ref = useRef<T>(null);
 	const [isInView, setIsInView] = useState(false);
 

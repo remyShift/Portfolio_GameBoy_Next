@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import ProjectsBot from "../../PageParts/Bottom/Projects/ProjectsBot";
 import AboutTimeline from "../../PageParts/Bottom/About/AboutTimeline";
 
-const BOTTOM_BY_SECTION: Record<string, () => JSX.Element> = {
+const BOTTOM_BY_SECTION: Record<string, React.ComponentType> = {
 	"/projects": ProjectsBot,
 	"/about": AboutTimeline,
 };
