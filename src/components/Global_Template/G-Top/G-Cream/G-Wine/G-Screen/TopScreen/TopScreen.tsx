@@ -1,13 +1,12 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { generateBreadcrumbLinks } from "@/utils/Global/breadcrumbLinks";
+import { useBreadcrumbLinks } from "@/utils/Global/breadcrumbLinks";
 import BatteryStatus from "./batteryStatus";
 
 export default function TopScreen() {
 	const pathname = usePathname();
-
-	const breadcrumbLinks = generateBreadcrumbLinks(pathname);
+	const breadcrumbLinks = useBreadcrumbLinks(pathname);
 
 	return (
 		<header className="flex justify-between mt-1 sm:mt-2 relative z-1">
@@ -22,6 +21,6 @@ export default function TopScreen() {
 				))}
 			</div>
 			<BatteryStatus />
-		</header >
+		</header>
 	);
 }

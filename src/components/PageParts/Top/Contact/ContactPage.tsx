@@ -21,15 +21,26 @@ export default function ContactPage() {
 		setMessage("");
 	};
 
-	const onSubmitHandler = async () => {
+	const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
 		setTextSendBtn("En cours...");
-		await fetch('/contact/api/send', {
-			method: 'POST',
-			body: JSON.stringify({ firstName, lastName, email, message }),
-		});
-		setTextSendBtn("Envoyer");
-		clearForm();
-		alert("Merci pour votre message !");
+		try {
+			const response = await fetch('/contact/api/send', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ firstName, lastName, email, message }),
+			});
+			if (!response.ok) {
+				alert("Une erreur est survenue, merci de réessayer.");
+				return;
+			}
+			clearForm();
+			alert("Merci pour votre message !");
+		} catch {
+			alert("Une erreur est survenue, merci de réessayer.");
+		} finally {
+			setTextSendBtn("Envoyer");
+		}
 	};
 
 	return (
