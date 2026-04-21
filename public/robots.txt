@@ -7,4 +7,4 @@ Allow: /
 User-agent: Twitterbot
 Allow: /
 
-Sitemap: https://remyshift.dev/sitemap.xml 
+Sitemap: https://remy-shift.dev/sitemap.xml 
