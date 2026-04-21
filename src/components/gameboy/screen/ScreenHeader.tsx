@@ -2,9 +2,9 @@
 
 import { usePathname } from "next/navigation";
 import { getBreadcrumbLinks } from "@/utils/Global/breadcrumbLinks";
-import BatteryStatus from "./batteryStatus";
+import BatteryStatus from "./BatteryStatus";
 
-export default function TopScreen() {
+export default function ScreenHeader() {
 	const pathname = usePathname();
 	const breadcrumbLinks = getBreadcrumbLinks(pathname);
 

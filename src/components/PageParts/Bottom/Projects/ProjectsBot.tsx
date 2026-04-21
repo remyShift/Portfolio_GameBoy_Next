@@ -1,6 +1,6 @@
-import Light_Btn from "../../../Global_Template/G-Bottom/Buttons/Light_Btn";
-import SelectSpeakers_Btn from "../../../Global_Template/G-Bottom/Buttons/SelectSpeakers_Btn";
-import Lights from "../../../Global_Template/G-Bottom/Buttons/Lights";
+import LightButton from "@/components/gameboy/bottom/LightButton";
+import SelectStart from "@/components/gameboy/bottom/SelectStart";
+import Lights from "@/components/gameboy/bottom/Lights";
 import StacksList from "./Stacks/StacksList";
 import Divider from "./Divider";
 import Spacer from "../Spacer";
@@ -11,7 +11,7 @@ export default function ProjectsBot() {
 		<div className="w-full h-full flex flex-row pt-2">
 			<Spacer />
 			<div className="w-full flex flex-col justify-start items-center">
-				<Light_Btn />
+				<LightButton />
 
 				<Divider>
 					Stacks
@@ -29,7 +29,7 @@ export default function ProjectsBot() {
 					<p className="bounce">⬆︎</p>
 				</Divider>
 
-				<SelectSpeakers_Btn />
+				<SelectStart />
 			</div>
 			<Lights />
 		</div>
