@@ -1,12 +1,12 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { getBreadcrumbLinks } from "@/utils/Global/breadcrumbLinks";
+import { buildBreadcrumb } from "@/lib/navigation";
 import BatteryStatus from "./BatteryStatus";
 
 export default function ScreenHeader() {
 	const pathname = usePathname();
-	const breadcrumbLinks = getBreadcrumbLinks(pathname);
+	const breadcrumbLinks = buildBreadcrumb(pathname);
 
 	return (
 		<header className="flex justify-between mt-1 sm:mt-2 relative z-1">
