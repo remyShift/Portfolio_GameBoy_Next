@@ -3,6 +3,7 @@ import "./globals.css";
 import GameBoy from "@/components/gameboy/GameBoy";
 import { Press_Start_2P } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Toaster } from "sonner";
 import localFont from "next/font/local";
 
 const gillSans = localFont({
@@ -85,6 +86,7 @@ export default function RootLayout({
 				<GameBoy>
 					{children}
 				</GameBoy>
+				<Toaster position="top-center" richColors />
 				<SpeedInsights />
 			</body>
 		</html>

@@ -4,13 +4,9 @@ import Link from "next/link";
 import Image from 'next/image';
 import BackgroundSign from "@/components/gameboy/screen/BackgroundSign";
 import { useForm } from "react-hook-form";
-
-type ContactFormValues = {
-	firstName: string;
-	lastName: string;
-	email: string;
-	message: string;
-};
+import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "sonner";
+import { contactFormSchema, type ContactFormValues } from "@/schemas/contactForm";
 
 const inputClasses = "rounded w-full h-1/2 text-xs sm:text-sm md:text-base lg:text-lg sm:h-auto bg-gray-300 border-[0.09rem] px-1 md:py-1 font-gillSans border-gray-400 focus:border-gray-800 focus:outline-none";
 const labelClasses = "font-pressStart2P text-[0.6rem] sm:text-xs md:text-sm lg:text-base";
@@ -21,7 +17,10 @@ export default function ContactPage() {
 		handleSubmit,
 		reset,
 		formState: { isValid, isSubmitting },
-	} = useForm<ContactFormValues>({ mode: "onChange" });
+	} = useForm<ContactFormValues>({
+		mode: "onChange",
+		resolver: zodResolver(contactFormSchema),
+	});
 
 	const onSubmit = async (values: ContactFormValues) => {
 		try {
@@ -31,13 +30,13 @@ export default function ContactPage() {
 				body: JSON.stringify(values),
 			});
 			if (!response.ok) {
-				alert("Une erreur est survenue, merci de réessayer.");
+				toast.error("Une erreur est survenue, merci de réessayer.");
 				return;
 			}
 			reset();
-			alert("Merci pour votre message !");
+			toast.success("Merci pour votre message !");
 		} catch {
-			alert("Une erreur est survenue, merci de réessayer.");
+			toast.error("Une erreur est survenue, merci de réessayer.");
 		}
 	};
 
@@ -80,7 +79,7 @@ export default function ContactPage() {
 							id="lastName"
 							placeholder="Doe"
 							className={inputClasses}
-							{...register("lastName", { required: true, maxLength: 100 })}
+							{...register("lastName")}
 						/>
 					</div>
 
@@ -91,7 +90,7 @@ export default function ContactPage() {
 							id="firstName"
 							placeholder="John"
 							className={inputClasses}
-							{...register("firstName", { required: true, maxLength: 100 })}
+							{...register("firstName")}
 						/>
 					</div>
 
@@ -102,11 +101,7 @@ export default function ContactPage() {
 							id="email"
 							placeholder="john.doe@example.com"
 							className={inputClasses}
-							{...register("email", {
-								required: true,
-								maxLength: 254,
-								pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-							})}
+							{...register("email")}
 						/>
 					</div>
 
@@ -116,7 +111,7 @@ export default function ContactPage() {
 							id="message"
 							placeholder="Hello, I'm interested in your work..."
 							className={`${inputClasses} md:h-40 resize-none`}
-							{...register("message", { required: true, maxLength: 5000 })}
+							{...register("message")}
 						/>
 					</div>
 
