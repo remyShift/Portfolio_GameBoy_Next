@@ -1,7 +1,6 @@
 import { EmailTemplate } from '@/components/emails/email-template';
+import { contactFormSchema } from '@/schemas/contactForm';
 import { Resend } from 'resend';
-
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function getResend() {
 	const apiKey = process.env.RESEND_API_KEY;
@@ -12,31 +11,22 @@ function getResend() {
 }
 
 export async function POST(request: Request) {
-	let body: unknown;
+	let rawBody: unknown;
 	try {
-		body = await request.json();
+		rawBody = await request.json();
 	} catch {
 		return Response.json({ error: 'Invalid JSON' }, { status: 400 });
 	}
 
-	if (!body || typeof body !== 'object') {
-		return Response.json({ error: 'Invalid payload' }, { status: 400 });
+	const parsed = contactFormSchema.safeParse(rawBody);
+	if (!parsed.success) {
+		return Response.json(
+			{ error: 'Validation failed', issues: parsed.error.flatten() },
+			{ status: 400 }
+		);
 	}
 
-	const { firstName, lastName, email, message } = body as Record<string, unknown>;
-
-	if (
-		typeof firstName !== 'string' || !firstName.trim() ||
-		typeof lastName !== 'string' || !lastName.trim() ||
-		typeof email !== 'string' || !EMAIL_REGEX.test(email) ||
-		typeof message !== 'string' || !message.trim()
-	) {
-		return Response.json({ error: 'Missing or invalid fields' }, { status: 400 });
-	}
-
-	if (firstName.length > 100 || lastName.length > 100 || email.length > 254 || message.length > 5000) {
-		return Response.json({ error: 'Field too long' }, { status: 400 });
-	}
+	const { firstName, lastName, email, message } = parsed.data;
 
 	try {
 		const resend = getResend();
