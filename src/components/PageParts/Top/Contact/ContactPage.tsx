@@ -72,12 +72,25 @@ export default function ContactPage() {
 
 			<div className="hidden md:flex flex-col justify-center w-1/3 h-full relative z-1">
 				<form onSubmit={handleSubmit(onSubmit)} className="w-[95%] sm:w-[90%] h-full flex flex-col justify-end gap-1 md:gap-4">
+					<div aria-hidden="true" className="absolute left-[-9999px] top-[-9999px] w-0 h-0 overflow-hidden">
+						<label htmlFor="company">Ne pas remplir</label>
+						<input
+							type="text"
+							id="company"
+							tabIndex={-1}
+							autoComplete="off"
+							{...register("company")}
+						/>
+					</div>
 					<div className="w-full flex flex-col justify-center">
 						<label htmlFor="lastName" className={labelClasses}>Nom :</label>
 						<input
 							type="text"
 							id="lastName"
 							placeholder="Doe"
+							autoComplete="family-name"
+							required
+							maxLength={100}
 							className={inputClasses}
 							{...register("lastName")}
 						/>
@@ -89,6 +102,9 @@ export default function ContactPage() {
 							type="text"
 							id="firstName"
 							placeholder="John"
+							autoComplete="given-name"
+							required
+							maxLength={100}
 							className={inputClasses}
 							{...register("firstName")}
 						/>
@@ -100,6 +116,9 @@ export default function ContactPage() {
 							type="email"
 							id="email"
 							placeholder="john.doe@example.com"
+							autoComplete="email"
+							required
+							maxLength={254}
 							className={inputClasses}
 							{...register("email")}
 						/>
@@ -110,6 +129,8 @@ export default function ContactPage() {
 						<textarea
 							id="message"
 							placeholder="Hello, I'm interested in your work..."
+							required
+							maxLength={5000}
 							className={`${inputClasses} md:h-40 resize-none`}
 							{...register("message")}
 						/>
