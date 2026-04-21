@@ -25,6 +25,15 @@ describe("buildBreadcrumb", () => {
 		expect(links[1]).toHaveAttribute("href", "/about");
 	});
 
+	it("renders a nested known route with full path check", () => {
+		renderBreadcrumb("/projects/fun-stats");
+		const links = screen.getAllByRole("link");
+		expect(links).toHaveLength(3);
+		expect(links[1]).toHaveTextContent("PROJECTS");
+		expect(links[2]).toHaveTextContent("FUN-STATS");
+		expect(links[2]).toHaveAttribute("href", "/projects/fun-stats");
+	});
+
 	it("marks unknown routes as 404", () => {
 		renderBreadcrumb("/doesnotexist");
 		const links = screen.getAllByRole("link");

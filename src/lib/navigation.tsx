@@ -10,7 +10,7 @@ export function buildBreadcrumb(path: string) {
 	return segments.map((segment, index) => {
 		const isHome = segment === HOME_LABEL;
 		const href = isHome ? "/" : "/" + segments.slice(1, index + 1).join("/").toLowerCase();
-		const isKnown = (VALID_PATHS as readonly string[]).includes("/" + segment.toLowerCase());
+		const isKnown = (VALID_PATHS as readonly string[]).includes(href);
 		const label = isHome ? HOME_LABEL : isKnown ? segment : "404";
 
 		return (
