@@ -1,12 +1,9 @@
 "use client"
 
-import { useValidPaths } from "@/context/store";
-import { usePathname } from "next/navigation";
+import { useIsValidPath } from "@/hooks/useIsValidPath";
 
 export default function AvailableInfo() {
-	const { validPaths } = useValidPaths();
-	const pathname = usePathname();
-	const isAvailable = validPaths.includes(pathname);
+	const isAvailable = useIsValidPath();
 
 	return (
 		<div className="flex justify-center mb-1">
