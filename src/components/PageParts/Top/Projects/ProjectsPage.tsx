@@ -10,7 +10,7 @@ export default function ProjectsPage() {
 				<ul className="flex flex-col gap-4 sm:gap-6 md:gap-10 lg:gap-14 ml-2">
 					<li>
 						<Link href="/projects/fun-stats" className="flex items-center gap-3 font-pressStart2P text-[0.6rem] sm:text-sm md:text-base lg:text-lg hover:underline">
-							<Image src="/assets/icons/StatGraph.webp" alt="Fun Stats icon" width={32} height={32} className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
+							<Image src="/assets/icons/StatGraph.webp" alt="" aria-hidden="true" width={32} height={32} className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
 							Fun Stats
 						</Link>
 					</li>
@@ -23,7 +23,7 @@ export default function ProjectsPage() {
 			</div>
 
 			<div className="flex flex-col justify-center items-center w-1/3 h-full gap-1">
-				<img src="/assets/gif/boyWorking.gif" alt="Boy working gif" className="w-auto h-auto mt-12 mr-6" />
+				<Image src="/assets/gif/boyWorking.gif" alt="" aria-hidden="true" width={200} height={200} unoptimized className="w-auto h-auto mt-12 mr-6" />
 			</div>
 		</div>
 	);
