@@ -1,13 +1,10 @@
 "use client"
 
-import { usePathname } from "next/navigation";
-import { useValidPaths } from "@/context/store";
 import Image from "next/image";
-export default function Lights() {
+import { useIsValidPath } from "@/hooks/useIsValidPath";
 
-	const { validPaths } = useValidPaths();
-	const pathname = usePathname();
-	const lights: string = validPaths.includes(pathname) ? "GreenLights" : "RedLights";
+export default function Lights() {
+	const lights = useIsValidPath() ? "GreenLights" : "RedLights";
 
 	return (
 		<div className="w-[5%] h-full flex justify-end overflow-x-hidden">
