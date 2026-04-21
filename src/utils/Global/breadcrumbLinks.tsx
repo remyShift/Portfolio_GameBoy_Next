@@ -1,7 +1,7 @@
 import { useValidPaths } from "@/context/store";
 import Link from "next/link";
 
-export function generateBreadcrumbLinks(path: string) {
+export function useBreadcrumbLinks(path: string) {
 	const { validPaths } = useValidPaths();
 	const basePath = path === "/" ? "@ACCUEIL" : `@ACCUEIL/${path.substring(1).toUpperCase().trim()}`;
 	const parts = basePath.split('/');
@@ -12,9 +12,9 @@ export function generateBreadcrumbLinks(path: string) {
 		const label = isWelcomePage ? "@ACCUEIL" : validPaths.includes('/' + part.toLowerCase()) ? part : "404";
 
 		return (
-			<Link href={linkPath} className="text-greyTextInfo font-gillSans font-bold text-[0.6rem] sm:text-xs md:text-base lg:text-xl hover:text-wine hover:underline" >
+			<Link key={`${linkPath}-${index}`} href={linkPath} className="text-greyTextInfo font-gillSans font-bold text-[0.6rem] sm:text-xs md:text-base lg:text-xl hover:text-wine hover:underline">
 				{label}
 			</Link>
-		)
+		);
 	});
-};
+}
