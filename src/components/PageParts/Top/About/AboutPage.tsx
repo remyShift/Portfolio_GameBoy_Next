@@ -1,5 +1,6 @@
 import BackgroundSign from "@/components/gameboy/screen/BackgroundSign";
 import Image from "next/image";
+import ArrowIcon from "pixelarticons/svg/arrow-right.svg";
 
 const aboutText = "Passionné d’informatique et curieux, je recherche constamment de nouveaux défis. Ma créativité, mon adaptabilité et mes différentes expériences enrichissent les projets auxquels je contribue.";
 const aboutTitle = "Apprenez à me connaître ...";
@@ -19,7 +20,7 @@ export default function AboutPage() {
 			<div className="flex flex-col justify-center items-center w-1/3 h-full sm:mt-6 md:mt-0">
 				<p className="font-pressStart2P text-[0.6rem] sm:text-xs md:text-base lg:text-lg">Rémy</p>
 				<p className="font-pressStart2P text-[0.6rem] sm:text-xs md:text-base lg:text-lg">24ans</p>
-				<Image src="/assets/icons/pixel/arrow.svg" alt="" aria-hidden="true" width={24} height={16} className="w-3 h-2 sm:w-4 sm:h-3 lg:w-6 lg:h-5 mb-1" />
+				<ArrowIcon aria-hidden="true" className="w-3 h-2 sm:w-4 sm:h-3 lg:w-6 lg:h-5 mb-1 fill-current stroke-current [stroke-width:0.75]" />
 				<Image src="/assets/img/pictureOfMe.webp" alt="Photo de Rémy" width={300} height={300} className="object-contain w-[85%] sm:w-[90%] xl:w-[75%] border-2 border-wine" />
 			</div>
 		</div>
