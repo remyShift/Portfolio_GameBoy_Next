@@ -1,6 +1,7 @@
 import Link from "next/link";
 import BackgroundSign from "@/components/gameboy/screen/BackgroundSign";
 import Image from 'next/image';
+import { LuChartColumnBig } from "react-icons/lu";
 
 export default function ProjectsPage() {
 	const projectsTitle = "Découvrez mes projets: des idées qui prennent vie !";
@@ -10,7 +11,7 @@ export default function ProjectsPage() {
 				<ul className="flex flex-col gap-4 sm:gap-6 md:gap-10 lg:gap-14 ml-2">
 					<li>
 						<Link href="/projects/fun-stats" className="flex items-center gap-3 font-pressStart2P text-[0.6rem] sm:text-sm md:text-base lg:text-lg hover:underline">
-							<Image src="/assets/icons/StatGraph.webp" alt="" aria-hidden="true" width={32} height={32} className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
+							<LuChartColumnBig aria-hidden="true" className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
 							Fun Stats
 						</Link>
 					</li>
