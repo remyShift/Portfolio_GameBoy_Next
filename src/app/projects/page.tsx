@@ -3,7 +3,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
 	title: "Projets",
-	description: "Portfolio page Projets",
+	description: "Sélection de projets web réalisés par Rémy Cassagne : Kicksfolio, DrumNLearn, et plus. Stack React, Next.js, Node.js, TypeScript.",
+	alternates: { canonical: "/projects" },
 };
 
 export default function Projects() {

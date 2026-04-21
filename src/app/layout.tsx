@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import GameBoy from "@/components/gameboy/GameBoy";
 import { Press_Start_2P } from "next/font/google";
@@ -72,7 +72,11 @@ export const metadata: Metadata = {
 		images: ["/assets/img/thumbnail-og.png"],
 	},
 	keywords: ["portfolio", "dev", "developer", "développeur", "remyshift"],
+	alternates: { canonical: "/" },
+};
 
+export const viewport: Viewport = {
+	themeColor: "#5c1a27",
 };
 
 export default function RootLayout({
@@ -83,6 +87,12 @@ export default function RootLayout({
 	return (
 		<html lang="fr" className={`${pressStart2P.variable} ${gillSans.variable} h-[100dvh] font-gillSans`}>
 			<body className="w-full h-full">
+				<a
+					href="#main"
+					className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-black focus:text-white focus:px-3 focus:py-2 focus:rounded"
+				>
+					Aller au contenu principal
+				</a>
 				<GameBoy>
 					{children}
 				</GameBoy>
