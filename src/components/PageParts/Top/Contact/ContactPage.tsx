@@ -67,7 +67,7 @@ export default function ContactPage() {
 			</nav>
 
 			<div className="flex flex-col justify-center items-center w-1/3 h-full">
-				<h1 className="font-pressStart2P text-pretty text-center absolute w-[85%] top-7 md:top-16 lg:top-18 xl:top-18 text-xs sm:text-sm md:text-2xl">Intéressé ? Curieux ? N'attendez plus, Contactez moi !</h1>
+				<h1 className="font-pressStart2P text-pretty text-center absolute w-[85%] top-7 md:top-16 lg:top-18 xl:top-18 text-xs sm:text-sm md:text-2xl">Intéressé ? Curieux ? N&apos;attendez plus, Contactez moi !</h1>
 				<BackgroundSign />
 			</div>
 
