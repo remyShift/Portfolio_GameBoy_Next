@@ -1,0 +1,60 @@
+{
+	"nav": {
+		"about": "À propos",
+		"projects": "Projets",
+		"contact": "Contact"
+	},
+	"welcome": {
+		"srOnly": "Rémy Cassagne — développeur fullstack JavaScript/TypeScript",
+		"name": "Rémy"
+	},
+	"available": "► DISPONIBLE",
+	"footer": {
+		"copyright": "©Copyright 2024 - Rémy Cassagne. Tous droits réservés.",
+		"made": "Fait avec ❤️ par Rémy Cassagne"
+	},
+	"role": "Développeur Fullstack",
+	"skipLink": "Aller au contenu principal",
+	"breadcrumb": {
+		"home": "@ACCUEIL"
+	},
+	"error": {
+		"title": "Oups, une erreur",
+		"description": "Quelque chose a cassé. Réessaie ou reviens sur l'accueil.",
+		"retry": "Réessayer"
+	},
+	"notFound": "404 - Page non trouvée",
+	"about": {
+		"title": "Apprenez à me connaître ...",
+		"text": "Passionné d'informatique et curieux, je recherche constamment de nouveaux défis. Ma créativité, mon adaptabilité et mes différentes expériences enrichissent les projets auxquels je contribue."
+	},
+	"contact": {
+		"title": "Intéressé ? Curieux ? N'attendez plus, Contactez moi !",
+		"lastName": "Nom :",
+		"firstName": "Prénom :",
+		"email": "Mail :",
+		"message": "Message :",
+		"submit": "Envoyer",
+		"submitting": "En cours...",
+		"success": "Merci pour votre message !",
+		"error": "Une erreur est survenue, merci de réessayer."
+	},
+	"metadata": {
+		"home": {
+			"description": "Portfolio de Rémy Cassagne, développeur fullstack JavaScript/TypeScript. Design rétro inspiré de la GameBoy. Découvrez mes projets, mon parcours et contactez-moi."
+		},
+		"about": {
+			"title": "À propos",
+			"description": "Parcours, stack technique et expérience de Rémy Cassagne, développeur fullstack JavaScript/TypeScript (React, Next.js, Node.js). Découvrez mes compétences et mes projets."
+		},
+		"projects": {
+			"title": "Projets",
+			"description": "Sélection de projets web réalisés par Rémy Cassagne : Kicksfolio, DrumNLearn, et plus. Stack React, Next.js, Node.js, TypeScript."
+		},
+		"contact": {
+			"title": "Contact",
+			"description": "Contactez Rémy Cassagne pour discuter d'un projet, d'une mission freelance ou d'une opportunité. Formulaire direct, Github, LinkedIn et email."
+		},
+		"ogDescription": "Bienvenue sur le portfolio de Rémy Cassagne !"
+	}
+}

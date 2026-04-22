@@ -1,12 +1,15 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { buildBreadcrumb } from "@/lib/navigation";
 import BatteryStatus from "./BatteryStatus";
+import LocaleSwitcher from "./LocaleSwitcher";
 
 export default function ScreenHeader() {
 	const pathname = usePathname();
-	const breadcrumbLinks = buildBreadcrumb(pathname);
+	const t = useTranslations("breadcrumb");
+	const breadcrumbLinks = buildBreadcrumb(pathname, t("home"));
 
 	return (
 		<header className="flex justify-between mt-1 sm:mt-2 relative z-1">
@@ -20,7 +23,10 @@ export default function ScreenHeader() {
 					</div>
 				))}
 			</div>
-			<BatteryStatus />
+			<div className="flex items-center gap-2 pr-1">
+				<LocaleSwitcher />
+				<BatteryStatus />
+			</div>
 		</header>
 	);
 }

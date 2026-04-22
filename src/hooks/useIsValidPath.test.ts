@@ -2,11 +2,11 @@ import { describe, it, expect, vi } from "vitest";
 import { renderHook } from "@testing-library/react";
 import { useIsValidPath } from "./useIsValidPath";
 
-vi.mock("next/navigation", () => ({
+vi.mock("@/i18n/navigation", () => ({
   usePathname: vi.fn(),
 }));
 
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/i18n/navigation";
 
 describe("useIsValidPath", () => {
   it("returns true for a known path", () => {

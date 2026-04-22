@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/i18n/navigation";
 import { VALID_PATHS } from "@/constants/validPaths";
 
 export function useIsValidPath(): boolean {

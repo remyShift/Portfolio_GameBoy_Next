@@ -1,19 +1,19 @@
 import BackgroundSign from "@/components/gameboy/screen/BackgroundSign";
 import Image from "next/image";
 import { LuArrowRight } from "react-icons/lu";
+import { getTranslations } from "next-intl/server";
 
-const aboutText = "Passionné d’informatique et curieux, je recherche constamment de nouveaux défis. Ma créativité, mon adaptabilité et mes différentes expériences enrichissent les projets auxquels je contribue.";
-const aboutTitle = "Apprenez à me connaître ...";
+export default async function AboutPage() {
+	const t = await getTranslations("about");
 
-export default function AboutPage() {
 	return (
 		<div className="flex flex-row w-full h-full">
 			<div className="flex justify-center items-center w-1/3 h-full">
-				<p className="font-pressStart2P text-pretty text-[0.45rem] sm:text-xs md:text-base lg:text-lg ml-4 xl:ml-8 absolute w-[55%] xl:w-1/2 left-2">{aboutText}</p>
+				<p className="font-pressStart2P text-pretty text-[0.45rem] sm:text-xs md:text-base lg:text-lg ml-4 xl:ml-8 absolute w-[55%] xl:w-1/2 left-2">{t("text")}</p>
 			</div>
 
 			<div className="flex flex-col justify-center items-center w-1/3 h-full">
-				<h1 className="font-pressStart2P text-pretty text-center absolute w-[85%] top-10 md:top-16 lg:top-18 xl:top-18 text-xs sm:text-base md:text-2xl lg:text-3xl">{aboutTitle}</h1>
+				<h1 className="font-pressStart2P text-pretty text-center absolute w-[85%] top-10 md:top-16 lg:top-18 xl:top-18 text-xs sm:text-base md:text-2xl lg:text-3xl">{t("title")}</h1>
 				<BackgroundSign />
 			</div>
 

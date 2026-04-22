@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 import { LuMail } from "react-icons/lu";
@@ -8,11 +8,14 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { contactFormSchema, type ContactFormValues } from "@/schemas/contactForm";
+import { useTranslations } from "next-intl";
 
 const inputClasses = "rounded w-full h-1/2 text-xs sm:text-sm md:text-base lg:text-lg sm:h-auto bg-gray-300 border-[0.09rem] px-1 md:py-1 font-gillSans border-gray-400 focus:border-gray-800 focus:outline-hidden";
 const labelClasses = "font-pressStart2P text-[0.6rem] sm:text-xs md:text-sm lg:text-base";
 
 export default function ContactPage() {
+	const t = useTranslations("contact");
+
 	const {
 		register,
 		handleSubmit,
@@ -25,19 +28,19 @@ export default function ContactPage() {
 
 	const onSubmit = async (values: ContactFormValues) => {
 		try {
-			const response = await fetch('/contact/api/send', {
+			const response = await fetch('/api/contact/send', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(values),
 			});
 			if (!response.ok) {
-				toast.error("Une erreur est survenue, merci de réessayer.");
+				toast.error(t("error"));
 				return;
 			}
 			reset();
-			toast.success("Merci pour votre message !");
+			toast.success(t("success"));
 		} catch {
-			toast.error("Une erreur est survenue, merci de réessayer.");
+			toast.error(t("error"));
 		}
 	};
 
@@ -67,7 +70,7 @@ export default function ContactPage() {
 			</nav>
 
 			<div className="flex flex-col justify-center items-center w-1/3 h-full">
-				<h1 className="font-pressStart2P text-pretty text-center absolute w-[85%] top-7 md:top-16 lg:top-18 xl:top-18 text-xs sm:text-sm md:text-2xl">Intéressé ? Curieux ? N&apos;attendez plus, Contactez moi !</h1>
+				<h1 className="font-pressStart2P text-pretty text-center absolute w-[85%] top-7 md:top-16 lg:top-18 xl:top-18 text-xs sm:text-sm md:text-2xl">{t("title")}</h1>
 				<BackgroundSign />
 			</div>
 
@@ -84,7 +87,7 @@ export default function ContactPage() {
 						/>
 					</div>
 					<div className="w-full flex flex-col justify-center">
-						<label htmlFor="lastName" className={labelClasses}>Nom :</label>
+						<label htmlFor="lastName" className={labelClasses}>{t("lastName")}</label>
 						<input
 							type="text"
 							id="lastName"
@@ -98,7 +101,7 @@ export default function ContactPage() {
 					</div>
 
 					<div className="w-full flex flex-col justify-center">
-						<label htmlFor="firstName" className={labelClasses}>Prénom :</label>
+						<label htmlFor="firstName" className={labelClasses}>{t("firstName")}</label>
 						<input
 							type="text"
 							id="firstName"
@@ -112,7 +115,7 @@ export default function ContactPage() {
 					</div>
 
 					<div className="w-full flex flex-col justify-center">
-						<label htmlFor="email" className={labelClasses}>Mail :</label>
+						<label htmlFor="email" className={labelClasses}>{t("email")}</label>
 						<input
 							type="email"
 							id="email"
@@ -126,7 +129,7 @@ export default function ContactPage() {
 					</div>
 
 					<div className="w-full flex flex-col justify-center">
-						<label htmlFor="message" className={labelClasses}>Message :</label>
+						<label htmlFor="message" className={labelClasses}>{t("message")}</label>
 						<textarea
 							id="message"
 							placeholder="Hello, I'm interested in your work..."
@@ -143,7 +146,7 @@ export default function ContactPage() {
 							disabled={!isValid || isSubmitting}
 							className={`w-[70%] h-auto p-1 outline-hidden focus:outline-black rounded text-cream text-center text-wrap text-[0.5rem] sm:text-[0.7rem] md:text-xs lg:text-base font-pressStart2P ${isValid && !isSubmitting ? "bg-wine hover:bg-wine/80 transition ease duration-300" : "bg-greyTextInfo/50"}`}
 						>
-							{isSubmitting ? "En cours..." : "Envoyer"}
+							{isSubmitting ? t("submitting") : t("submit")}
 						</button>
 					</div>
 				</form>
