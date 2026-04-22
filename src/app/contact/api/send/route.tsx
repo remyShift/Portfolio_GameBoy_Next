@@ -51,20 +51,22 @@ export async function POST(request: Request) {
 		return Response.json({ error: 'Server misconfigured' }, { status: 500 });
 	}
 
+	const emailContent = (
+		<EmailTemplate
+			firstName={firstName}
+			lastName={lastName}
+			email={email}
+			message={message.split('\n')}
+		/>
+	);
+
 	try {
 		const resend = new Resend(env.RESEND_API_KEY);
 		const { data, error } = await resend.emails.send({
 			from: env.FROM_EMAIL,
 			to: env.TO_EMAIL,
 			subject: 'Portfolio Contact',
-			react: (
-				<EmailTemplate
-					firstName={firstName}
-					lastName={lastName}
-					email={email}
-					message={message.split('\n')}
-				/>
-			),
+			react: emailContent,
 		});
 
 		if (error) {
