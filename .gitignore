@@ -40,8 +40,8 @@ next-env.d.ts
 /public/sao/servers/
 
 # sao
-# claude code
-.claude/
+# claude code — track skills, ignore local settings
+.claude/settings.local.json
 
 # audit artifacts
 /.playwright-mcp/
