@@ -85,7 +85,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="fr" className={`${pressStart2P.variable} ${gillSans.variable} h-[100dvh] font-gillSans`}>
+		<html lang="fr" className={`${pressStart2P.variable} ${gillSans.variable} h-dvh font-gillSans`}>
 			<body className="w-full h-full">
 				<a
 					href="#main"

@@ -1,6 +1,6 @@
 export default function TimelineIcon() {
 	return (
-		<div className={`-ml-[13px] flex h-[25px] w-[25px] items-center justify-center rounded-full bg-wine text-info-700`}>
+		<div className={`ml-[-13px] flex h-[25px] w-[25px] items-center justify-center rounded-full bg-wine text-info-700`}>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 24 24"

@@ -9,7 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { contactFormSchema, type ContactFormValues } from "@/schemas/contactForm";
 
-const inputClasses = "rounded w-full h-1/2 text-xs sm:text-sm md:text-base lg:text-lg sm:h-auto bg-gray-300 border-[0.09rem] px-1 md:py-1 font-gillSans border-gray-400 focus:border-gray-800 focus:outline-none";
+const inputClasses = "rounded w-full h-1/2 text-xs sm:text-sm md:text-base lg:text-lg sm:h-auto bg-gray-300 border-[0.09rem] px-1 md:py-1 font-gillSans border-gray-400 focus:border-gray-800 focus:outline-hidden";
 const labelClasses = "font-pressStart2P text-[0.6rem] sm:text-xs md:text-sm lg:text-base";
 
 export default function ContactPage() {
@@ -141,7 +141,7 @@ export default function ContactPage() {
 						<button
 							type="submit"
 							disabled={!isValid || isSubmitting}
-							className={`w-[70%] h-auto p-1 outline-none focus:outline-black rounded text-cream text-center text-wrap text-[0.5rem] sm:text-[0.7rem] md:text-xs lg:text-base font-pressStart2P ${isValid && !isSubmitting ? "bg-wine hover:bg-wine/80 transition ease duration-300" : "bg-greyTextInfo/50"}`}
+							className={`w-[70%] h-auto p-1 outline-hidden focus:outline-black rounded text-cream text-center text-wrap text-[0.5rem] sm:text-[0.7rem] md:text-xs lg:text-base font-pressStart2P ${isValid && !isSubmitting ? "bg-wine hover:bg-wine/80 transition ease duration-300" : "bg-greyTextInfo/50"}`}
 						>
 							{isSubmitting ? "En cours..." : "Envoyer"}
 						</button>
