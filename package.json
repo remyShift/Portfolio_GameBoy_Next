@@ -7,7 +7,7 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint",
+		"lint": "eslint . --max-warnings 0",
 		"test": "vitest run",
 		"test:watch": "vitest"
 	},
@@ -28,14 +28,18 @@
 		"zod": "^4.3.6"
 	},
 	"devDependencies": {
+		"@eslint/eslintrc": "^3.3.5",
+		"@eslint/js": "^9.39.4",
 		"@testing-library/jest-dom": "^6.9.1",
 		"@testing-library/react": "^16.3.2",
 		"@testing-library/user-event": "^14.6.1",
 		"@types/node": "^25.6.0",
 		"@types/react": "^19.2.14",
 		"@types/react-dom": "^19.2.3",
+		"@typescript-eslint/eslint-plugin": "^8.59.0",
+		"@typescript-eslint/parser": "^8.59.0",
 		"@vitejs/plugin-react": "^6.0.1",
-		"eslint": "^8",
+		"eslint": "^9.39.4",
 		"eslint-config-next": "^15.5.15",
 		"jsdom": "^29.0.2",
 		"postcss": "^8",

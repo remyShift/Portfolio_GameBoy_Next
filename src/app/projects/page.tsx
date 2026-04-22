@@ -1,5 +1,5 @@
 import ProjectsPage from "@/components/PageParts/Top/Projects/ProjectsPage";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
 	title: "Projets",

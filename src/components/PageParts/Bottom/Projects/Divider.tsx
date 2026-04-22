@@ -4,7 +4,7 @@ const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".split(""
 
 function loaderWelcome(target: HTMLElement, count: number, string: string) {
 	let iterations = 0;
-	let interval = setInterval(() => {
+	const interval = setInterval(() => {
 		target.innerText = target.innerText.split("")
 			.map((letter, index) => {
 				if (index < iterations) {
@@ -45,12 +45,13 @@ export default function Divider({ children, onClick }: DividerProps) {
 			observer.observe(textRef.current);
 		}
 
+		const node = textRef.current;
 		return () => {
-			if (textRef.current) {
-				observer.unobserve(textRef.current);
+			if (node) {
+				observer.unobserve(node);
 			}
 		};
-	}, [children, prevY]);
+	}, [children, onClick, prevY]);
 
 	const handleMouseEnter = () => {
 		if (textRef.current && children && !onClick) {
