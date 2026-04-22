@@ -9,7 +9,7 @@
 Strict **Conventional Commits**:
 
 ```
-<type>: <short description in French, imperative>
+<type>: <short description in english, imperative>
 
 <optional body — why, not what>
 ```
@@ -26,7 +26,7 @@ Strict **Conventional Commits**:
 
 ### Description
 
-- Present imperative, in **French**: `feat: ajoute le rate-limit sur l'API contact`
+- Present imperative, in **English**: `feat: add the rate-limit on the contact API`
 - No trailing period
 - Under 70 characters
 
@@ -39,11 +39,11 @@ Strict **Conventional Commits**:
 ### Example
 
 ```
-fix: breadcrumb affiche 404 sur les routes nestées
+fix: breadcrumb displays 404 on nested routes
 
-isKnown comparait le segment seul (/fun-stats) au lieu du href complet
-(/projects/fun-stats) à VALID_PATHS, donc toute route à 2+ niveaux
-tombait en 404. Check sur href + test de régression.
+isKnown compares the segment alone (/fun-stats) instead of the full href
+(/projects/fun-stats) to VALID_PATHS, so any route with 2+ levels
+falls to 404. Check on href + regression test.
 ```
 
 ## Branches
@@ -61,7 +61,7 @@ test/vitest-setup
 ## PRs
 
 - **One PR = one coherent plan step.** No mixing 5 workstreams.
-- Title = commit format (a human must be able to skim it).
+- Title = commit format (a human must be able to skim it, in English).
 - Description in 3 blocks: `## Summary` (bullet points), `## Test plan` (checklist), optional `## Follow-up` (what is not in this PR but comes next).
 - **Stack when the previous PR is not merged**, branch from `main` otherwise. Check with `gh pr list --json number,state,mergedAt`.
 - After the previous PR merges, retarget the base: `gh pr edit <n> --base main`.
@@ -77,6 +77,7 @@ One commit = one coherent, buildable, testable change.
 ## Risky actions = confirmation required
 
 Never:
+
 - `git push --force` on `main`
 - `git reset --hard` without checking state first
 - `git rebase -i` on an already-pushed shared commit
@@ -87,6 +88,7 @@ For rebases onto main on a pushed branch, use `git push --force-with-lease` only
 ## Pre-commit hooks
 
 This project has no pre-commit hook today. To consider in a future chore (husky + lint-staged):
+
 - `npm run lint` on staged files
 - `npm test` on impacted tests (vitest --related)
 
