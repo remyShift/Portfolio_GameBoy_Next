@@ -2,7 +2,12 @@
 	"nav": {
 		"about": "About",
 		"projects": "Projects",
-		"contact": "Contact"
+		"contact": "Contact",
+		"settings": "Settings"
+	},
+	"settings": {
+		"title": "Settings",
+		"language": "Language"
 	},
 	"welcome": {
 		"srOnly": "Rémy Cassagne — fullstack JavaScript/TypeScript developer",
@@ -54,6 +59,10 @@
 		"contact": {
 			"title": "Contact",
 			"description": "Contact Rémy Cassagne to discuss a project, freelance mission, or opportunity. Direct form, Github, LinkedIn and email."
+		},
+		"settings": {
+			"title": "Settings",
+			"description": "Customize the portfolio experience: language and display preferences."
 		},
 		"ogDescription": "Welcome to Rémy Cassagne's portfolio!"
 	}

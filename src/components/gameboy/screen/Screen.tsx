@@ -13,12 +13,13 @@ const useBrowserLayoutEffect = typeof window !== "undefined" ? useLayoutEffect :
 
 export default function Screen({ children }: { children: React.ReactNode }) {
 	const isPathValid = useIsValidPath();
-	const [showBoot, setShowBoot] = useState(false);
+	// Why: default true so SSR renders the overlay — useLayoutEffect hides it before first paint if already seen
+	const [showBoot, setShowBoot] = useState(true);
 
 	useBrowserLayoutEffect(() => {
 		const seen = sessionStorage.getItem("boot-seen");
-		if (!seen) {
-			setShowBoot(true);
+		if (seen) {
+			setShowBoot(false);
 		}
 	}, []);
 

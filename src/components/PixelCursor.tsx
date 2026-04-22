@@ -2,10 +2,18 @@
 
 import { useState, useEffect } from "react";
 
+const CLICKABLE_SELECTOR = "a, button, input, select, textarea, label, [role='button'], [tabindex]";
+
+function isClickable(target: EventTarget | null): boolean {
+	if (!target || !(target instanceof Element)) return false;
+	return !!target.closest(CLICKABLE_SELECTOR);
+}
+
 export default function PixelCursor() {
 	const [pos, setPos] = useState({ x: -100, y: -100 });
 	const [visible, setVisible] = useState(false);
 	const [hasPointer, setHasPointer] = useState(false);
+	const [isPointer, setIsPointer] = useState(false);
 
 	useEffect(() => {
 		// Why: window.matchMedia is browser-only — cannot be read during SSR, must be checked on mount
@@ -19,6 +27,7 @@ export default function PixelCursor() {
 		const onMove = (e: MouseEvent) => {
 			setPos({ x: e.clientX, y: e.clientY });
 			setVisible(true);
+			setIsPointer(isClickable(e.target));
 		};
 		const onLeave = () => setVisible(false);
 		const onEnter = () => setVisible(true);
@@ -35,6 +44,9 @@ export default function PixelCursor() {
 	}, [hasPointer]);
 
 	if (!hasPointer || !visible) return null;
+
+	// Wine color when hovering clickable elements, cream otherwise
+	const fill = isPointer ? "#5C131D" : "#F8E9D9";
 
 	return (
 		<div
@@ -54,10 +66,10 @@ export default function PixelCursor() {
 					points="0,0 0,12.5 3.5,9 5.5,14 7.5,13 5.5,8.5 9,8.5"
 					fill="#111111"
 				/>
-				{/* Cream fill */}
+				{/* Fill — wine on clickable, cream otherwise */}
 				<polygon
 					points="1,1.5 1,11 3.5,8 5.5,13 6.5,12.5 4.5,8 8,8"
-					fill="#F8E9D9"
+					fill={fill}
 				/>
 			</svg>
 		</div>

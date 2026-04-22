@@ -2,7 +2,12 @@
 	"nav": {
 		"about": "À propos",
 		"projects": "Projets",
-		"contact": "Contact"
+		"contact": "Contact",
+		"settings": "Paramètres"
+	},
+	"settings": {
+		"title": "Paramètres",
+		"language": "Langue"
 	},
 	"welcome": {
 		"srOnly": "Rémy Cassagne — développeur fullstack JavaScript/TypeScript",
@@ -54,6 +59,10 @@
 		"contact": {
 			"title": "Contact",
 			"description": "Contactez Rémy Cassagne pour discuter d'un projet, d'une mission freelance ou d'une opportunité. Formulaire direct, Github, LinkedIn et email."
+		},
+		"settings": {
+			"title": "Paramètres",
+			"description": "Personnalisez l'expérience du portfolio de Rémy Cassagne : langue, préférences d'affichage."
 		},
 		"ogDescription": "Bienvenue sur le portfolio de Rémy Cassagne !"
 	}
