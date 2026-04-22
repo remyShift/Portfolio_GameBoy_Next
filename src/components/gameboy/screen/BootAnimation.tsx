@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { ensureAudioContextRunning, getSharedAudioContext, playWelcomeChime } from "@/lib/retroAudio";
+import { getSharedAudioContext, playWelcomeChime } from "@/lib/retroAudio";
 
 type Phase = "crt" | "content" | "fadeout";
 
@@ -20,26 +20,30 @@ export default function BootAnimation({ onComplete }: BootAnimationProps) {
 	const dismissingRef = useRef(false);
 	const contentTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-	const runDismiss = useCallback(async () => {
+	/* UI must not await audio: on mobile Safari, user-gesture is lost after await,
+	 * and resume() must run in the same synchronous event turn as the tap. */
+	const runDismiss = useCallback(() => {
 		if (dismissingRef.current) return;
 		if (contentTimerRef.current) {
 			clearTimeout(contentTimerRef.current);
 			contentTimerRef.current = null;
 		}
 		dismissingRef.current = true;
+		setPhase("fadeout");
 
 		const ctx = getSharedAudioContext();
-		await ensureAudioContextRunning(ctx);
+		if (ctx.state === "suspended") {
+			void ctx.resume();
+		}
 		playWelcomeChime(ctx);
 
-		setPhase("fadeout");
 		window.setTimeout(() => {
 			onComplete();
 		}, FADE_MS);
 	}, [onComplete]);
 
 	const onUserActivate = useCallback(() => {
-		void runDismiss();
+		runDismiss();
 	}, [runDismiss]);
 
 	useEffect(() => {
@@ -51,7 +55,7 @@ export default function BootAnimation({ onComplete }: BootAnimationProps) {
 
 		const onKeyDown = (e: KeyboardEvent) => {
 			if (e.repeat) return;
-			void runDismiss();
+			runDismiss();
 		};
 
 		window.addEventListener("keydown", onKeyDown, true);
@@ -69,8 +73,6 @@ export default function BootAnimation({ onComplete }: BootAnimationProps) {
 			animate={{ opacity: phase === "fadeout" ? 0 : 1 }}
 			transition={{ duration: 0.4 }}
 			onPointerDown={onUserActivate}
-			onTouchStart={onUserActivate}
-			onClick={onUserActivate}
 		>
 			<div
 				aria-hidden="true"
@@ -83,7 +85,7 @@ export default function BootAnimation({ onComplete }: BootAnimationProps) {
 
 			{phase === "crt" && (
 				<motion.div
-					className="absolute inset-0 z-5 bg-zinc-900"
+					className="pointer-events-none absolute inset-0 z-5 bg-zinc-900"
 					initial={{ scaleY: 0 }}
 					animate={{ scaleY: 1 }}
 					transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
@@ -95,7 +97,7 @@ export default function BootAnimation({ onComplete }: BootAnimationProps) {
 				{(phase === "content" || phase === "fadeout") && (
 					<motion.div
 						key="content"
-						className="relative z-20 flex flex-col items-center gap-3 sm:gap-4 px-6"
+						className="pointer-events-none relative z-20 flex flex-col items-center gap-3 sm:gap-4 px-6"
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ duration: 0.2 }}
