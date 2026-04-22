@@ -10,7 +10,6 @@ beforeEach(() => {
   observeMock.mockClear();
   disconnectMock.mockClear();
 
-  // Prevent the immediate getBoundingClientRect check from triggering isInView
   vi.spyOn(Element.prototype, "getBoundingClientRect").mockReturnValue({
     top: 9999,
     bottom: 0,

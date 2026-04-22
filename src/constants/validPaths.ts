@@ -4,4 +4,5 @@ export const VALID_PATHS = [
 	"/contact",
 	"/projects",
 	"/projects/fun-stats",
+	"/settings",
 ] as const;
