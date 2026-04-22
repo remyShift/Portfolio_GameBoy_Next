@@ -1,0 +1,78 @@
+{
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact",
+    "settings": "Settings"
+  },
+  "settings": {
+    "title": "Settings",
+    "tagline": "Customize your experience",
+    "language": "Language"
+  },
+  "boot": {
+    "continueHint": "Press any key to start"
+  },
+  "welcome": {
+    "srOnly": "Rémy Cassagne — fullstack JavaScript/TypeScript developer",
+    "name": "Rémy",
+    "settings": "Settings",
+    "contact": "Contact",
+    "projects": "Projects",
+    "about": "About"
+  },
+  "available": "► AVAILABLE",
+  "footer": {
+    "copyright": "©Copyright 2024 - Rémy Cassagne. All rights reserved.",
+    "made": "Made with ❤️ by Rémy Cassagne"
+  },
+  "role": "Fullstack Developer",
+  "skipLink": "Go to main content",
+  "breadcrumb": {
+    "home": "@HOME"
+  },
+  "error": {
+    "title": "Oops, an error",
+    "description": "Something broke. Try again or go back to home.",
+    "retry": "Try again"
+  },
+  "notFound": "404 - Page not found",
+  "about": {
+    "title": "Get to know me ...",
+    "text": "Passionate about technology and naturally curious, I constantly seek new challenges. My creativity, adaptability, and diverse experiences enrich every project I contribute to.",
+    "age": "years old"
+  },
+  "contact": {
+    "title": "Interested? Curious? Don't wait, contact me!",
+    "lastName": "Last name:",
+    "firstName": "First name:",
+    "email": "Email:",
+    "message": "Message:",
+    "submit": "Send",
+    "submitting": "Sending...",
+    "success": "Thank you for your message!",
+    "error": "An error occurred, please try again."
+  },
+  "metadata": {
+    "home": {
+      "description": "Portfolio of Rémy Cassagne, fullstack JavaScript/TypeScript developer. Retro GameBoy-inspired design. Discover my projects, background, and contact me."
+    },
+    "about": {
+      "title": "About",
+      "description": "Background, tech stack and experience of Rémy Cassagne, fullstack JavaScript/TypeScript developer (React, Next.js, Node.js). Discover my skills and projects."
+    },
+    "projects": {
+      "title": "Projects",
+      "description": "Selection of web projects by Rémy Cassagne: Kicksfolio, DrumNLearn, and more. Stack React, Next.js, Node.js, TypeScript."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Contact Rémy Cassagne to discuss a project, freelance mission, or opportunity. Direct form, Github, LinkedIn and email."
+    },
+    "settings": {
+      "title": "Settings",
+      "description": "Customize the portfolio experience: language and display preferences."
+    },
+    "ogDescription": "Welcome to Rémy Cassagne's portfolio!"
+  }
+}

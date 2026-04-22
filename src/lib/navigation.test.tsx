@@ -1,9 +1,17 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { buildBreadcrumb } from "./navigation";
 
+vi.mock("@/i18n/navigation", () => ({
+	Link: ({ href, children, className }: { href: string; children: React.ReactNode; className?: string }) => (
+		<a href={href} className={className}>{children}</a>
+	),
+}));
+
+const HOME_LABEL = "@ACCUEIL";
+
 function renderBreadcrumb(path: string) {
-	return render(<>{buildBreadcrumb(path)}</>);
+	return render(<>{buildBreadcrumb(path, HOME_LABEL)}</>);
 }
 
 describe("buildBreadcrumb", () => {
