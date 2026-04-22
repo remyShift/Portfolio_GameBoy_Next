@@ -63,7 +63,7 @@ export default function PixelCursor() {
 	return (
 		<div
 			aria-hidden="true"
-			className="fixed top-0 left-0 z-[9999] pointer-events-none"
+			className="fixed top-0 left-0 z-9999 pointer-events-none"
 			style={{ transform: `translate(${pos.x}px, ${pos.y}px)` }}
 		>
 			<ArrowCursor />

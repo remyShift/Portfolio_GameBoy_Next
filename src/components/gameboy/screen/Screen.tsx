@@ -8,12 +8,10 @@ import BootAnimation from "./BootAnimation";
 import "./Screen.css";
 import { useIsValidPath } from "@/hooks/useIsValidPath";
 
-// Why: useLayoutEffect runs before paint (no flash), useEffect is the SSR fallback
 const useBrowserLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 export default function Screen({ children }: { children: React.ReactNode }) {
 	const isPathValid = useIsValidPath();
-	// Why: default true so SSR renders the overlay — useLayoutEffect hides it before first paint if already seen
 	const [showBoot, setShowBoot] = useState(true);
 
 	useBrowserLayoutEffect(() => {

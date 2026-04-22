@@ -2,7 +2,6 @@ import { useTranslations } from "next-intl";
 import "../not-found.css";
 
 export default function NotFound() {
-	// Why: next-intl provides useTranslations as a server-side hook in the app router context
 	const t = useTranslations();
 
 	return (
