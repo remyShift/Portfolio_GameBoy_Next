@@ -1,7 +1,9 @@
-import { getTranslations } from "next-intl/server";
+"use client";
 
-export default async function WineBorderText() {
-	const t = await getTranslations();
+import { useTranslations } from "next-intl";
+
+export default function WineBorderText() {
+	const t = useTranslations();
 	const role = t("role");
 
 	return (
