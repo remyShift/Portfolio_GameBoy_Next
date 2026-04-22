@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import GameBoy from "@/components/gameboy/GameBoy";
-import { setRequestLocale, getTranslations } from "next-intl/server";
+import { setRequestLocale, getTranslations, getMessages } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 
 type Params = Promise<{ locale: string }>;
@@ -60,10 +61,13 @@ export default async function LocaleLayout({
 	const { locale } = await params;
 	setRequestLocale(locale);
 
-	const t = await getTranslations({ locale, namespace: undefined });
+	const [t, messages] = await Promise.all([
+		getTranslations({ locale, namespace: undefined }),
+		getMessages(),
+	]);
 
 	return (
-		<>
+		<NextIntlClientProvider messages={messages}>
 			<a
 				href="#main"
 				className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-black focus:text-white focus:px-3 focus:py-2 focus:rounded"
@@ -73,6 +77,6 @@ export default async function LocaleLayout({
 			<GameBoy>
 				{children}
 			</GameBoy>
-		</>
+		</NextIntlClientProvider>
 	);
 }
