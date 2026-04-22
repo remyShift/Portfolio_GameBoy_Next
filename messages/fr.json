@@ -12,7 +12,11 @@
   },
   "welcome": {
     "srOnly": "Rémy Cassagne — développeur fullstack JavaScript/TypeScript",
-    "name": "Rémy"
+    "name": "Rémy",
+    "settings": "Paramètres",
+    "contact": "Contact",
+    "projects": "Projets",
+    "about": "À propos"
   },
   "available": "► DISPONIBLE",
   "footer": {

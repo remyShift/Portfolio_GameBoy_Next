@@ -46,12 +46,11 @@ export default async function WelcomePage() {
 
 			<BackgroundSign />
 
-			{/* Right column: avatar at bottom */}
 			<div className="flex flex-col justify-end items-center w-1/3 h-full relative z-1">
-				<div className="flex flex-col items-center gap-1 pb-1">
+				<div className="flex flex-col items-center gap-1 pb-1 w-full">
 					<p className="font-pressStart2P text-[0.6rem] sm:text-sm md:text-base lg:text-lg">{tWelcome("name")}</p>
 					<LuArrowRight aria-hidden="true" className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 rotate-90" />
-					<Image src="/assets/img/MeAvatar.webp" alt="Avatar de Rémy" width={180} height={140} priority className="w-[45%] h-[35%] md:h-[30%] lg:h-[35%] object-contain" />
+					<Image src="/assets/img/MeAvatar.webp" alt="Avatar de Rémy" width={180} height={140} priority className="w-[45%] lg:w-[30%] h-auto object-contain mx-auto" />
 				</div>
 			</div>
 		</div>
