@@ -33,7 +33,7 @@ export default function LanguageSetting() {
 							>
 								►
 							</span>
-							<span className={`transition-colors ${isActive ? "text-cream" : "text-greyTextInfo hover:underline"}`}>
+							<span className={`transition-colors ${isActive ? "underline" : "text-greyTextInfo hover:underline"}`}>
 								{label}
 							</span>
 						</button>
