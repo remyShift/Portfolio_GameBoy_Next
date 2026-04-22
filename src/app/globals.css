@@ -49,6 +49,12 @@ html {
 
 @media (pointer: fine) {
   *, *::before, *::after { cursor: none !important; }
+  a, a *,
+  button, button *,
+  input, select, textarea,
+  label, label *,
+  [role='button'], [role='button'] *,
+  [tabindex] { cursor: pointer !important; }
 }
 
 

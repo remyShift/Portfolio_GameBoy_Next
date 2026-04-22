@@ -7,6 +7,7 @@
 	},
 	"settings": {
 		"title": "Settings",
+		"tagline": "Customize your experience",
 		"language": "Language"
 	},
 	"welcome": {

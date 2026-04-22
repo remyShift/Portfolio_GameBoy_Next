@@ -9,7 +9,6 @@ function isClickable(target: EventTarget | null): boolean {
 	return !!target.closest(CLICKABLE_SELECTOR);
 }
 
-// Arrow cursor — hot spot at top-left (0, 0), no offset needed
 function ArrowCursor() {
 	return (
 		<svg
@@ -25,34 +24,6 @@ function ArrowCursor() {
 	);
 }
 
-// Hand / pointer cursor — hot spot at fingertip center (x=5, y=0) in viewBox (0 0 8 14)
-// Rendered width=16 → scale=2 → offset x = -(5 * 2) = -10
-function HandCursor() {
-	return (
-		<svg
-			width="16"
-			height="28"
-			viewBox="0 0 8 14"
-			xmlns="http://www.w3.org/2000/svg"
-			style={{ imageRendering: "pixelated" }}
-		>
-			{/* Index finger */}
-			<rect x="4" y="0" width="2" height="8" fill="#111111" />
-			<rect x="4.5" y="0.5" width="1" height="7" fill="#F8E9D9" />
-
-			{/* Palm */}
-			<rect x="0" y="7" width="8" height="4" fill="#111111" />
-			<rect x="0.5" y="7.5" width="7" height="3" fill="#F8E9D9" />
-
-			{/* Lower palm */}
-			<rect x="1" y="11" width="6" height="2" fill="#111111" />
-			<rect x="1.5" y="11.5" width="5" height="1" fill="#F8E9D9" />
-
-			{/* Wrist */}
-			<rect x="2" y="13" width="4" height="1" fill="#111111" />
-		</svg>
-	);
-}
 
 export default function PixelCursor() {
 	const [pos, setPos] = useState({ x: -100, y: -100 });
@@ -61,7 +32,6 @@ export default function PixelCursor() {
 	const [isPointer, setIsPointer] = useState(false);
 
 	useEffect(() => {
-		// Why: window.matchMedia is browser-only — cannot be read during SSR, must be checked on mount
 		// eslint-disable-next-line react-hooks/set-state-in-effect
 		setHasPointer(window.matchMedia("(pointer: fine)").matches);
 	}, []);
@@ -88,18 +58,15 @@ export default function PixelCursor() {
 		};
 	}, [hasPointer]);
 
-	if (!hasPointer || !visible) return null;
-
-	// Why: the hand hot spot is at the fingertip (x=5 in viewBox, rendered at 10px) — offset corrects alignment
-	const offsetX = isPointer ? -10 : 0;
+	if (!hasPointer || !visible || isPointer) return null;
 
 	return (
 		<div
 			aria-hidden="true"
 			className="fixed top-0 left-0 z-[9999] pointer-events-none"
-			style={{ transform: `translate(${pos.x + offsetX}px, ${pos.y}px)` }}
+			style={{ transform: `translate(${pos.x}px, ${pos.y}px)` }}
 		>
-			{isPointer ? <HandCursor /> : <ArrowCursor />}
+			<ArrowCursor />
 		</div>
 	);
 }

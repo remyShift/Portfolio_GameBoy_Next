@@ -1,33 +1,33 @@
 import { getTranslations } from "next-intl/server";
-import LocaleSwitcher from "@/components/gameboy/screen/LocaleSwitcher";
 import BackgroundSign from "@/components/gameboy/screen/BackgroundSign";
+import LanguageSetting from "./LanguageSetting";
 
 export default async function SettingsPage() {
 	const t = await getTranslations("settings");
 
 	return (
-		<div className="flex flex-row w-full h-full">
-			<h1 className="sr-only">{t("title")}</h1>
-
-			{/* Left column: settings options */}
-			<div className="flex flex-col justify-center items-start w-1/3 h-full pl-4 gap-6 relative z-1">
-				<p className="font-pressStart2P text-stroke text-[0.6rem] sm:text-sm md:text-base lg:text-lg">
-					{t("title")}
-				</p>
-
-				<div className="flex flex-col gap-3">
-					<p className="font-pressStart2P text-[0.4rem] sm:text-[0.5rem] md:text-xs text-greyTextInfo uppercase tracking-widest">
-						{t("language")}
-					</p>
-					<LocaleSwitcher />
-				</div>
+		<div className="relative flex w-full h-full items-center justify-center">
+			<div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
+				<BackgroundSign />
 			</div>
 
-			{/* Center: decorative background sign */}
-			<BackgroundSign />
+			<h1 className="absolute top-10 md:top-16 lg:top-18 xl:top-18 font-pressStart2P text-pretty text-center w-[85%] text-xs sm:text-base md:text-2xl lg:text-3xl z-10">
+				{t("tagline")}
+			</h1>
 
-			{/* Right column: reserved for future settings */}
-			<div className="w-1/3 h-full" />
+			<div className="flex items-start gap-8 sm:gap-16 md:gap-72 z-10">
+				<ul className="flex flex-col gap-5 sm:gap-7">
+					<li className="font-pressStart2P text-[0.5rem] sm:text-xs md:text-sm uppercase tracking-widest pt-1">
+						{t("language")}
+					</li>
+				</ul>
+
+				<ul className="flex flex-col gap-5 sm:gap-7">
+					<li>
+						<LanguageSetting />
+					</li>
+				</ul>
+			</div>
 		</div>
 	);
 }
