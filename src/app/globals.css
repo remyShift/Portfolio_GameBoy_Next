@@ -47,6 +47,10 @@ html {
   background: #000;
 }
 
+@media (pointer: fine) {
+  html { cursor: none; }
+}
+
 
 @layer base {
 	:root {

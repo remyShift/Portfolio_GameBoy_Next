@@ -3,32 +3,39 @@
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 
+const LOCALES = ["fr", "en"] as const;
+type Locale = typeof LOCALES[number];
+
 export default function LocaleSwitcher() {
-	const locale = useLocale();
+	const locale = useLocale() as Locale;
 	const pathname = usePathname();
 	const router = useRouter();
 
-	const switchTo = (next: string) => {
+	const switchTo = (next: Locale) => {
 		router.replace(pathname, { locale: next });
 	};
 
 	return (
-		<div className="flex items-center gap-1 font-pressStart2P text-[0.35rem] sm:text-[0.45rem] md:text-[0.5rem]">
-			<button
-				onClick={() => switchTo("fr")}
-				aria-label="Français"
-				className={`transition-colors ${locale === "fr" ? "text-wine" : "text-greyTextInfo hover:text-wine"}`}
-			>
-				FR
-			</button>
-			<span className="text-greyTextInfo/60">|</span>
-			<button
-				onClick={() => switchTo("en")}
-				aria-label="English"
-				className={`transition-colors ${locale === "en" ? "text-wine" : "text-greyTextInfo hover:text-wine"}`}
-			>
-				EN
-			</button>
+		<div
+			className="flex font-pressStart2P text-[0.4rem] sm:text-[0.5rem] border border-greyTextInfo/30 rounded overflow-hidden"
+			role="group"
+			aria-label="Language"
+		>
+			{LOCALES.map((lang) => (
+				<button
+					key={lang}
+					onClick={() => switchTo(lang)}
+					aria-label={lang === "fr" ? "Français" : "English"}
+					aria-pressed={locale === lang}
+					className={`cursor-pointer px-2 py-1.5 min-h-[28px] uppercase leading-none transition-colors ${
+						locale === lang
+							? "bg-wine text-cream"
+							: "text-greyTextInfo hover:bg-wine/20 hover:text-wine"
+					}`}
+				>
+					{lang}
+				</button>
+			))}
 		</div>
 	);
 }
