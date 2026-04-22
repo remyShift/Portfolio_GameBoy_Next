@@ -1,5 +1,5 @@
 import FunStats from "@/components/PageParts/Top/Projects/FunStats";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
 	title: "Projets > Fun Stats",

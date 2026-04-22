@@ -1,9 +1,3 @@
-interface TimelineIconProps {
-	iconBg: string;
-	iconColor: string;
-	iconFill: string;
-}
-
 export default function TimelineIcon() {
 	return (
 		<div className={`-ml-[13px] flex h-[25px] w-[25px] items-center justify-center rounded-full bg-wine text-info-700`}>
