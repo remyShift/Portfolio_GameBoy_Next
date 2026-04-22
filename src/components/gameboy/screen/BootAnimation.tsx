@@ -1,7 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
+import { ensureAudioContextRunning, getSharedAudioContext, playWelcomeChime } from "@/lib/retroAudio";
 
 type Phase = "crt" | "content" | "fadeout";
 
@@ -10,46 +12,77 @@ interface BootAnimationProps {
 }
 
 const LOGO = "remyShift";
-
-function playBootChime() {
-	try {
-		const ctx = new AudioContext();
-		const notes = [
-			{ freq: 294, start: 0, dur: 0.12 },
-			{ freq: 392, start: 0.16, dur: 0.15 },
-			{ freq: 523, start: 0.35, dur: 0.7 },
-		];
-		notes.forEach(({ freq, start, dur }) => {
-			const osc = ctx.createOscillator();
-			const gain = ctx.createGain();
-			osc.connect(gain);
-			gain.connect(ctx.destination);
-			osc.type = "square";
-			osc.frequency.value = freq;
-			gain.gain.setValueAtTime(0.04, ctx.currentTime + start);
-			gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + start + dur);
-			osc.start(ctx.currentTime + start);
-			osc.stop(ctx.currentTime + start + dur + 0.05);
-		});
-	} catch {
-		// AudioContext blocked or unavailable — silently ignored
-	}
-}
+const FADE_MS = 420;
 
 export default function BootAnimation({ onComplete }: BootAnimationProps) {
+	const t = useTranslations("boot");
 	const [phase, setPhase] = useState<Phase>("crt");
+	const dismissingRef = useRef(false);
+	const contentTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+	const overlayRef = useRef<HTMLDivElement | null>(null);
+
+	const runDismiss = useCallback(async () => {
+		if (dismissingRef.current) return;
+		if (contentTimerRef.current) {
+			clearTimeout(contentTimerRef.current);
+			contentTimerRef.current = null;
+		}
+		dismissingRef.current = true;
+
+		const ctx = getSharedAudioContext();
+		await ensureAudioContextRunning(ctx);
+		playWelcomeChime(ctx);
+
+		setPhase("fadeout");
+		window.setTimeout(() => {
+			onComplete();
+		}, FADE_MS);
+	}, [onComplete]);
 
 	useEffect(() => {
-		playBootChime();
-		const t1 = setTimeout(() => setPhase("content"), 600);
-		const t2 = setTimeout(() => setPhase("fadeout"), 3700);
-		const t3 = setTimeout(() => onComplete(), 4100);
-		return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
-	}, [onComplete]);
+		contentTimerRef.current = setTimeout(() => {
+			if (!dismissingRef.current) {
+				setPhase("content");
+			}
+		}, 600);
+
+		const onKeyDown = (e: KeyboardEvent) => {
+			if (e.repeat) return;
+			void runDismiss();
+		};
+
+		window.addEventListener("keydown", onKeyDown, true);
+
+		return () => {
+			if (contentTimerRef.current) clearTimeout(contentTimerRef.current);
+			window.removeEventListener("keydown", onKeyDown, true);
+		};
+	}, [runDismiss]);
+
+	useLayoutEffect(() => {
+		const el = overlayRef.current;
+		if (!el) return;
+
+		const onUserGesture = () => {
+			void runDismiss();
+		};
+
+		const touchOpts: AddEventListenerOptions = { capture: true, passive: true };
+		el.addEventListener("pointerdown", onUserGesture, true);
+		el.addEventListener("touchstart", onUserGesture, touchOpts);
+
+		return () => {
+			el.removeEventListener("pointerdown", onUserGesture, true);
+			el.removeEventListener("touchstart", onUserGesture, touchOpts);
+		};
+	}, [runDismiss]);
 
 	return (
 		<motion.div
-			className="absolute inset-0 z-50 flex items-center justify-center rounded-xl md:rounded-2xl overflow-hidden bg-zinc-950"
+			ref={overlayRef}
+			data-boot-overlay
+			role="presentation"
+			className="absolute inset-0 z-50 flex touch-manipulation select-none items-center justify-center rounded-xl md:rounded-2xl overflow-hidden bg-zinc-950"
 			animate={{ opacity: phase === "fadeout" ? 0 : 1 }}
 			transition={{ duration: 0.4 }}
 		>
@@ -63,7 +96,6 @@ export default function BootAnimation({ onComplete }: BootAnimationProps) {
 				}}
 			/>
 
-			{/* CRT power-on: horizontal band expands from center */}
 			{phase === "crt" && (
 				<motion.div
 					className="absolute inset-0 bg-zinc-900"
@@ -74,7 +106,6 @@ export default function BootAnimation({ onComplete }: BootAnimationProps) {
 				/>
 			)}
 
-			{/* Content */}
 			<AnimatePresence>
 				{(phase === "content" || phase === "fadeout") && (
 					<motion.div
@@ -84,7 +115,6 @@ export default function BootAnimation({ onComplete }: BootAnimationProps) {
 						animate={{ opacity: 1 }}
 						transition={{ duration: 0.2 }}
 					>
-						{/* Logo — letter by letter */}
 						<div className="flex">
 							{LOGO.split("").map((char, i) => (
 								<motion.span
@@ -99,7 +129,6 @@ export default function BootAnimation({ onComplete }: BootAnimationProps) {
 							))}
 						</div>
 
-						{/* Underline draws left-to-right */}
 						<motion.div
 							className="h-px bg-cream/30 self-stretch"
 							initial={{ scaleX: 0 }}
@@ -108,19 +137,17 @@ export default function BootAnimation({ onComplete }: BootAnimationProps) {
 							style={{ transformOrigin: "left" }}
 						/>
 
-						{/* Subtitle */}
 						<motion.p
 							className="font-pressStart2P text-greyTextInfo text-[0.35rem] sm:text-[0.45rem] tracking-widest"
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
 							transition={{ delay: 1.2, duration: 0.4 }}
 						>
-							PORTFOLIO v2025
+							PORTFOLIO v2.0.26
 						</motion.p>
 
-						{/* PRESS START — blinking after all else appears */}
 						<motion.p
-							className="font-pressStart2P text-cream/80 text-[0.4rem] sm:text-[0.5rem] tracking-widest mt-3 sm:mt-5"
+							className="font-pressStart2P text-cream/80 text-[0.4rem] sm:text-xs tracking-widest mt-3 sm:mt-5"
 							initial={{ opacity: 0 }}
 							animate={{ opacity: [0, 1, 1, 0, 0, 1, 1] }}
 							transition={{
@@ -131,7 +158,7 @@ export default function BootAnimation({ onComplete }: BootAnimationProps) {
 								ease: "linear",
 							}}
 						>
-							PRESS START
+							{`${t("continueHint")}`}
 						</motion.p>
 					</motion.div>
 				)}

@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "sonner";
 import localFont from "next/font/local";
 import { getLocale } from "next-intl/server";
+import NavClickSound from "@/components/NavClickSound";
 import PixelCursor from "@/components/PixelCursor";
 
 const gillSans = localFont({
@@ -56,6 +57,7 @@ export default async function RootLayout({
 				{children}
 				<Toaster position="top-center" richColors />
 				<SpeedInsights />
+				<NavClickSound />
 				<PixelCursor />
 			</body>
 		</html>

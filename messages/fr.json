@@ -10,6 +10,9 @@
     "tagline": "Personnalisez votre expérience",
     "language": "Langue"
   },
+  "boot": {
+    "continueHint": "Appuyez sur n'importe quelle touche pour démarrer"
+  },
   "welcome": {
     "srOnly": "Rémy Cassagne — développeur fullstack JavaScript/TypeScript",
     "name": "Rémy",
