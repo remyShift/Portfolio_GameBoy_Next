@@ -3,6 +3,7 @@ import { LuUser, LuFileText, LuPhone, LuArrowRight } from "react-icons/lu";
 import BackgroundSign from "@/components/gameboy/screen/BackgroundSign";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
+import LocaleSwitcher from "@/components/gameboy/screen/LocaleSwitcher";
 
 const ICON_CLASS = "w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8";
 const LINK_CLASS = "flex items-center gap-2 font-pressStart2P text-[0.6rem] sm:text-sm md:text-base lg:text-lg hover:underline";
@@ -14,6 +15,7 @@ export default async function WelcomePage() {
 	return (
 		<div className="flex flex-row w-full h-full">
 			<h1 className="sr-only">{tWelcome("srOnly")}</h1>
+
 			<nav className="flex flex-col justify-center items-center w-1/3 h-full relative z-1">
 				<ul className="flex flex-col gap-4 sm:gap-6 md:gap-10 lg:gap-14 ml-2">
 					<li>
@@ -39,10 +41,16 @@ export default async function WelcomePage() {
 
 			<BackgroundSign />
 
-			<div className="flex flex-col justify-end items-center w-1/3 h-full gap-1">
-				<p className="font-pressStart2P text-[0.6rem] sm:text-sm md:text-base lg:text-lg">{tWelcome("name")}</p>
-				<LuArrowRight aria-hidden="true" className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 rotate-90" />
-				<Image src="/assets/img/MeAvatar.webp" alt="Avatar de Rémy" width={180} height={140} priority className="w-[45%] h-[35%] md:h-[30%] lg:h-[35%] object-contain" />
+			{/* Right column: locale switcher aligned with nav, avatar at bottom */}
+			<div className="flex flex-col justify-between items-center w-1/3 h-full relative z-1">
+				<div className="flex justify-center items-center h-1/3">
+					<LocaleSwitcher />
+				</div>
+				<div className="flex flex-col items-center gap-1 pb-1">
+					<p className="font-pressStart2P text-[0.6rem] sm:text-sm md:text-base lg:text-lg">{tWelcome("name")}</p>
+					<LuArrowRight aria-hidden="true" className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 rotate-90" />
+					<Image src="/assets/img/MeAvatar.webp" alt="Avatar de Rémy" width={180} height={140} priority className="w-[45%] h-[35%] md:h-[30%] lg:h-[35%] object-contain" />
+				</div>
 			</div>
 		</div>
 	);

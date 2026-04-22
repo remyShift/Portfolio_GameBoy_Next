@@ -48,7 +48,7 @@ html {
 }
 
 @media (pointer: fine) {
-  html { cursor: none; }
+  *, *::before, *::after { cursor: none !important; }
 }
 
 

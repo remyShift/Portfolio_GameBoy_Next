@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import ScreenHeader from "./ScreenHeader";
 import ScreenFooter from "./ScreenFooter";
@@ -8,15 +8,16 @@ import BootAnimation from "./BootAnimation";
 import "./Screen.css";
 import { useIsValidPath } from "@/hooks/useIsValidPath";
 
+// Why: useLayoutEffect runs before paint (no flash), useEffect is the SSR fallback
+const useBrowserLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
 export default function Screen({ children }: { children: React.ReactNode }) {
 	const isPathValid = useIsValidPath();
 	const [showBoot, setShowBoot] = useState(false);
 
-	useEffect(() => {
+	useBrowserLayoutEffect(() => {
 		const seen = sessionStorage.getItem("boot-seen");
 		if (!seen) {
-			// Why: sessionStorage is browser-only — cannot be read during SSR, must be checked on mount
-			// eslint-disable-next-line react-hooks/set-state-in-effect
 			setShowBoot(true);
 		}
 	}, []);

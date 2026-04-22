@@ -4,7 +4,6 @@ import { usePathname } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { buildBreadcrumb } from "@/lib/navigation";
 import BatteryStatus from "./BatteryStatus";
-import LocaleSwitcher from "./LocaleSwitcher";
 
 export default function ScreenHeader() {
 	const pathname = usePathname();
@@ -23,10 +22,7 @@ export default function ScreenHeader() {
 					</div>
 				))}
 			</div>
-			<div className="flex items-center gap-2 pr-1">
-				<LocaleSwitcher />
-				<BatteryStatus />
-			</div>
+			<BatteryStatus />
 		</header>
 	);
 }
