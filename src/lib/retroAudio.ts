@@ -74,7 +74,7 @@ export function playWelcomeChime(
 	time: number = ctx.currentTime,
 ): void {
 	try {
-		scheduleWelcomeChime(ctx, time + 0.02);
+		scheduleWelcomeChime(ctx, time + 0.08);
 	} catch {
 		// ignore
 	}

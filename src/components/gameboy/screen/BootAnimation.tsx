@@ -20,8 +20,11 @@ export default function BootAnimation({ onComplete }: BootAnimationProps) {
 	const dismissingRef = useRef(false);
 	const contentTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-	/* UI must not await audio: on mobile Safari, user-gesture is lost after await,
-	 * and resume() must run in the same synchronous event turn as the tap. */
+	/* Audio unlock strategy for mobile Safari (WebKit):
+	 * - resume() must be called synchronously inside the user-gesture handler.
+	 * - The Promise returned by resume() sometimes never resolves on WebKit (known bug).
+	 * - statechange fires reliably when the context actually transitions to "running".
+	 * - We use both as belt-and-suspenders: whichever fires first plays the chime. */
 	const runDismiss = useCallback(() => {
 		if (dismissingRef.current) return;
 		if (contentTimerRef.current) {
@@ -32,10 +35,19 @@ export default function BootAnimation({ onComplete }: BootAnimationProps) {
 		setPhase("fadeout");
 
 		const ctx = getSharedAudioContext();
-		if (ctx.state === "suspended") {
-			void ctx.resume().then(() => playWelcomeChime(ctx));
-		} else {
+		if (ctx.state === "running") {
 			playWelcomeChime(ctx);
+		} else {
+			let played = false;
+			const onRunning = () => {
+				if (!played && ctx.state === "running") {
+					played = true;
+					ctx.removeEventListener("statechange", onRunning);
+					playWelcomeChime(ctx);
+				}
+			};
+			ctx.addEventListener("statechange", onRunning);
+			void ctx.resume().then(onRunning);
 		}
 
 		window.setTimeout(() => {
