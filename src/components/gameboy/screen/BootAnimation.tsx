@@ -33,9 +33,10 @@ export default function BootAnimation({ onComplete }: BootAnimationProps) {
 
 		const ctx = getSharedAudioContext();
 		if (ctx.state === "suspended") {
-			void ctx.resume();
+			void ctx.resume().then(() => playWelcomeChime(ctx));
+		} else {
+			playWelcomeChime(ctx);
 		}
-		playWelcomeChime(ctx);
 
 		window.setTimeout(() => {
 			onComplete();
