@@ -7,6 +7,7 @@ import localFont from "next/font/local";
 import { getLocale } from "next-intl/server";
 import NavClickSound from "@/components/NavClickSound";
 import PixelCursor from "@/components/PixelCursor";
+import { Analytics } from "@vercel/analytics/next"
 
 const gillSans = localFont({
 	src: [
@@ -53,6 +54,7 @@ export default async function RootLayout({
 
 	return (
 		<html lang={locale} className={`${pressStart2P.variable} ${gillSans.variable} h-dvh font-gillSans`}>
+			<Analytics />
 			<body className="w-full h-full">
 				{children}
 				<Toaster position="top-center" richColors />
