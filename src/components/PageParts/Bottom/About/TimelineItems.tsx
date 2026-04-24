@@ -1,5 +1,5 @@
 import TimelineIcon from './TimelineIcon';
-import TimelineCard from './TimelineCard';
+import TimelineContent from './TimelineContent';
 
 interface TimelineItemProps {
 	title: string;
@@ -12,7 +12,7 @@ export default function TimelineItems({ title, date, description }: TimelineItem
 		<li>
 			<ul className="mb-44">
 				<TimelineIcon />
-				<TimelineCard title={title} date={date} description={description} />
+				<TimelineContent title={title} date={date} description={description} />
 			</ul>
 		</li>
 	);

@@ -1,11 +1,12 @@
 "use client"
 
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/i18n/navigation";
 import Image from "next/image";
+import { isScrollableSection } from "@/lib/navigation";
 
 export default function LightButton() {
 	const pathname = usePathname();
-	const isInnerPage = pathname.includes("/projects") || pathname.includes("/about");
+	const isInnerPage = isScrollableSection(pathname);
 	const className = isInnerPage ? "w-[10%] max-w-[110px] mb-4" : "w-[25%] max-w-[110px]";
 
 	return (
