@@ -6,6 +6,7 @@ export const contactFormSchema = z.object({
 	email: z.string().trim().email("Email invalide").max(254),
 	message: z.string().trim().min(1, "Message requis").max(5000),
 	company: z.string().max(0).optional().or(z.literal("")),
+	locale: z.enum(["fr", "en"]).optional(),
 });
 
 export type ContactFormValues = z.infer<typeof contactFormSchema>;

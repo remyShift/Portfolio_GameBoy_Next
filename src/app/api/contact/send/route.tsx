@@ -3,6 +3,9 @@ import { Resend } from 'resend';
 import { contactFormSchema } from '@/schemas/contactForm';
 import { getServerEnv } from '@/lib/env';
 import { checkRateLimit } from '@/lib/rateLimit';
+import { getTranslations } from 'next-intl/server';
+
+const DEFAULT_LOCALE = 'fr';
 
 const RATE_LIMIT = 3;
 const RATE_WINDOW_MS = 10 * 60 * 1000;
@@ -41,7 +44,9 @@ export async function POST(request: Request) {
 		return Response.json({ ok: true }, { status: 200 });
 	}
 
-	const { firstName, lastName, email, message } = parsed.data;
+	const { firstName, lastName, email, message, locale } = parsed.data;
+	const resolvedLocale = locale ?? DEFAULT_LOCALE;
+	const t = await getTranslations({ locale: resolvedLocale, namespace: 'email' });
 
 	let env;
 	try {
@@ -57,6 +62,8 @@ export async function POST(request: Request) {
 			lastName={lastName}
 			email={email}
 			message={message.split('\n')}
+			greeting={t('greeting')}
+			intro={t('intro', { firstName, lastName, email })}
 		/>
 	);
 
@@ -65,7 +72,7 @@ export async function POST(request: Request) {
 		const { data, error } = await resend.emails.send({
 			from: env.FROM_EMAIL,
 			to: env.TO_EMAIL,
-			subject: 'Portfolio Contact',
+			subject: t('subject'),
 			react: emailContent,
 		});
 

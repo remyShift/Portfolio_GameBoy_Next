@@ -31,6 +31,35 @@
 	"breadcrumb": {
 		"home": "@HOME"
 	},
+	"battery": {
+		"full": "BATTERY FULL",
+		"empty": "BATTERY EMPTY"
+	},
+	"projects": {
+		"title": "Discover my projects: ideas brought to life!"
+	},
+	"funStats": {
+		"title": "A few stats ...",
+		"entries": {
+			"demos": "{count} demos",
+			"xp": "{count} xp",
+			"push": "{count} push",
+			"commits": "{count} commits",
+			"bugs": "{count} bugs",
+			"tests": "{count} tests",
+			"days": "{count} days",
+			"projects": "{count} projects"
+		},
+		"metadata": {
+			"title": "Projects > Fun Stats",
+			"description": "A few numbers around Rémy Cassagne's projects: demos, commits, tests, accumulated experience."
+		}
+	},
+	"email": {
+		"subject": "New message from the portfolio",
+		"greeting": "Hi Rémy,",
+		"intro": "You received a message from your Portfolio from {firstName} {lastName} ({email}):"
+	},
 	"error": {
 		"title": "Oops, an error",
 		"description": "Something broke. Try again or go back to home.",

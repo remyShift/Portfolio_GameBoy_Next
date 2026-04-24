@@ -2,9 +2,10 @@ import Link from "next/link";
 import BackgroundSign from "@/components/gameboy/screen/BackgroundSign";
 import Image from 'next/image';
 import { LuChartColumnBig } from "react-icons/lu";
+import { useTranslations } from "next-intl";
 
 export default function ProjectsPage() {
-	const projectsTitle = "Découvrez mes projets: des idées qui prennent vie !";
+	const t = useTranslations("projects");
 	return (
 		<div className="flex flex-row w-full h-full">
 			<nav className="flex flex-col justify-center items-center w-1/3 h-full relative z-1">
@@ -19,7 +20,7 @@ export default function ProjectsPage() {
 			</nav>
 
 			<div className="flex flex-col justify-center items-center w-1/3 h-full">
-				<h1 className="font-pressStart2P text-pretty text-center absolute w-[90%] top-10 md:top-16 lg:top-18 xl:top-18 text-xs sm:text-base md:text-2xl lg:text-3xl">{projectsTitle}</h1>
+				<h1 className="font-pressStart2P text-pretty text-center absolute w-[90%] top-10 md:top-16 lg:top-18 xl:top-18 text-xs sm:text-base md:text-2xl lg:text-3xl">{t("title")}</h1>
 				<BackgroundSign />
 			</div>
 
