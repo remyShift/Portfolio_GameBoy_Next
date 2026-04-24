@@ -1,34 +1,88 @@
 {
 	"timeline": [
 		{
-			"title": "Développeur - Spash",
+			"id": "spash",
 			"date": "01 / 2025 - 06 / 2025",
-			"description": "Mission de 6 mois : développement d'un outil de debugging pour visualiser les données renvoyées par une IA qui analyse des matchs de padel. Features développées selon les besoins de l'équipe de développeurs. Technologies utilisées : NextJS, TailwindCSS, Zustand, Docker"
+			"i18n": {
+				"fr": {
+					"title": "Développeur - Spash",
+					"description": "Mission de 6 mois : développement d'un outil de debugging pour visualiser les données renvoyées par une IA qui analyse des matchs de padel. Features développées selon les besoins de l'équipe de développeurs. Technologies utilisées : NextJS, TailwindCSS, Zustand, Docker"
+				},
+				"en": {
+					"title": "Developer - Spash",
+					"description": "6-month mission: building a debugging tool to visualize the data returned by an AI that analyzes padel matches. Features developed according to the dev team's needs. Stack: NextJS, TailwindCSS, Zustand, Docker"
+				}
+			}
 		},
 		{
-			"title": "Formation - Le Wagon",
+			"id": "lewagon",
 			"date": "10 / 2024 - 12 / 2024",
-			"description": "Le bootcamp web du Wagon est une formation immersive en développement web, axée sur la création et le déploiement d'applications web modernes, dans un cadre intensif et collaboratif."
+			"i18n": {
+				"fr": {
+					"title": "Formation - Le Wagon",
+					"description": "Le bootcamp web du Wagon est une formation immersive en développement web, axée sur la création et le déploiement d'applications web modernes, dans un cadre intensif et collaboratif."
+				},
+				"en": {
+					"title": "Training - Le Wagon",
+					"description": "The Le Wagon web bootcamp is an immersive web development training, focused on building and deploying modern web apps in an intensive, collaborative setting."
+				}
+			}
 		},
 		{
-			"title": "Formation - Ada Tech School",
+			"id": "ada",
 			"date": "10 / 2023 - 02 / 2024",
-			"description": "Formation en développement fullstack avec une approche pédagogique axée sur les projets et la pratique. Pour voir les projets réalisés, rendez-vous sur la page Projets."
+			"i18n": {
+				"fr": {
+					"title": "Formation - Ada Tech School",
+					"description": "Formation en développement fullstack avec une approche pédagogique axée sur les projets et la pratique. Pour voir les projets réalisés, rendez-vous sur la page Projets."
+				},
+				"en": {
+					"title": "Training - Ada Tech School",
+					"description": "Fullstack development training with a project-based, hands-on teaching approach. To see the projects built, visit the Projects page."
+				}
+			}
 		},
 		{
-			"title": "2nde Piscine de l'école 42",
+			"id": "piscine42-second",
 			"date": "08 / 2023",
-			"description": "Résolution de problème algorithmique en C et travail en équipe durant 4 semaines intensives."
+			"i18n": {
+				"fr": {
+					"title": "2nde Piscine de l'école 42",
+					"description": "Résolution de problème algorithmique en C et travail en équipe durant 4 semaines intensives."
+				},
+				"en": {
+					"title": "2nd 42 School Piscine",
+					"description": "Algorithm problem solving in C and team work over 4 intensive weeks."
+				}
+			}
 		},
 		{
-			"title": "Piscine école 42",
+			"id": "piscine42-first",
 			"date": "09 / 2022",
-			"description": "Résolution de problème algorithmique en C et travail en équipe durant 4 semaines intensives."
+			"i18n": {
+				"fr": {
+					"title": "Piscine école 42",
+					"description": "Résolution de problème algorithmique en C et travail en équipe durant 4 semaines intensives."
+				},
+				"en": {
+					"title": "42 School Piscine",
+					"description": "Algorithm problem solving in C and team work over 4 intensive weeks."
+				}
+			}
 		},
 		{
-			"title": "Commercial chez Maximo",
+			"id": "maximo",
 			"date": "09 / 2020",
-			"description": "Gestion d'un portfeuille client et prospection pour de la vente de produit surgelés et d'épicerie à domicile."
+			"i18n": {
+				"fr": {
+					"title": "Commercial chez Maximo",
+					"description": "Gestion d'un portfeuille client et prospection pour de la vente de produit surgelés et d'épicerie à domicile."
+				},
+				"en": {
+					"title": "Sales rep at Maximo",
+					"description": "Managing a client portfolio and door-to-door prospecting for sales of frozen foods and groceries."
+				}
+			}
 		}
 	]
 }
