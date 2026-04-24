@@ -2,11 +2,12 @@
 
 import Footer from "./Footer";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/i18n/navigation";
+import { isScrollableSection } from "@/lib/navigation";
 
 export default function SelectStart() {
 	const pathname = usePathname();
-	const isInnerPage = pathname.includes("/projects") || pathname.includes("/about");
+	const isInnerPage = isScrollableSection(pathname);
 
 	const speakersClass = isInnerPage
 		? "w-[10%] max-w-[120px]"

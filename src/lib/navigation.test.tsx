@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { buildBreadcrumb } from "./navigation";
+import { buildBreadcrumb, isScrollableSection } from "./navigation";
 
 vi.mock("@/i18n/navigation", () => ({
 	Link: ({ href, children, className }: { href: string; children: React.ReactNode; className?: string }) => (
@@ -46,5 +46,39 @@ describe("buildBreadcrumb", () => {
 		renderBreadcrumb("/doesnotexist");
 		const links = screen.getAllByRole("link");
 		expect(links[1]).toHaveTextContent("404");
+	});
+});
+
+describe("isScrollableSection", () => {
+	it("returns true for /projects", () => {
+		expect(isScrollableSection("/projects")).toBe(true);
+	});
+
+	it("returns true for /about", () => {
+		expect(isScrollableSection("/about")).toBe(true);
+	});
+
+	it("returns true for locale-prefixed /fr/projects", () => {
+		expect(isScrollableSection("/fr/projects")).toBe(true);
+	});
+
+	it("returns true for locale-prefixed /en/about", () => {
+		expect(isScrollableSection("/en/about")).toBe(true);
+	});
+
+	it("returns true for nested /projects/fun-stats", () => {
+		expect(isScrollableSection("/projects/fun-stats")).toBe(true);
+	});
+
+	it("returns false for root /", () => {
+		expect(isScrollableSection("/")).toBe(false);
+	});
+
+	it("returns false for /contact", () => {
+		expect(isScrollableSection("/contact")).toBe(false);
+	});
+
+	it("returns false for empty pathname", () => {
+		expect(isScrollableSection("")).toBe(false);
 	});
 });

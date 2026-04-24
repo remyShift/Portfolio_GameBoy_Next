@@ -5,10 +5,17 @@ import ProjectDescription from "./ProjectDescription";
 import { useIsInView } from "@/hooks/useIsInView";
 import type { Project } from "@/types/project";
 
-function stacksClass(stacks: string[]): string {
-	return stacks[0] === "lua"
-		? "w-[8%] md:w-[30%] max-w-[50px] md:min-w-[30px] lg:min-w-[40px] md:max-w-none object-contain"
-		: "w-[7%] max-w-[50px] md:min-w-[30px] lg:min-w-[40px] md:max-w-none object-contain";
+const STACK_IMAGE_BASE_CLASS = "max-w-[50px] md:min-w-[30px] lg:min-w-[40px] md:max-w-none object-contain";
+
+const STACK_IMAGE_WIDTH_CLASS: Record<string, string> = {
+	lua: "w-[8%] md:w-[30%]",
+};
+
+const DEFAULT_STACK_IMAGE_WIDTH_CLASS = "w-[7%]";
+
+export function stacksClass(stacks: string[]): string {
+	const widthClass = STACK_IMAGE_WIDTH_CLASS[stacks[0]] ?? DEFAULT_STACK_IMAGE_WIDTH_CLASS;
+	return `${widthClass} ${STACK_IMAGE_BASE_CLASS}`;
 }
 
 function visibilityClass(isInView: boolean, isEven: boolean): string {

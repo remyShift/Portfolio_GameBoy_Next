@@ -3,6 +3,12 @@ import { VALID_PATHS } from "@/constants/validPaths";
 
 const BREADCRUMB_CLASS = "text-greyTextInfo font-gillSans font-bold text-[0.6rem] sm:text-xs md:text-base lg:text-xl hover:text-wine hover:underline";
 
+const SCROLLABLE_SECTIONS = ["/projects", "/about"] as const;
+
+export function isScrollableSection(pathname: string): boolean {
+	return SCROLLABLE_SECTIONS.some((section) => pathname.includes(section));
+}
+
 export function buildBreadcrumb(path: string, homeLabel: string = "@ACCUEIL") {
 	const segments = path === "/" ? [homeLabel] : [homeLabel, ...path.substring(1).toUpperCase().trim().split("/")];
 
