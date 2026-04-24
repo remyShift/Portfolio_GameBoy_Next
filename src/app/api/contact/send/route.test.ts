@@ -27,6 +27,10 @@ vi.mock("@/components/emails/email-template", () => ({
   EmailTemplate: () => null,
 }));
 
+vi.mock("next-intl/server", () => ({
+  getTranslations: vi.fn().mockResolvedValue((key: string) => `t:${key}`),
+}));
+
 const validBody = {
   firstName: "Rémy",
   lastName: "Shift",

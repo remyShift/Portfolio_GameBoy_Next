@@ -3,17 +3,18 @@ interface EmailTemplateProps {
 	lastName: string;
 	email: string;
 	message: string[];
+	greeting: string;
+	intro: string;
 }
 
 export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
-	firstName,
-	lastName,
-	email,
+	greeting,
+	intro,
 	message,
 }) => (
 	<div>
-		<h1>Bonjour Rémy,</h1>
-		<h2>Tu as reçu un message depuis ton Portfolio de {firstName} {lastName} ({email}) :</h2>
+		<h1>{greeting}</h1>
+		<h2>{intro}</h2>
 		{
 			message.map((msg, index) => (
 				<p key={index}>{msg}</p>

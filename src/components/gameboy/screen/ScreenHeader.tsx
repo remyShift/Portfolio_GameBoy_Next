@@ -8,8 +8,9 @@ import { useIsValidPath } from "@/hooks/useIsValidPath";
 export default function ScreenHeader() {
 	const pathname = usePathname();
 	const t = useTranslations("breadcrumb");
+	const tBattery = useTranslations("battery");
 	const breadcrumbLinks = buildBreadcrumb(pathname, t("home"));
-	const batteryStatus = useIsValidPath() ? "BATTERIE PLEINE" : "BATTERIE VIDE";
+	const batteryStatus = useIsValidPath() ? tBattery("full") : tBattery("empty");
 
 
 	return (

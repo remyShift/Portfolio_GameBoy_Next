@@ -8,13 +8,14 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { contactFormSchema, type ContactFormValues } from "@/schemas/contactForm";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 const inputClasses = "rounded w-full h-1/2 text-xs sm:text-sm md:text-base lg:text-lg sm:h-auto bg-gray-300 border-[0.09rem] px-1 md:py-1 font-gillSans border-gray-400 focus:border-gray-800 focus:outline-hidden";
 const labelClasses = "font-pressStart2P text-[0.6rem] sm:text-xs md:text-sm lg:text-base";
 
 export default function ContactPage() {
 	const t = useTranslations("contact");
+	const locale = useLocale();
 
 	const {
 		register,
@@ -31,7 +32,7 @@ export default function ContactPage() {
 			const response = await fetch('/api/contact/send', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(values),
+				body: JSON.stringify({ ...values, locale }),
 			});
 			if (!response.ok) {
 				toast.error(t("error"));

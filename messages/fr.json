@@ -31,6 +31,35 @@
 	"breadcrumb": {
 		"home": "@ACCUEIL"
 	},
+	"battery": {
+		"full": "BATTERIE PLEINE",
+		"empty": "BATTERIE VIDE"
+	},
+	"projects": {
+		"title": "Découvrez mes projets : des idées qui prennent vie !"
+	},
+	"funStats": {
+		"title": "Quelques stats ...",
+		"entries": {
+			"demos": "{count} démos",
+			"xp": "{count} xp",
+			"push": "{count} push",
+			"commits": "{count} commits",
+			"bugs": "{count} bugs",
+			"tests": "{count} tests",
+			"days": "{count} jours",
+			"projects": "{count} projets"
+		},
+		"metadata": {
+			"title": "Projets > Fun Stats",
+			"description": "Quelques chiffres autour des projets de Rémy Cassagne : démos, commits, tests, expérience cumulée."
+		}
+	},
+	"email": {
+		"subject": "Nouveau message depuis le portfolio",
+		"greeting": "Bonjour Rémy,",
+		"intro": "Tu as reçu un message depuis ton Portfolio de {firstName} {lastName} ({email}) :"
+	},
 	"error": {
 		"title": "Oups, une erreur",
 		"description": "Quelque chose a cassé. Réessaie ou reviens sur l'accueil.",
