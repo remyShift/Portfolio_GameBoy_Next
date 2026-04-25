@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useLayoutEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { AnimatePresence } from "framer-motion";
 import ScreenHeader from "./ScreenHeader";
 import ScreenFooter from "./ScreenFooter";
@@ -9,16 +9,21 @@ import "./Screen.css";
 import { useIsValidPath } from "@/hooks/useIsValidPath";
 import { usePointerParallax } from "@/hooks/usePointerParallax";
 
-const useBrowserLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
-
 const CONTENT_PARALLAX_PX = 10;
 const SENSITIVITY = 1.5;
+const BOOT_SEEN_KEY = "boot-seen";
+const BOOT_SEEN_VALUE = "1";
 
 const boost = (v: number) => Math.max(-1, Math.min(1, v * SENSITIVITY));
 
+function shouldShowBootOnMount(): boolean {
+	if (typeof window === "undefined") return true;
+	return sessionStorage.getItem(BOOT_SEEN_KEY) !== BOOT_SEEN_VALUE;
+}
+
 export default function Screen({ children }: { children: React.ReactNode }) {
 	const isPathValid = useIsValidPath();
-	const [showBoot, setShowBoot] = useState(true);
+	const [showBoot, setShowBoot] = useState(shouldShowBootOnMount);
 	const { x, y } = usePointerParallax();
 
 	const contentStyle = {
@@ -26,15 +31,8 @@ export default function Screen({ children }: { children: React.ReactNode }) {
 		willChange: "transform",
 	};
 
-	useBrowserLayoutEffect(() => {
-		const seen = sessionStorage.getItem("boot-seen");
-		if (seen) {
-			setShowBoot(false);
-		}
-	}, []);
-
 	const handleBootComplete = useCallback(() => {
-		sessionStorage.setItem("boot-seen", "1");
+		sessionStorage.setItem(BOOT_SEEN_KEY, BOOT_SEEN_VALUE);
 		setShowBoot(false);
 	}, []);
 
