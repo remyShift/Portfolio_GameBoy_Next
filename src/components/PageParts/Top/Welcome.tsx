@@ -16,7 +16,7 @@ export default async function WelcomePage() {
 			<h1 className="sr-only">{tWelcome("srOnly")}</h1>
 
 			<nav className="flex flex-col justify-center items-center w-1/3 h-full relative z-1">
-				<ul className="flex flex-col gap-4 sm:gap-6 md:gap-10 lg:gap-14 ml-2">
+				<ul className="flex flex-col gap-4 sm:gap-6 md:gap-10 lg:gap-14 pl-2">
 					<li>
 						<Link href="/about" className={LINK_CLASS}>
 							<LuUser aria-hidden="true" className={ICON_CLASS} />

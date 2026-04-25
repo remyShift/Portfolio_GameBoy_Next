@@ -7,11 +7,11 @@ export default async function SettingsPage() {
 
 	return (
 		<div className="relative flex w-full h-full items-center justify-center">
-			<div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
+			<div className="w-full flex items-center justify-center pointer-events-none bg-red-500" aria-hidden="true">
 				<BackgroundSign />
 			</div>
 
-			<h1 className="absolute top-10 md:top-16 lg:top-18 xl:top-18 font-pressStart2P text-pretty text-center w-[85%] text-xs sm:text-base md:text-2xl lg:text-3xl z-10">
+			<h1 className="absolute top-10 md:top-16 lg:top-18 xl:top-18 font-pressStart2P text-pretty text-center w-[85%] text-xs sm:text-base md:text-2xl lg:text-3xl z-10 bg-blue-500">
 				{t("tagline")}
 			</h1>
 

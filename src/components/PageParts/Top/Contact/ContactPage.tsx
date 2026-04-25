@@ -75,8 +75,8 @@ export default function ContactPage() {
 				<BackgroundSign />
 			</div>
 
-			<div className="hidden md:flex flex-col justify-center w-1/3 h-full relative z-1">
-				<form onSubmit={handleSubmit(onSubmit)} className="w-[95%] sm:w-[90%] h-full flex flex-col justify-end gap-1 md:gap-4">
+			<div className="w-1/3 h-full relative z-1">
+				<form onSubmit={handleSubmit(onSubmit)} className="hidden md:flex flex-col justify-end w-[95%] sm:w-[90%] h-full gap-1 md:gap-4">
 					<div aria-hidden="true" className="absolute left-[-9999px] top-[-9999px] w-0 h-0 overflow-hidden">
 						<label htmlFor="company">Ne pas remplir</label>
 						<input

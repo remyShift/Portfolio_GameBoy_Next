@@ -6,8 +6,8 @@ vi.mock("@/i18n/navigation", () => ({
 	usePathname: () => "/",
 }));
 
-vi.mock("@/hooks/usePointerParallax", () => ({
-	usePointerParallax: () => ({ x: 0, y: 0 }),
+vi.mock("@/hooks/ParallaxProvider", () => ({
+	useParallax: () => ({ x: 0, y: 0 }),
 }));
 
 const bootRenderSpy = vi.fn();
