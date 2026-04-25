@@ -1,5 +1,9 @@
 type Entry = { count: number; resetAt: number };
 
+// Why: in-memory store is per-instance. On Vercel serverless, each cold lambda gets its own
+// Map, so a determined attacker can bypass the limit by spreading requests across instances.
+// Acceptable trade-off for the current traffic of a personal portfolio contact form. Move to
+// Upstash Redis or @vercel/kv before opening the form to high traffic.
 const store = new Map<string, Entry>();
 
 export function checkRateLimit(

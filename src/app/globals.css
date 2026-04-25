@@ -59,6 +59,29 @@ html {
   [tabindex] { cursor: pointer !important; }
 }
 
+/* Why: keyboard navigation must stay visible. We apply focus-visible to every
+   interactive element so we don't have to repeat a Tailwind utility class
+   everywhere. :focus:not(:focus-visible) is reset to remove default outlines
+   on mouse-only focus while preserving the keyboard ring. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role='button']:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #5C131D;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+[role='button']:focus:not(:focus-visible),
+[tabindex]:focus:not(:focus-visible) {
+  outline: none;
+}
+
 
 @layer base {
 	:root {
