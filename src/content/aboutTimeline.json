@@ -1,6 +1,20 @@
 {
 	"timeline": [
 		{
+			"id": "olis-lab",
+			"date": "10 / 2025 - ⏳",
+			"i18n": {
+				"fr": {
+					"title": "Développeur - Oli's Lab",
+					"description": "Mission en cours: maitenance et développement d'un site ecommerce pour une boutique de clean cosmétiques."
+				},
+				"en": {
+					"title": "Developer - Oli's Lab",
+					"description": "Current mission: maintaining and developing an ecommerce site for a clean cosmetics boutique."
+				}
+			}
+		},
+		{
 			"id": "spash",
 			"date": "01 / 2025 - 06 / 2025",
 			"i18n": {

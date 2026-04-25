@@ -7,12 +7,12 @@
 			"link": "https://www.kicksfolio.com/",
 			"i18n": {
 				"fr": {
-					"name": "En Cours - KicksFolio",
-					"description": "Application mobile qui permet aux passionnés de sneakers de répertorier leur collection en ligne, d'en visualiser les détails (modèle, marque, taille, état, prix d'achat, valeur estimée, etc.), et de la partager avec d'autres utilisateurs. L'application propose des options de tri et utilise l'API de StockX pour estimer la valeur moyenne des paires."
+					"name": "KicksFolio",
+					"description": "Application mobile qui permet aux passionnés de sneakers de répertorier leur collection en ligne, d'en visualiser les détails (modèle, marque, taille, état, prix d'achat, valeur estimée, etc.), et de la partager avec d'autres utilisateurs. L'application propose des options de tri et utilise l'API de StockX pour estimer la valeur moyenne des paires. Sortie en septembre 2025."
 				},
 				"en": {
-					"name": "In Progress - KicksFolio",
-					"description": "Mobile app letting sneaker enthusiasts catalog their collection online, view its details (model, brand, size, condition, purchase price, estimated value, etc.), and share it with other users. The app offers sorting options and uses StockX's API to estimate the average value of each pair."
+					"name": "KicksFolio",
+					"description": "Mobile app letting sneaker enthusiasts catalog their collection online, view its details (model, brand, size, condition, purchase price, estimated value, etc.), and share it with other users. The app offers sorting options and uses StockX's API to estimate the average value of each pair. Release in September 2025."
 				}
 			}
 		},
@@ -129,22 +129,6 @@
 			}
 		},
 		{
-			"id": "infinitescroll",
-			"image": "/assets/img/projects/PMP/PMP-infinitescroll.webp",
-			"stacks": ["html", "css", "js"],
-			"link": "https://remyshift.github.io/PMP-JS_ImagesLibrary/",
-			"i18n": {
-				"fr": {
-					"name": "Scroll Infini",
-					"description": "Application de scroll infini affichant des images récupérées via une API, conçue pour pratiquer les appels API et les observer."
-				},
-				"en": {
-					"name": "Infinite Scroll",
-					"description": "Infinite scroll app displaying images fetched via an API, designed to practice API calls and observers."
-				}
-			}
-		},
-		{
 			"id": "landingpage",
 			"image": "/assets/img/projects/PMP/PMP-landingpage.webp",
 			"stacks": ["html", "css", "js"],
@@ -161,66 +145,18 @@
 			}
 		},
 		{
-			"id": "listfilter",
-			"image": "/assets/img/projects/PMP/PMP-listfilter.webp",
+			"id": "infinitescroll",
+			"image": "/assets/img/projects/PMP/PMP-infinitescroll.webp",
 			"stacks": ["html", "css", "js"],
-			"link": "https://remyshift.github.io/PMP-JS_ListFilter/",
+			"link": "https://remyshift.github.io/PMP-JS_ImagesLibrary/",
 			"i18n": {
 				"fr": {
-					"name": "Filtre de recherche",
-					"description": "Application de filtrage de recherche sur une liste d'utilisateurs, développée pour améliorer les compétences en recherche et filtrage en JS."
+					"name": "Scroll Infini",
+					"description": "Application de scroll infini affichant des images récupérées via une API, conçue pour pratiquer les appels API et les observer."
 				},
 				"en": {
-					"name": "Search Filter",
-					"description": "Search filtering app over a list of users, built to improve search and filter skills in JS."
-				}
-			}
-		},
-		{
-			"id": "memorygame",
-			"image": "/assets/img/projects/PMP/PMP-memoryCardGame.webp",
-			"stacks": ["html", "css", "js"],
-			"link": "https://remyshift.github.io/PMP-JS_MemoryCard_Game/",
-			"i18n": {
-				"fr": {
-					"name": "Jeux des memories",
-					"description": "Jeu de memory conçu pour pratiquer les animations et la logique de jeu en JS."
-				},
-				"en": {
-					"name": "Memory Game",
-					"description": "Memory game built to practice animations and game logic in JS."
-				}
-			}
-		},
-		{
-			"id": "musicplayer",
-			"image": "/assets/img/projects/PMP/PMP-musicplayer.webp",
-			"stacks": ["html", "css", "js"],
-			"link": "https://remyshift.github.io/PMP-JS_Audio_Player/",
-			"i18n": {
-				"fr": {
-					"name": "Lecteur de Musique",
-					"description": "Lecteur de musique développé pour pratiquer la lecture de fichiers audio en JS."
-				},
-				"en": {
-					"name": "Music Player",
-					"description": "Music player built to practice audio file playback in JS."
-				}
-			}
-		},
-		{
-			"id": "typingspeedtest",
-			"image": "/assets/img/projects/PMP/PMP-typingspeedtest.webp",
-			"stacks": ["html", "css", "js"],
-			"link": "https://remyshift.github.io/PMP-JS_Typing_Speed_Test/",
-			"i18n": {
-				"fr": {
-					"name": "Test de rapidite de frappe",
-					"description": "Application de test de rapidité de frappe, développée pour pratiquer HTML, CSS et JS."
-				},
-				"en": {
-					"name": "Typing Speed Test",
-					"description": "Typing speed test app, built to practice HTML, CSS and JS."
+					"name": "Infinite Scroll",
+					"description": "Infinite scroll app displaying images fetched via an API, designed to practice API calls and observers."
 				}
 			}
 		}
