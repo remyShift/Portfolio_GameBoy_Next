@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, use, useEffect, useState } from "react";
 import {
 	subscribeToPointerParallax,
 	type ParallaxOffset,
@@ -16,12 +16,12 @@ export function ParallaxProvider({ children }: { children: React.ReactNode }) {
 	useEffect(() => subscribeToPointerParallax(setOffset), []);
 
 	return (
-		<ParallaxContext.Provider value={offset}>
+		<ParallaxContext value={offset}>
 			{children}
-		</ParallaxContext.Provider>
+		</ParallaxContext>
 	);
 }
 
 export function useParallax(): ParallaxOffset {
-	return useContext(ParallaxContext);
+	return use(ParallaxContext);
 }
