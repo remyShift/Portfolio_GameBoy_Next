@@ -90,6 +90,19 @@ describe("POST /contact/api/send", () => {
     expect(res.status).toBe(400);
   });
 
+  it("does not call Resend when honeypot is filled", async () => {
+    sendMock.mockClear();
+    await POST(makeRequest({ ...validBody, company: "Spam Corp" }));
+    expect(sendMock).not.toHaveBeenCalled();
+  });
+
+  it("accepts an empty honeypot and forwards the message to Resend", async () => {
+    sendMock.mockClear();
+    const res = await POST(makeRequest({ ...validBody, company: "" }));
+    expect(res.status).toBe(200);
+    expect(sendMock).toHaveBeenCalledTimes(1);
+  });
+
   it("returns 500 when env is misconfigured", async () => {
     vi.mocked(getServerEnv).mockImplementation(() => {
       throw new Error("Invalid server environment");
