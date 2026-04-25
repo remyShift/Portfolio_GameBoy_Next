@@ -11,7 +11,7 @@ export default function LightButton() {
 
 	return (
 		<div className="w-full h-1/8 flex flex-col items-center justify-center">
-			<Image src="/assets/SVG/LightBtn.svg" alt="" aria-hidden="true" className={className} width={110} height={110} />
+			<Image src="/assets/SVG/LightBtn.svg" alt="" aria-hidden="true" className={className} width={110} height={110} style={{ height: "auto" }} unoptimized />
 		</div>
 	);
 }

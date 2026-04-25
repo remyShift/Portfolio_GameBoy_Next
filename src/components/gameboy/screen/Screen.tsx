@@ -4,6 +4,7 @@ import { useState, useCallback } from "react";
 import { AnimatePresence } from "framer-motion";
 import ScreenHeader from "./ScreenHeader";
 import ScreenFooter from "./ScreenFooter";
+import BackgroundSign from "./BackgroundSign";
 import BootAnimation from "./BootAnimation";
 import "./Screen.css";
 import { useIsValidPath } from "@/hooks/useIsValidPath";
@@ -11,6 +12,7 @@ import { useParallax } from "@/hooks/ParallaxProvider";
 import { clampParallax } from "@/hooks/usePointerParallax";
 
 const CONTENT_PARALLAX_PX = 10;
+const CHROME_PARALLAX_PX = 4;
 const SHADOW_PARALLAX_PX = 4;
 const BOOT_SEEN_KEY = "boot-seen";
 const BOOT_SEEN_VALUE = "1";
@@ -27,6 +29,11 @@ export default function Screen({ children }: { children: React.ReactNode }) {
 
 	const px = clampParallax(x);
 	const py = clampParallax(y);
+
+	const chromeStyle = {
+		transform: `translate3d(${-px * CHROME_PARALLAX_PX}px, ${-py * CHROME_PARALLAX_PX}px, 0)`,
+		willChange: "transform",
+	};
 
 	const contentStyle = {
 		transform: `translate3d(${-px * CONTENT_PARALLAX_PX}px, ${-py * CONTENT_PARALLAX_PX}px, 0)`,
@@ -45,11 +52,16 @@ export default function Screen({ children }: { children: React.ReactNode }) {
 	return (
 		<main id="main" style={{ boxShadow: screenShadow }} className={`${isPathValid ? "bg-greyScreen" : "bg-zinc-900"} relative h-[88%] w-[94%] sm:h-[87%] md:h-[91%] lg:h-[88%] sm:w-[95%] md:w-[92%] flex flex-col overflow-hidden rounded-xl md:rounded-2x pt-2 sm:pt-1 px-2 sm:px-2`}>
 			<span className="noise-animation"></span>
-			<ScreenHeader />
-			<div style={contentStyle} className="flex flex-col flex-1 w-full">
+			<BackgroundSign />
+			<div style={chromeStyle} className="relative z-1">
+				<ScreenHeader />
+			</div>
+			<div style={contentStyle} className="flex flex-col flex-1 w-full relative z-1">
 				{children}
 			</div>
-			<ScreenFooter />
+			<div style={chromeStyle} className="relative z-1">
+				<ScreenFooter />
+			</div>
 			<AnimatePresence>
 				{showBoot && (
 					<BootAnimation key="boot" onComplete={handleBootComplete} />

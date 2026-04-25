@@ -16,6 +16,7 @@ export default function Buttons() {
 					height={350}
 					priority
 					style={{ height: "auto" }}
+					unoptimized
 				/>
 			</div>
 			<div className="w-[40%] h-full flex flex-col items-center space-between">
@@ -31,6 +32,7 @@ export default function Buttons() {
 					width={120}
 					height={120}
 					style={{ height: "auto" }}
+					unoptimized
 				/>
 			</div>
 			<Lights />

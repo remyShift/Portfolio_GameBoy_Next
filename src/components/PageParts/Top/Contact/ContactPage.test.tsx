@@ -17,10 +17,6 @@ vi.mock("next-intl", () => ({
 	useLocale: () => "fr",
 }));
 
-vi.mock("@/components/gameboy/screen/BackgroundSign", () => ({
-	default: () => <div />,
-}));
-
 function fillValidForm(container: HTMLElement) {
 	fireEvent.input(container.querySelector("#lastName") as HTMLInputElement, { target: { value: "Doe" } });
 	fireEvent.input(container.querySelector("#firstName") as HTMLInputElement, { target: { value: "John" } });

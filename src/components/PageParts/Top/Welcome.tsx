@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { LuUser, LuFileText, LuPhone, LuSettings, LuArrowRight } from "react-icons/lu";
-import BackgroundSign from "@/components/gameboy/screen/BackgroundSign";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 
@@ -12,7 +11,7 @@ export default async function WelcomePage() {
 	const tWelcome = await getTranslations("welcome");
 
 	return (
-		<div className="flex flex-row w-full h-full">
+		<div className="flex flex-row justify-between w-full h-full">
 			<h1 className="sr-only">{tWelcome("srOnly")}</h1>
 
 			<nav className="flex flex-col justify-center items-center w-1/3 h-full relative z-1">
@@ -43,8 +42,6 @@ export default async function WelcomePage() {
 					</li>
 				</ul>
 			</nav>
-
-			<BackgroundSign />
 
 			<div className="flex flex-col justify-end items-center w-1/3 h-full relative z-1">
 				<div className="flex flex-col items-center gap-1 pb-1 w-full">

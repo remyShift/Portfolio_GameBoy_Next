@@ -97,22 +97,6 @@
 			}
 		},
 		{
-			"id": "boxgenerator",
-			"image": "/assets/img/projects/PMP/PMP-boxgeneration.webp",
-			"stacks": ["react", "tailwindcss"],
-			"link": "https://remyshift.github.io/PMP-React_Box_Generation/",
-			"i18n": {
-				"fr": {
-					"name": "Box Generateur",
-					"description": "Application permettant de générer des divs avec des ombres personnalisées, développée pour pratiquer React et TailwindCSS."
-				},
-				"en": {
-					"name": "Box Generator",
-					"description": "App to generate divs with custom shadows, built to practice React and TailwindCSS."
-				}
-			}
-		},
-		{
 			"id": "calculator",
 			"image": "/assets/img/projects/PMP/PMP-calculator.webp",
 			"stacks": ["react", "tailwindcss"],
@@ -141,22 +125,6 @@
 				"en": {
 					"name": "Landing Page",
 					"description": "Landing page with a simple, clean design, built to practice HTML, CSS and JS."
-				}
-			}
-		},
-		{
-			"id": "infinitescroll",
-			"image": "/assets/img/projects/PMP/PMP-infinitescroll.webp",
-			"stacks": ["html", "css", "js"],
-			"link": "https://remyshift.github.io/PMP-JS_ImagesLibrary/",
-			"i18n": {
-				"fr": {
-					"name": "Scroll Infini",
-					"description": "Application de scroll infini affichant des images récupérées via une API, conçue pour pratiquer les appels API et les observer."
-				},
-				"en": {
-					"name": "Infinite Scroll",
-					"description": "Infinite scroll app displaying images fetched via an API, designed to practice API calls and observers."
 				}
 			}
 		}

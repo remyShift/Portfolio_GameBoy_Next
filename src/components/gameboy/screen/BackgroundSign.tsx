@@ -3,7 +3,9 @@
 import { useParallax } from "@/hooks/ParallaxProvider";
 import { clampParallax } from "@/hooks/usePointerParallax";
 
-const SIGN_PARALLAX_PX = 4;
+const SIGN_PARALLAX_PX = 10;
+const SHADOW_ORBIT_REM = 0.5;
+const SHADOW_BLUR_REM = 0.4;
 
 export default function BackgroundSign() {
 	const { x, y } = useParallax();
@@ -11,19 +13,18 @@ export default function BackgroundSign() {
 	const py = clampParallax(y);
 
 	const transform = `translate3d(${-px * SIGN_PARALLAX_PX}px, ${-py * SIGN_PARALLAX_PX}px, 0)`;
-	const shadowX = (px * 0.05).toFixed(3);
-	const shadowY = (0.2 + py * 0.05).toFixed(3);
-	const shadowBlur = Math.max(0.1, 0.4 - py * 0.03).toFixed(3);
-	const textShadow = `${shadowX}rem ${shadowY}rem ${shadowBlur}rem #CFCCCC`;
+	const shadowX = (-px * SHADOW_ORBIT_REM).toFixed(3);
+	const shadowY = (-py * SHADOW_ORBIT_REM).toFixed(3);
+	const textShadow = `${shadowX}rem ${shadowY}rem ${SHADOW_BLUR_REM}rem #CFCCCC`;
 
 	return (
 		<div
+			aria-hidden="true"
 			style={{ transform, willChange: "transform" }}
-			className="flex-1 h-full flex items-center justify-center w-full"
+			className="absolute inset-0 flex items-center justify-center pointer-events-none z-0"
 		>
 			<span
-				aria-hidden="true"
-				className="font-gillSans font-bold text-[7dvh] sm:text-8xl lg:text-[20dvh] xl:text-[25dvh] bg-clip-text text-transparent bg-black/25 w-full"
+				className="font-gillSans font-bold bg-clip-text text-transparent bg-black/25 text-[clamp(4rem,18dvh,16rem)]"
 				style={{ textShadow }}
 			>
 				&lt;/&gt;

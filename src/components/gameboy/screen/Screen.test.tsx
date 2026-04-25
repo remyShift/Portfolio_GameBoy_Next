@@ -20,6 +20,9 @@ vi.mock("./BootAnimation", () => ({
 
 vi.mock("./ScreenHeader", () => ({ default: () => <div /> }));
 vi.mock("./ScreenFooter", () => ({ default: () => <div /> }));
+vi.mock("./BackgroundSign", () => ({
+	default: () => <div data-testid="background-sign" />,
+}));
 
 describe("Screen boot-seen flash", () => {
 	beforeEach(() => {
@@ -41,5 +44,11 @@ describe("Screen boot-seen flash", () => {
 	it("renders BootAnimation when boot-seen is not set", () => {
 		const { queryByTestId } = render(<Screen>content</Screen>);
 		expect(queryByTestId("boot-animation")).not.toBeNull();
+	});
+
+	it("renders BackgroundSign as a screen-level decoration", () => {
+		sessionStorage.setItem("boot-seen", "1");
+		const { queryByTestId } = render(<Screen>content</Screen>);
+		expect(queryByTestId("background-sign")).not.toBeNull();
 	});
 });
