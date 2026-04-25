@@ -11,7 +11,7 @@
 		"language": "Langue"
 	},
 	"boot": {
-		"continueHint": "Appuyez sur n'importe quelle touche pour démarrer"
+		"continueHint": "Appuyez sur l'écran pour démarrer"
 	},
 	"welcome": {
 		"srOnly": "Rémy Cassagne — développeur fullstack JavaScript/TypeScript",
