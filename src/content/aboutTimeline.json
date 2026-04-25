@@ -6,11 +6,11 @@
 			"i18n": {
 				"fr": {
 					"title": "Développeur - Oli's Lab",
-					"description": "Mission en cours: maitenance et développement d'un site ecommerce pour une boutique de clean cosmétiques."
+					"description": "Mission en cours: maitenance et développement d'un site ecommerce pour une boutique de clean cosmétiques. Avec une équipe de développeurs, partant d'une code base legacy (React, Javascript, Node.js, Express, MongoDB), migration vers un nouveau CMS et vers NextJS ainsi que le serveur de javascript vers typescript."
 				},
 				"en": {
 					"title": "Developer - Oli's Lab",
-					"description": "Current mission: maintaining and developing an ecommerce site for a clean cosmetics boutique."
+					"description": "Current mission: maintaining and developing an ecommerce site for a clean cosmetics boutique. With a dev team, starting from a legacy code base (React, Javascript, Node.js, Express, MongoDB), migration to a new CMS and to NextJS as well as the javascript server to typescript."
 				}
 			}
 		},
