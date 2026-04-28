@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { contactFormSchema, type ContactFormValues } from "@/schemas/contactForm";
 import { useTranslations, useLocale } from "next-intl";
+import PageTitle from "@/components/PageParts/Top/PageTitle";
 
 const inputClasses = "rounded w-full h-1/2 text-xs sm:text-sm md:text-base lg:text-lg sm:h-auto bg-gray-300 border-[0.09rem] px-1 md:py-1 font-gillSans border-gray-400 focus:border-gray-800 focus:outline-hidden";
 const labelClasses = "font-pressStart2P text-[0.6rem] sm:text-xs md:text-xs lg:text-sm";
@@ -46,7 +47,7 @@ export default function ContactPage() {
 
 	return (
 		<div className="flex flex-col w-full h-full">
-			<h1 className="font-pressStart2P text-pretty text-center shrink-0 pt-4 sm:pt-5 md:pt-6 lg:pt-8 text-xs sm:text-sm md:text-2xl">{t("title")}</h1>
+			<PageTitle className="pt-4 sm:pt-5 md:pt-6 lg:pt-8 text-xs sm:text-sm md:text-2xl">{t("title")}</PageTitle>
 
 			<div className="flex flex-row flex-1 min-h-0 w-full">
 				<nav className="flex flex-col justify-center items-center w-1/3">

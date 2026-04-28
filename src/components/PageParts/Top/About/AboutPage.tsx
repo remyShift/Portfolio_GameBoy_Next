@@ -1,13 +1,14 @@
 import Image from "next/image";
 import { LuArrowRight } from "react-icons/lu";
 import { getTranslations } from "next-intl/server";
+import PageTitle from "@/components/PageParts/Top/PageTitle";
 
 export default async function AboutPage() {
 	const t = await getTranslations("about");
 
 	return (
 		<div className="flex flex-col w-full h-full">
-			<h1 className="font-pressStart2P text-pretty text-center shrink-0 pt-6 sm:pt-8 md:pt-10 lg:pt-12 text-xs sm:text-base md:text-2xl lg:text-3xl">{t("title")}</h1>
+			<PageTitle className="pt-6 sm:pt-8 md:pt-10 lg:pt-12 text-xs sm:text-base md:text-2xl lg:text-3xl">{t("title")}</PageTitle>
 
 			<div className="flex flex-row flex-1 min-h-0 w-full">
 				<div className="flex justify-center items-center w-1/3 h-full">
