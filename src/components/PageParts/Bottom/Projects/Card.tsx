@@ -33,7 +33,7 @@ export default function Card({ project, index }: { project: Project; index: numb
 			ref={ref}
 			target="_blank"
 			rel="noopener noreferrer"
-			className={`flex flex-col justify-between items-center hover:cursor-pointer hover:scale-105 bg-wine border-[#C6AF87] hover:bg-wine/80 border-solid border-4 rounded-xl drop-shadow-lg md:flex-row w-[80%] md:w-[75%] md:h-auto lg:h-[7%] transform transition-transform duration-500 ${visibilityClass(isInView, isEven)}`}
+			className={`flex flex-col justify-between items-center hover:cursor-pointer hover:scale-105 bg-wine border-[#C6AF87] hover:bg-wine/80 border-solid border-4 rounded-xl drop-shadow-lg md:flex-row w-[80%] md:w-[75%] h-auto transform transition-transform duration-500 ${visibilityClass(isInView, isEven)}`}
 		>
 			{isEven && (
 				<Image className="object-cover w-full rounded-t-lg md:h-full md:w-[40%] md:rounded-none md:rounded-l-lg" src={project.image} alt={project.name} width={500} height={500} />
