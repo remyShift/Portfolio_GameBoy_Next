@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import GameBoy from "@/components/gameboy/GameBoy";
+import MusicPlayer from "@/components/MusicPlayer";
 import { setRequestLocale, getTranslations, getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
@@ -77,6 +78,7 @@ export default async function LocaleLayout({
 			<GameBoy>
 				{children}
 			</GameBoy>
+			<MusicPlayer />
 		</NextIntlClientProvider>
 	);
 }

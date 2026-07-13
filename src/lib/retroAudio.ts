@@ -1,3 +1,10 @@
+import { getUiVolume } from './audioSettings';
+
+// Why: gains calibrés pour rester audibles au-dessus du lit musical
+// (pistes -18 LUFS × MUSIC_MAX_GAIN, cf. musicPlayer.ts) — ajuster ensemble
+const WELCOME_CHIME_BASE_GAIN = 0.06;
+const NAV_CLICK_BASE_GAIN = 0.018;
+
 const NAVIGABLE_FOR_SOUND =
 	"a, button, input, select, textarea, label, [role='button'], [tabindex]";
 
@@ -54,7 +61,11 @@ const WELCOME_CHIME_NOTES: readonly {
 	{ freq: 784, start: 0.44, dur: 0.4 },
 ];
 
-function scheduleWelcomeChime(ctx: AudioContext, t0: number): void {
+function scheduleWelcomeChime(
+	ctx: AudioContext,
+	t0: number,
+	volume: number,
+): void {
 	for (const { freq, start, dur } of WELCOME_CHIME_NOTES) {
 		const osc = ctx.createOscillator();
 		const gain = ctx.createGain();
@@ -62,8 +73,8 @@ function scheduleWelcomeChime(ctx: AudioContext, t0: number): void {
 		gain.connect(ctx.destination);
 		osc.type = 'triangle';
 		osc.frequency.value = freq;
-		gain.gain.setValueAtTime(0.034, t0 + start);
-		gain.gain.exponentialRampToValueAtTime(0.0006, t0 + start + dur);
+		gain.gain.setValueAtTime(WELCOME_CHIME_BASE_GAIN * volume, t0 + start);
+		gain.gain.exponentialRampToValueAtTime(0.0006 * volume, t0 + start + dur);
 		osc.start(t0 + start);
 		osc.stop(t0 + start + dur + 0.03);
 	}
@@ -73,29 +84,33 @@ export function playWelcomeChime(
 	ctx: AudioContext,
 	time: number = ctx.currentTime,
 ): void {
+	const volume = getUiVolume();
+	if (volume <= 0) return;
 	try {
-		scheduleWelcomeChime(ctx, time + 0.08);
+		scheduleWelcomeChime(ctx, time + 0.08, volume);
 	} catch {
 		// ignore
 	}
 }
 
-export function playNavClickSoftTick(
+export function playNavClickBlip(
 	ctx: AudioContext,
 	time: number = ctx.currentTime,
 ): void {
+	const volume = getUiVolume();
+	if (volume <= 0) return;
 	try {
 		const osc = ctx.createOscillator();
 		const gain = ctx.createGain();
 		osc.connect(gain);
 		gain.connect(ctx.destination);
-		osc.type = 'triangle';
-		osc.frequency.setValueAtTime(520, time);
-		osc.frequency.exponentialRampToValueAtTime(380, time + 0.022);
-		gain.gain.setValueAtTime(0.0055, time);
-		gain.gain.exponentialRampToValueAtTime(0.0004, time + 0.03);
+		osc.type = 'square';
+		osc.frequency.setValueAtTime(720, time);
+		osc.frequency.exponentialRampToValueAtTime(500, time + 0.03);
+		gain.gain.setValueAtTime(NAV_CLICK_BASE_GAIN * volume, time);
+		gain.gain.exponentialRampToValueAtTime(0.0008 * volume, time + 0.035);
 		osc.start(time);
-		osc.stop(time + 0.035);
+		osc.stop(time + 0.04);
 	} catch {
 		// ignore
 	}

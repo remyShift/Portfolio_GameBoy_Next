@@ -8,7 +8,11 @@
   "settings": {
     "title": "Paramètres",
     "tagline": "Personnalisez votre expérience",
-    "language": "Langue"
+    "language": "Langue",
+    "music": "Musique",
+    "soundEffects": "Effets sonores",
+    "volumeLevelAria": "Volume {level} sur {max}",
+    "muteToggleAria": "Couper ou rétablir le son"
   },
   "boot": {
     "continueHint": "Appuyez sur l'écran pour démarrer"
