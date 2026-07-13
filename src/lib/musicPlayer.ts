@@ -3,7 +3,7 @@ import { getSharedAudioContext } from "./retroAudio";
 
 const FADE_OUT_SECONDS = 0.4;
 const FADE_IN_SECONDS = 0.8;
-const MUSIC_MAX_GAIN = 0.1;
+const MUSIC_MAX_GAIN = 0.07;
 const MUSIC_DB_RANGE = 30;
 
 function musicGainFromVolume(volume: number): number {
