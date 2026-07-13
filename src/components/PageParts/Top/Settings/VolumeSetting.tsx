@@ -1,8 +1,14 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { LuMegaphoneOff } from "react-icons/lu";
 import { useMusicVolume, useUiVolume } from "@/hooks/useAudioSettings";
-import { setMusicVolume, setUiVolume } from "@/lib/audioSettings";
+import {
+	setMusicVolume,
+	setUiVolume,
+	toggleMusicMute,
+	toggleUiMute,
+} from "@/lib/audioSettings";
 import {
 	ensureAudioContextRunning,
 	getSharedAudioContext,
@@ -21,21 +27,34 @@ export default function VolumeSetting({ kind }: { kind: VolumeKind }) {
 	const volume = kind === "music" ? musicVolume : uiVolume;
 	const currentLevel = Math.round(volume * MAX_LEVEL);
 
-	const applyLevel = (level: number) => {
-		const nextVolume = level / MAX_LEVEL;
-
-    if (kind === "music") {
-			setMusicVolume(nextVolume);
-			return;
-    }
-
-		setUiVolume(nextVolume);
-
-    (async () => {
+	const playUiFeedback = () => {
+		(async () => {
 			const ctx = getSharedAudioContext();
 			await ensureAudioContextRunning(ctx);
 			playNavClickBlip(ctx);
 		})();
+	};
+
+	const applyLevel = (level: number) => {
+		const nextVolume = level / MAX_LEVEL;
+
+		if (kind === "music") {
+			setMusicVolume(nextVolume);
+			return;
+		}
+
+		setUiVolume(nextVolume);
+		playUiFeedback();
+	};
+
+	const toggleMute = () => {
+		if (kind === "music") {
+			toggleMusicMute();
+			return;
+		}
+
+		toggleUiMute();
+		playUiFeedback();
 	};
 
 	return (
@@ -51,20 +70,22 @@ export default function VolumeSetting({ kind }: { kind: VolumeKind }) {
 				return (
 					<button
 						key={level}
-						onClick={() => applyLevel(level)}
+						onClick={() => (level === 0 ? toggleMute() : applyLevel(level))}
 						aria-pressed={isActive}
-						aria-label={t("volumeLevelAria", { level, max: MAX_LEVEL })}
+						aria-label={
+								level === 0
+									? t("muteToggleAria")
+									: t("volumeLevelAria", { level, max: MAX_LEVEL })
+							}
 						className="flex items-end p-0.5"
 					>
 						{level === 0 ? (
-							<span
+							<LuMegaphoneOff
 								aria-hidden="true"
-								className={`font-pressStart2P text-[0.5rem] sm:text-xs md:text-sm ${
+								className={`w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 transition-colors ${
 									isActive ? "text-wine" : "text-greyTextInfo"
 								}`}
-							>
-								✕
-							</span>
+							/>
 						) : (
 							<span
 								aria-hidden="true"

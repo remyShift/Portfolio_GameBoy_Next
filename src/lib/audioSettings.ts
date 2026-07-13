@@ -11,6 +11,8 @@ const listeners = new Set<VolumeListener>();
 
 let musicVolume: number | null = null;
 let uiVolume: number | null = null;
+let lastAudibleMusicVolume: number | null = null;
+let lastAudibleUiVolume: number | null = null;
 
 function clampVolume(value: number): number {
 	return Math.max(0, Math.min(1, value));
@@ -61,14 +63,36 @@ export function getUiVolume(): number {
 
 export function setMusicVolume(value: number): void {
 	musicVolume = clampVolume(value);
+	if (musicVolume > 0) lastAudibleMusicVolume = musicVolume;
 	writeStoredVolume(MUSIC_VOLUME_STORAGE_KEY, musicVolume);
 	notifyListeners();
 }
 
 export function setUiVolume(value: number): void {
 	uiVolume = clampVolume(value);
+	if (uiVolume > 0) lastAudibleUiVolume = uiVolume;
 	writeStoredVolume(UI_VOLUME_STORAGE_KEY, uiVolume);
 	notifyListeners();
+}
+
+export function toggleMusicMute(): void {
+	const current = getMusicVolume();
+	if (current > 0) {
+		lastAudibleMusicVolume = current;
+		setMusicVolume(0);
+		return;
+	}
+	setMusicVolume(lastAudibleMusicVolume ?? DEFAULT_MUSIC_VOLUME);
+}
+
+export function toggleUiMute(): void {
+	const current = getUiVolume();
+	if (current > 0) {
+		lastAudibleUiVolume = current;
+		setUiVolume(0);
+		return;
+	}
+	setUiVolume(lastAudibleUiVolume ?? DEFAULT_UI_VOLUME);
 }
 
 export function subscribeToAudioSettings(
