@@ -6,7 +6,7 @@ import {
 	ensureAudioContextRunning,
 	getSharedAudioContext,
 	isTargetNavigableForClickSound,
-	playNavClickSoftTick,
+	playNavClickBlip,
 } from "@/lib/retroAudio";
 
 export default function NavClickSound() {
@@ -21,7 +21,7 @@ export default function NavClickSound() {
 			void (async () => {
 				const ctx = getSharedAudioContext();
 				await ensureAudioContextRunning(ctx);
-				playNavClickSoftTick(ctx);
+				playNavClickBlip(ctx);
 			})();
 		};
 

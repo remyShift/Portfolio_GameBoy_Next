@@ -8,7 +8,10 @@
   "settings": {
     "title": "Settings",
     "tagline": "Customize your experience",
-    "language": "Language"
+    "language": "Language",
+    "music": "Music",
+    "soundEffects": "Sound effects",
+    "volumeLevelAria": "Volume {level} of {max}"
   },
   "boot": {
     "continueHint": "Touch the screen to start"
