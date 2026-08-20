@@ -7,7 +7,7 @@ Deployed on Vercel at `remy-shift.dev`.
 
 - **No co-author in commits.** Never add `Co-Authored-By: Claude ...` or equivalent. Commits are signed by Rémy alone.
 - **Plan → architecture → implementation.** Never skip steps. For any non-trivial change, align on the approach before touching code.
-- **TDD is non-negotiable for any new code** (see `.claude/skills/tdd.md`).
+- **No tests required** — Rémy's decision (2026-07-13). New features ship without tests; the existing suite must stay green (`pnpm test`).
 - **Commit format**: Conventional Commits (`feat:`, `fix:`, `refactor:`, `chore:`, `test:`, `style:`, `docs:`), description in French, short imperative.
 - **One PR = one plan step.** Stack if the previous PR isn't merged, otherwise branch from main.
 
@@ -17,7 +17,6 @@ This project follows the Software Craft principles detailed in `.claude/skills/`
 
 - [`clean-code.md`](.claude/skills/clean-code.md) — Clean Code, SOLID, SRP, Law of Demeter, no Primitive Obsession, zero duplication
 - [`naming.md`](.claude/skills/naming.md) — Naming matters: verbs for actions, intent-revealing names, no `Helper`/`Utils`/`Data`/`Manager`
-- [`tdd.md`](.claude/skills/tdd.md) — Red/Green/Refactor, tests before implementation
 - [`git-workflow.md`](.claude/skills/git-workflow.md) — Commits, stacked PRs, branches
 
 These skills are not decorative. A refactor or feature that violates them gets rejected in review.
