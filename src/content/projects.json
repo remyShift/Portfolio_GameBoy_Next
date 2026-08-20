@@ -1,6 +1,22 @@
 {
 	"projects": [
 		{
+			"id": "olis-lab",
+			"image": "/assets/img/projects/olislab.webp",
+			"stacks": ["react", "next", "ts"],
+			"link": "https://olislab.com/",
+			"i18n": {
+				"fr": {
+					"name": "Oli's Lab",
+					"description": "Site e-commerce d'une marque de cosmétiques clean. Mission freelance en cours au sein d'une équipe de développeurs : maintenance de la plateforme et migration progressive d'une code base legacy (React, JavaScript, Express, MongoDB) vers Next.js et TypeScript, avec le passage à un nouveau CMS. Développement de features produit (recherche, panier, tunnel de commande) et refonte de l'interface d'administration."
+				},
+				"en": {
+					"name": "Oli's Lab",
+					"description": "E-commerce site for a clean cosmetics brand. Ongoing freelance mission within a dev team: maintaining the platform and progressively migrating a legacy code base (React, JavaScript, Express, MongoDB) to Next.js and TypeScript, along with a move to a new CMS. Product feature work (search, cart, checkout) and a rebuild of the admin interface."
+				}
+			}
+		},
+		{
 			"id": "kicksfolio",
 			"image": "/assets/img/projects/kicksfolio.png",
 			"stacks": ["rails", "react", "tailwindcss"],

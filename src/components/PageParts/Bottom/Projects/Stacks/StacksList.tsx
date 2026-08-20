@@ -5,6 +5,7 @@ export default function StacksList() {
 		"html",
 		"css",
 		"js",
+		"ts",
 		"tailwindcss",
 		"c",
 		"lua",
