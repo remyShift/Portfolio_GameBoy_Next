@@ -9,11 +9,7 @@ import {
 	toggleMusicMute,
 	toggleUiMute,
 } from "@/lib/audioSettings";
-import {
-	ensureAudioContextRunning,
-	getSharedAudioContext,
-	playNavClickBlip,
-} from "@/lib/retroAudio";
+import { playNavClickBlip, unlockAudioContext } from "@/lib/retroAudio";
 
 const MAX_LEVEL = 5;
 const LEVELS = Array.from({ length: MAX_LEVEL + 1 }, (_, level) => level);
@@ -28,11 +24,7 @@ export default function VolumeSetting({ kind }: { kind: VolumeKind }) {
 	const currentLevel = Math.round(volume * MAX_LEVEL);
 
 	const playUiFeedback = () => {
-		(async () => {
-			const ctx = getSharedAudioContext();
-			await ensureAudioContextRunning(ctx);
-			playNavClickBlip(ctx);
-		})();
+		playNavClickBlip(unlockAudioContext());
 	};
 
 	const applyLevel = (level: number) => {

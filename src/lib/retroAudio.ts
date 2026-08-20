@@ -5,12 +5,19 @@ import { getUiVolume } from './audioSettings';
 const WELCOME_CHIME_BASE_GAIN = 0.06;
 const NAV_CLICK_BASE_GAIN = 0.018;
 
+// Why: marge minimale pour ne pas programmer un événement dans le quantum de
+// rendu déjà en cours (128 frames), sinon le premier son claque
+const SCHEDULE_LEAD_SECONDS = 0.02;
+
 const NAVIGABLE_FOR_SOUND =
 	"a, button, input, select, textarea, label, [role='button'], [tabindex]";
 
 export const BOOT_OVERLAY_SELECTOR = '[data-boot-overlay]';
 
-type WindowWithAudio = Window & { __retroAudioContext?: AudioContext };
+type WindowWithAudio = Window & {
+	__retroAudioContext?: AudioContext;
+	__isRetroAudioOutputWarm?: boolean;
+};
 
 export function isTargetNavigableForClickSound(
 	target: EventTarget | null,
@@ -38,16 +45,37 @@ export function getSharedAudioContext(): AudioContext {
 	return w.__retroAudioContext;
 }
 
-export async function ensureAudioContextRunning(
-	ctx: AudioContext,
-): Promise<void> {
-	if (ctx.state === 'suspended') {
-		try {
-			await ctx.resume();
-		} catch {
-			// Why: autoplay policy — resume may fail without user gesture
-		}
+// Why: instancier l'AudioContext coûte 100 à 500 ms sur mobile (ouverture de la
+// route audio matérielle). Appelé au montage, ce coût est payé pendant le boot
+// au lieu de l'être au moment du geste, là où il s'entend.
+export function prepareAudioContext(): void {
+	if (typeof window === 'undefined') return;
+	getSharedAudioContext();
+}
+
+function warmUpAudioOutput(ctx: AudioContext): void {
+	const w = window as WindowWithAudio;
+	if (w.__isRetroAudioOutputWarm) return;
+	w.__isRetroAudioOutputWarm = true;
+	// Why: iOS n'ouvre réellement la sortie qu'au premier rendu — un buffer muet
+	// la déclenche avant le premier son utile, qui sinon arrive en retard
+	const silentTick = ctx.createBufferSource();
+	silentTick.buffer = ctx.createBuffer(1, 1, ctx.sampleRate);
+	silentTick.connect(ctx.destination);
+	silentTick.start();
+}
+
+// Why: resume() doit partir de façon synchrone depuis le handler de geste —
+// après un await, WebKit ne voit plus d'activation utilisateur. Sa promesse ne
+// se résout parfois jamais, donc on ne l'attend pas : currentTime reste gelé
+// tant que le contexte dort, les sons programmés partent dès la reprise.
+export function unlockAudioContext(): AudioContext {
+	const ctx = getSharedAudioContext();
+	if (ctx.state !== 'running') {
+		void ctx.resume().catch(() => undefined);
 	}
+	warmUpAudioOutput(ctx);
+	return ctx;
 }
 
 const WELCOME_CHIME_NOTES: readonly {
@@ -87,7 +115,7 @@ export function playWelcomeChime(
 	const volume = getUiVolume();
 	if (volume <= 0) return;
 	try {
-		scheduleWelcomeChime(ctx, time + 0.08, volume);
+		scheduleWelcomeChime(ctx, time + SCHEDULE_LEAD_SECONDS, volume);
 	} catch {
 		// ignore
 	}

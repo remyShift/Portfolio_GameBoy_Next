@@ -1,8 +1,11 @@
 import { getMusicVolume } from "./audioSettings";
 import { getSharedAudioContext } from "./retroAudio";
+import { resolveTrackSource } from "./trackCache";
 
 const FADE_OUT_SECONDS = 0.4;
-const FADE_IN_SECONDS = 0.8;
+// Why: fondu court — au-delà, les premières centaines de ms restent
+// inaudibles et la musique donne l'impression de ne pas démarrer
+const FADE_IN_SECONDS = 0.45;
 const MUSIC_MAX_GAIN = 0.07;
 const MUSIC_DB_RANGE = 30;
 
@@ -34,7 +37,7 @@ function getPlayer(): MusicPlayerState {
 		const ctx = getSharedAudioContext();
 		const element = new Audio();
 		element.loop = true;
-		element.preload = "none";
+		element.preload = "auto";
 		const source = ctx.createMediaElementSource(element);
 		const gain = ctx.createGain();
 		gain.gain.value = 0;
@@ -49,6 +52,13 @@ function getPlayer(): MusicPlayerState {
 		};
 	}
 	return w.__retroMusicPlayer;
+}
+
+// Why: monter le graphe WebAudio au montage évite de le construire au premier
+// geste, là où chaque milliseconde s'entend
+export function prepareMusicPlayer(): void {
+	if (typeof window === "undefined") return;
+	getPlayer();
 }
 
 function rampGainTo(
@@ -89,7 +99,7 @@ export async function playTrack(src: string): Promise<boolean> {
 		player.element.pause();
 	}
 
-	player.element.src = src;
+	player.element.src = resolveTrackSource(src);
 	player.currentTrack = src;
 
 	try {

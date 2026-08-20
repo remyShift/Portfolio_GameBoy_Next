@@ -12,6 +12,9 @@ const devOnlyScriptSources = isDev ? "'unsafe-eval' " : '';
 const cspDirectives = [
 	"default-src 'self'",
 	"img-src 'self' data: blob:",
+	// Why: les pistes préchargées sont jouées depuis un blob: en mémoire
+	// (cf. trackCache.ts), media-src doit donc l'autoriser explicitement
+	"media-src 'self' blob:",
 	`script-src 'self' 'unsafe-inline' ${devOnlyScriptSources}https://vercel.live https://*.vercel-scripts.com`,
 	"connect-src 'self' https://vercel.live https://*.vercel-insights.com https://*.vercel-scripts.com",
 	"font-src 'self' data:",

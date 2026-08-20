@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { getSharedAudioContext, playWelcomeChime } from "@/lib/retroAudio";
+import { playWelcomeChime, unlockAudioContext } from "@/lib/retroAudio";
 
 type Phase = "crt" | "content" | "fadeout";
 
@@ -20,11 +20,6 @@ export default function BootAnimation({ onComplete }: BootAnimationProps) {
 	const dismissingRef = useRef(false);
 	const contentTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-	/* Audio unlock strategy for mobile Safari (WebKit):
-	 * - resume() must be called synchronously inside the user-gesture handler.
-	 * - The Promise returned by resume() sometimes never resolves on WebKit (known bug).
-	 * - statechange fires reliably when the context actually transitions to "running".
-	 * - We use both as belt-and-suspenders: whichever fires first plays the chime. */
 	const runDismiss = useCallback(() => {
 		if (dismissingRef.current) return;
 		if (contentTimerRef.current) {
@@ -34,21 +29,10 @@ export default function BootAnimation({ onComplete }: BootAnimationProps) {
 		dismissingRef.current = true;
 		setPhase("fadeout");
 
-		const ctx = getSharedAudioContext();
-		if (ctx.state === "running") {
-			playWelcomeChime(ctx);
-		} else {
-			let played = false;
-			const onRunning = () => {
-				if (!played && ctx.state === "running") {
-					played = true;
-					ctx.removeEventListener("statechange", onRunning);
-					playWelcomeChime(ctx);
-				}
-			};
-			ctx.addEventListener("statechange", onRunning);
-			void ctx.resume().then(onRunning);
-		}
+		// Why: on programme le chime sans attendre la reprise du contexte —
+		// currentTime est gelé tant qu'il dort, les notes partent donc dès qu'il
+		// redémarre, alors qu'attendre resume() coûte des centaines de ms sur WebKit
+		playWelcomeChime(unlockAudioContext());
 
 		window.setTimeout(() => {
 			onComplete();
