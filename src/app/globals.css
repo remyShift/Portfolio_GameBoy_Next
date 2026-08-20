@@ -36,6 +36,30 @@
   }
 }
 
+/* Why: the screen is a stylised LCD, so an OS scrollbar inside it breaks the
+   illusion, but hiding it outright would remove the only hint that the copy
+   continues below on short and landscape viewports. Thin and in palette keeps
+   both. Kept as plain top-level CSS on purpose: Tailwind silently drops these
+   rules when they are wrapped in @utility or @layer utilities, leaving the class
+   in the markup with no rule behind it. */
+.screen-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(92, 19, 29, 0.45) transparent;
+}
+
+.screen-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.screen-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.screen-scroll::-webkit-scrollbar-thumb {
+  background: rgba(92, 19, 29, 0.45);
+  border-radius: 9999px;
+}
+
 @layer base {
   *,
   *::before,
