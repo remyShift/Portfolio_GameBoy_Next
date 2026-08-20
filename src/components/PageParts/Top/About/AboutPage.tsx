@@ -11,7 +11,7 @@ export default async function AboutPage() {
 			<PageTitle className="pt-6 sm:pt-8 md:pt-10 lg:pt-12 text-xs sm:text-base md:text-2xl lg:text-3xl">{t("title")}</PageTitle>
 
 			<div className="flex flex-row flex-1 min-h-0 w-full">
-				<div className="flex flex-col justify-center items-start gap-4 w-1/2 h-full ml-4 md:ml-8">
+				<div className="flex flex-col justify-center items-start gap-2 w-1/2 h-full ml-4 md:ml-8">
 					<p className="font-pressStart2P text-pretty text-[0.45rem] sm:text-xs md:text-base lg:text-lg">{t("text")}</p><br />
 					<p className="font-pressStart2P text-pretty text-[0.45rem] sm:text-xs md:text-base lg:text-lg">{t("text2")}</p><br />
 				</div>
