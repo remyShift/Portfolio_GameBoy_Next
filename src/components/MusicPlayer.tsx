@@ -12,7 +12,8 @@ import {
 	resumeFromHiddenTab,
 	stopMusic,
 } from "@/lib/musicPlayer";
-import { prepareAudioContext, unlockAudioContext } from "@/lib/retroAudio";
+import { runOnUserGesture } from "@/lib/audioUnlock";
+import { prepareAudioContext } from "@/lib/retroAudio";
 import { prefetchTrack } from "@/lib/trackCache";
 
 export default function MusicPlayer() {
@@ -32,25 +33,17 @@ export default function MusicPlayer() {
 	useEffect(() => {
 		if (armed) return;
 
-		// Why: aucun await avant play() — après un await, WebKit ne voit plus
-		// d'activation utilisateur et refuse la lecture
-		const onFirstGesture = () => {
-			unlockAudioContext();
-
+		// Why: pas d'écouteur local — ce composant s'hydrate après BootAnimation et
+		// manquait le tap de démarrage. Pas d'await avant play() non plus : après un
+		// await, WebKit ne voit plus d'activation utilisateur et refuse la lecture.
+		return runOnUserGesture(() => {
 			const track = getTrackForPathname(pathname);
 			if (!track || getMusicVolume() <= 0) return;
 
 			void playTrack(track).then((started) => {
 				if (started) setArmed(true);
 			});
-		};
-
-		document.addEventListener("pointerdown", onFirstGesture, true);
-		document.addEventListener("keydown", onFirstGesture, true);
-		return () => {
-			document.removeEventListener("pointerdown", onFirstGesture, true);
-			document.removeEventListener("keydown", onFirstGesture, true);
-		};
+		});
 	}, [armed, pathname]);
 
 	useEffect(() => {
@@ -75,7 +68,6 @@ export default function MusicPlayer() {
 			const track = getTrackForPathname(pathname);
 			if (!track) return;
 
-			unlockAudioContext();
 			playTrack(track).then((started) => {
 				if (started) setArmed(true);
 			});

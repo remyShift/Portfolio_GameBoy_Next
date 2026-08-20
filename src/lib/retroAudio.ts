@@ -115,7 +115,9 @@ export function playWelcomeChime(
 	const volume = getUiVolume();
 	if (volume <= 0) return;
 	try {
-		scheduleWelcomeChime(ctx, time + SCHEDULE_LEAD_SECONDS, volume);
+		// Why: currentTime bondit quand le contexte sort de veille — sans ce
+		// plancher, les notes se programment dans le passé et la rampe est tronquée
+		scheduleWelcomeChime(ctx, Math.max(time, ctx.currentTime) + SCHEDULE_LEAD_SECONDS, volume);
 	} catch {
 		// ignore
 	}
@@ -128,17 +130,18 @@ export function playNavClickBlip(
 	const volume = getUiVolume();
 	if (volume <= 0) return;
 	try {
+		const startAt = Math.max(time, ctx.currentTime) + SCHEDULE_LEAD_SECONDS;
 		const osc = ctx.createOscillator();
 		const gain = ctx.createGain();
 		osc.connect(gain);
 		gain.connect(ctx.destination);
 		osc.type = 'square';
-		osc.frequency.setValueAtTime(720, time);
-		osc.frequency.exponentialRampToValueAtTime(500, time + 0.03);
-		gain.gain.setValueAtTime(NAV_CLICK_BASE_GAIN * volume, time);
-		gain.gain.exponentialRampToValueAtTime(0.0008 * volume, time + 0.035);
-		osc.start(time);
-		osc.stop(time + 0.04);
+		osc.frequency.setValueAtTime(720, startAt);
+		osc.frequency.exponentialRampToValueAtTime(500, startAt + 0.03);
+		gain.gain.setValueAtTime(NAV_CLICK_BASE_GAIN * volume, startAt);
+		gain.gain.exponentialRampToValueAtTime(0.0008 * volume, startAt + 0.035);
+		osc.start(startAt);
+		osc.stop(startAt + 0.04);
 	} catch {
 		// ignore
 	}
