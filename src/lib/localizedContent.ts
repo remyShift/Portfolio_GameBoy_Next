@@ -49,6 +49,7 @@ export function localizeTimeline(entries: TimelineEntry[], locale: Locale): Time
 		return {
 			id: entry.id,
 			date: entry.date,
+			videoUrl: entry.videoUrl,
 			title,
 			description,
 		};

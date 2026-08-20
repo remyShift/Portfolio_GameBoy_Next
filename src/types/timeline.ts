@@ -8,6 +8,7 @@ export type TimelineI18n = {
 export type TimelineEntry = {
 	id: string;
 	date: string;
+	videoUrl?: string;
 	i18n: Record<Locale, TimelineI18n>;
 };
 
@@ -16,4 +17,5 @@ export type TimelineItem = {
 	title: string;
 	date: string;
 	description: string;
+	videoUrl?: string;
 };

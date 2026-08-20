@@ -15,6 +15,21 @@
 			}
 		},
 		{
+			"id": "lyon-craft-2026",
+			"date": "05 / 2026",
+			"videoUrl": "https://youtu.be/ByUHoqpBp6Q",
+			"i18n": {
+				"fr": {
+					"title": "Speaker - Lyon Craft 2026",
+					"description": "Premier talk public, donné le 12 mai 2026 à Lyon Craft, la conférence software craftsmanship organisée par la communauté des Software Crafters Lyon. Un retour d'expérience de 45 minutes, « Développeur par obstination : ou comment les galères valent mieux que les filières », sur ma reconversion : de la vente de surgelés en porte à porte à du code en production, en passant par deux refus à la piscine 42, une école quittée et six mois sans mission. La thèse : ce qui forge un développeur, ce n'est pas la formation qu'il a suivie mais la culture qu'il se construit en chemin."
+				},
+				"en": {
+					"title": "Speaker - Lyon Craft 2026",
+					"description": "First public talk, given on May 12th 2026 at Lyon Craft, the software craftsmanship conference run by the Software Crafters Lyon community. A 45-minute experience report, « Développeur par obstination », on my career switch: from selling frozen food door to door to shipping production code, through two rejections at 42's piscine, a school I walked away from and six months without a mission. The point: what shapes a developer is not the training they followed but the culture they build along the way."
+				}
+			}
+		},
+		{
 			"id": "spash",
 			"date": "01 / 2025 - 06 / 2025",
 			"i18n": {

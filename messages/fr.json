@@ -27,7 +27,7 @@
   },
   "available": "► DISPONIBLE",
   "footer": {
-    "copyright": "©Copyright 2024 - Rémy Cassagne. Tous droits réservés.",
+    "copyright": "©Copyright 2026 - Rémy Cassagne. Tous droits réservés.",
     "made": "Fait avec ❤️ par Rémy Cassagne"
   },
   "role": "Développeur Fullstack",
@@ -74,7 +74,8 @@
     "title": "Apprenez à me connaître ...",
     "text": "Passionné de technologie et naturellement curieux, je suis constamment à la recherche de nouveaux défis.",
     "age": "ans",
-    "text2": "Ma créativité, mon adaptabilité et mes diverses expériences enrichissent chaque projet auquel je contribue."
+    "text2": "Ma créativité, mon adaptabilité et mes diverses expériences enrichissent chaque projet auquel je contribue.",
+    "watchTalk": "Voir la captation"
   },
   "contact": {
     "title": "Intéressé ? Curieux ? N'attendez plus, Contactez moi !",

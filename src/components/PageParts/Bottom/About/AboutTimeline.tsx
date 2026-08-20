@@ -19,7 +19,7 @@ export default function AboutTimeline() {
 				<LightButton />
 				<ol className="h-[85%] w-[85%] md:w-auto pt-40 border-l-2 border-wine mx-auto mb-10">
 					{timeline.map((item) => (
-						<TimelineItems key={item.id} title={item.title} date={item.date} description={item.description} />
+						<TimelineItems key={item.id} title={item.title} date={item.date} description={item.description} videoUrl={item.videoUrl} />
 					))}
 				</ol>
 				<Divider onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
