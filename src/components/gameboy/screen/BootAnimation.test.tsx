@@ -7,10 +7,10 @@ vi.mock("next-intl", () => ({
 }));
 
 const playWelcomeChime = vi.fn();
-const fakeCtx = { state: "running" as const, addEventListener: vi.fn(), removeEventListener: vi.fn(), resume: vi.fn() };
+const fakeCtx = { state: "running" as const, currentTime: 0 };
 
 vi.mock("@/lib/retroAudio", () => ({
-	getSharedAudioContext: () => fakeCtx,
+	unlockAudioContext: () => fakeCtx,
 	playWelcomeChime: (...args: unknown[]) => playWelcomeChime(...args),
 }));
 

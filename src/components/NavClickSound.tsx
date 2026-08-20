@@ -3,10 +3,9 @@
 import { useEffect } from "react";
 import {
 	BOOT_OVERLAY_SELECTOR,
-	ensureAudioContextRunning,
-	getSharedAudioContext,
 	isTargetNavigableForClickSound,
 	playNavClickBlip,
+	unlockAudioContext,
 } from "@/lib/retroAudio";
 
 export default function NavClickSound() {
@@ -18,11 +17,7 @@ export default function NavClickSound() {
 			const t = e.target;
 			if (t instanceof Element && t.closest(BOOT_OVERLAY_SELECTOR)) return;
 			if (!isTargetNavigableForClickSound(t)) return;
-			void (async () => {
-				const ctx = getSharedAudioContext();
-				await ensureAudioContextRunning(ctx);
-				playNavClickBlip(ctx);
-			})();
+			playNavClickBlip(unlockAudioContext());
 		};
 
 		document.addEventListener("pointerdown", onPointerDown, true);

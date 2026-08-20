@@ -7,14 +7,13 @@ import { getMusicVolume, subscribeToAudioSettings } from "@/lib/audioSettings";
 import {
 	applyMusicVolume,
 	playTrack,
+	prepareMusicPlayer,
 	pauseForHiddenTab,
 	resumeFromHiddenTab,
 	stopMusic,
 } from "@/lib/musicPlayer";
-import {
-	ensureAudioContextRunning,
-	getSharedAudioContext,
-} from "@/lib/retroAudio";
+import { prepareAudioContext, unlockAudioContext } from "@/lib/retroAudio";
+import { prefetchTrack } from "@/lib/trackCache";
 
 export default function MusicPlayer() {
 	const pathname = usePathname();
@@ -23,14 +22,27 @@ export default function MusicPlayer() {
 	useEffect(() => {
 		if (armed) return;
 
+		prepareAudioContext();
+		prepareMusicPlayer();
+
+		const track = getTrackForPathname(pathname);
+		if (track && getMusicVolume() > 0) prefetchTrack(track);
+	}, [armed, pathname]);
+
+	useEffect(() => {
+		if (armed) return;
+
+		// Why: aucun await avant play() — après un await, WebKit ne voit plus
+		// d'activation utilisateur et refuse la lecture
 		const onFirstGesture = () => {
-			void (async () => {
-				await ensureAudioContextRunning(getSharedAudioContext());
-				const track = getTrackForPathname(pathname);
-				if (!track || getMusicVolume() <= 0) return;
-				const started = await playTrack(track);
+			unlockAudioContext();
+
+			const track = getTrackForPathname(pathname);
+			if (!track || getMusicVolume() <= 0) return;
+
+			void playTrack(track).then((started) => {
 				if (started) setArmed(true);
-			})();
+			});
 		};
 
 		document.addEventListener("pointerdown", onFirstGesture, true);
@@ -58,12 +70,12 @@ export default function MusicPlayer() {
 				applyMusicVolume(volume);
 				return;
 			}
-      if (volume <= 0) return;
+			if (volume <= 0) return;
 
 			const track = getTrackForPathname(pathname);
+			if (!track) return;
 
-      if (!track) return;
-
+			unlockAudioContext();
 			playTrack(track).then((started) => {
 				if (started) setArmed(true);
 			});
