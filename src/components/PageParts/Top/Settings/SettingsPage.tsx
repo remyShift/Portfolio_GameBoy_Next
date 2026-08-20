@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import LanguageSetting from "./LanguageSetting";
+import VolumeSetting from "./VolumeSetting";
 
 export default async function SettingsPage() {
 	const t = await getTranslations("settings");
@@ -10,18 +11,21 @@ export default async function SettingsPage() {
 				{t("tagline")}
 			</h1>
 
-			<div className="flex items-start gap-8 sm:gap-16 md:gap-72 z-10">
-				<ul className="flex flex-col gap-5 sm:gap-7">
-					<li className="font-pressStart2P text-[0.5rem] sm:text-xs md:text-sm uppercase tracking-widest pt-1">
-						{t("language")}
-					</li>
-				</ul>
+			<div className="grid grid-cols-[auto_auto] items-start gap-x-8 sm:gap-x-16 md:gap-x-72 gap-y-5 sm:gap-y-7 z-10">
+				<span className="font-pressStart2P text-[0.5rem] sm:text-xs md:text-sm uppercase tracking-widest pt-1">
+					{t("language")}
+				</span>
+				<LanguageSetting />
 
-				<ul className="flex flex-col gap-5 sm:gap-7">
-					<li>
-						<LanguageSetting />
-					</li>
-				</ul>
+				<span className="font-pressStart2P text-[0.5rem] sm:text-xs md:text-sm uppercase tracking-widest pt-1">
+					{t("music")}
+				</span>
+				<VolumeSetting kind="music" />
+
+				<span className="font-pressStart2P text-[0.5rem] sm:text-xs md:text-sm uppercase tracking-widest pt-1">
+					{t("soundEffects")}
+				</span>
+				<VolumeSetting kind="ui" />
 			</div>
 		</div>
 	);
