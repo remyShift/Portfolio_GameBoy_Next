@@ -42,6 +42,8 @@ next-env.d.ts
 # sao
 # claude code — track skills, ignore local settings
 .claude/settings.local.json
+.claude/launch.json
+.claude/worktrees/
 
 # audit artifacts
 /.playwright-mcp/
