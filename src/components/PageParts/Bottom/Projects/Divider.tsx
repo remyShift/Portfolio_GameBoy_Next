@@ -45,11 +45,8 @@ export default function Divider({ children, onClick }: DividerProps) {
 			observer.observe(textRef.current);
 		}
 
-		const node = textRef.current;
 		return () => {
-			if (node) {
-				observer.unobserve(node);
-			}
+			observer.disconnect();
 		};
 	}, [children, onClick, prevY]);
 
