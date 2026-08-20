@@ -20,7 +20,7 @@ vi.mock("@/lib/env", () => ({
 }));
 
 vi.mock("@/lib/rateLimit", () => ({
-  checkRateLimit: vi.fn().mockReturnValue({ ok: true }),
+  checkRateLimit: vi.fn().mockReturnValue({ ok: true, retryAfterSec: 0 }),
 }));
 
 vi.mock("@/components/emails/email-template", () => ({
@@ -50,7 +50,7 @@ function makeRequest(body: unknown, ip = "127.0.0.1"): Request {
 describe("POST /contact/api/send", () => {
   beforeEach(() => {
     sendMock.mockResolvedValue({ data: { id: "email-id" }, error: null });
-    vi.mocked(checkRateLimit).mockReturnValue({ ok: true });
+    vi.mocked(checkRateLimit).mockReturnValue({ ok: true, retryAfterSec: 0 });
     vi.mocked(getServerEnv).mockReturnValue({
       RESEND_API_KEY: "re_test",
       FROM_EMAIL: "from@test.com",
