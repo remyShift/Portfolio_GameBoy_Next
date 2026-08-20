@@ -31,9 +31,16 @@ updates:
           - "eslint*"
           - "@typescript-eslint/*"
           - "typescript"
+          - "typescript-eslint"
           - "vitest"
           - "@vitest/*"
           - "@testing-library/*"
+    ignore:
+      # Why: typescript-eslint caps its typescript peer at <6.1.0, so any
+      # TypeScript major past 6 breaks `pnpm lint`. Drop this entry once
+      # typescript-eslint ships a release that supports the new major.
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: "github-actions"
     directory: "/"
