@@ -59,7 +59,7 @@ export default function VolumeSetting({ kind }: { kind: VolumeKind }) {
 
 	return (
 		<div
-			className="flex items-end gap-1.5 sm:gap-2 pt-1"
+			className="flex items-end gap-0 sm:gap-1 pt-1"
 			role="group"
 			aria-label={t(kind === "music" ? "music" : "soundEffects")}
 			data-no-sound={kind === "ui" ? "" : undefined}
@@ -77,7 +77,7 @@ export default function VolumeSetting({ kind }: { kind: VolumeKind }) {
 									? t("muteToggleAria")
 									: t("volumeLevelAria", { level, max: MAX_LEVEL })
 							}
-						className="flex items-end p-0.5"
+						className="flex items-end justify-center min-w-6 min-h-6 p-0.5"
 					>
 						{level === 0 ? (
 							<LuMegaphoneOff

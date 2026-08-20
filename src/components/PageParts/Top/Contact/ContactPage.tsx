@@ -11,7 +11,7 @@ import { useTranslations, useLocale } from "next-intl";
 import PageTitle from "@/components/PageParts/Top/PageTitle";
 
 const inputClasses = "rounded w-full h-1/2 text-xs sm:text-sm md:text-base lg:text-lg sm:h-auto bg-gray-300 border-[0.09rem] px-1 md:py-1 font-gillSans border-gray-400 focus:border-gray-800 focus:outline-hidden";
-const labelClasses = "font-pressStart2P text-[0.6rem] sm:text-xs md:text-xs lg:text-sm";
+const labelClasses = "font-pressStart2P leading-pixel text-[0.6rem] sm:text-xs md:text-xs lg:text-sm";
 
 export default function ContactPage() {
 	const t = useTranslations("contact");
@@ -53,19 +53,19 @@ export default function ContactPage() {
 				<nav className="flex flex-col justify-center items-center w-1/3">
 					<ul className="flex flex-col gap-4 sm:gap-6 md:gap-10 lg:gap-14 ml-2">
 						<li>
-							<Link href="https://github.com/remyShift" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-pressStart2P text-[0.6rem] sm:text-sm md:text-base lg:text-lg hover:underline">
+							<Link href="https://github.com/remyShift" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 py-1.5 font-pressStart2P text-pixel-nav hover:underline">
 								<FaGithub aria-hidden="true" className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
 								Github
 							</Link>
 						</li>
 						<li>
-							<Link href="https://www.linkedin.com/in/remy-cassagne?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-pressStart2P text-[0.6rem] sm:text-sm md:text-base lg:text-lg hover:underline">
+							<Link href="https://www.linkedin.com/in/remy-cassagne?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 py-1.5 font-pressStart2P text-pixel-nav hover:underline">
 								<FaLinkedin aria-hidden="true" className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
 								Linkedin
 							</Link>
 						</li>
 						<li>
-							<Link href="mailto:contact@remy-shift.dev" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-pressStart2P text-[0.6rem] sm:text-sm md:text-base lg:text-lg hover:underline">
+							<Link href="mailto:contact@remy-shift.dev" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 py-1.5 font-pressStart2P text-pixel-nav hover:underline">
 								<LuMail aria-hidden="true" className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
 								Mail
 							</Link>

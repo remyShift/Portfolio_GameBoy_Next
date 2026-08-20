@@ -22,6 +22,19 @@ describe("PageTitle", () => {
 		expect(h1.className).toContain("shrink-0");
 	});
 
+	it("réserve l'interlignage et la marge basse du titre", () => {
+		const { getByRole } = render(<PageTitle className="">Titre</PageTitle>);
+		const h1 = getByRole("heading", { level: 1 });
+		expect(h1.className).toContain("leading-pixel");
+		expect(h1.className).toContain("mb-3");
+	});
+
+	it("réserve une marge horizontale pour ne pas coller aux bords de l'écran", () => {
+		const { getByRole } = render(<PageTitle className="">Titre</PageTitle>);
+		const h1 = getByRole("heading", { level: 1 });
+		expect(h1.className).toContain("px-3");
+	});
+
 	it("ajoute les classes passées via className", () => {
 		const { getByRole } = render(
 			<PageTitle className="pt-6 text-xs sm:text-base md:text-2xl">Titre</PageTitle>
