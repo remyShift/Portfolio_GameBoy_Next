@@ -56,7 +56,7 @@ export default function Screen({ children }: { children: React.ReactNode }) {
 			<div style={chromeStyle} className="relative z-1">
 				<ScreenHeader />
 			</div>
-			<div style={contentStyle} className="flex flex-col flex-1 min-h-0 w-full relative z-1 overflow-y-auto overscroll-contain screen-scroll">
+			<div style={contentStyle} className="flex flex-col flex-1 min-h-0 w-full relative z-1 overflow-y-auto overscroll-contain md:overscroll-auto screen-scroll">
 				{children}
 			</div>
 			<div style={chromeStyle} className="relative z-1">
