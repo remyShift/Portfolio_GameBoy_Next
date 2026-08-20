@@ -17,7 +17,7 @@ export default function AboutTimeline() {
 			<Spacer />
 			<div className="w-full flex flex-col justify-center items-center">
 				<LightButton />
-				<ol className="h-[85%] w-[85%] md:w-auto pt-40 border-l-2 border-wine mx-auto mb-10">
+				<ol className="w-[85%] md:w-auto pt-40 border-l-2 border-wine mx-auto mb-10">
 					{timeline.map((item) => (
 						<TimelineItems key={item.id} title={item.title} date={item.date} description={item.description} videoUrl={item.videoUrl} />
 					))}
