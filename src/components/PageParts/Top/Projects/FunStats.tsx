@@ -15,7 +15,7 @@ const RIGHT_ENTRIES = [
 	{ key: "projects", count: 12, hideOnMobile: false },
 ] as const;
 
-const ITEM_BASE_CLASS = "font-pressStart2P text-[0.6rem] sm:text-sm md:text-base lg:text-lg";
+const ITEM_BASE_CLASS = "font-pressStart2P text-pixel-nav";
 
 export default function FunStats() {
 	const t = useTranslations("funStats");
