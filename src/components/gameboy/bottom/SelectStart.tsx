@@ -1,6 +1,5 @@
 "use client"
 
-import Footer from "./Footer";
 import Image from "next/image";
 import { usePathname } from "@/i18n/navigation";
 import { isScrollableSection } from "@/lib/navigation";
@@ -21,7 +20,6 @@ export default function SelectStart() {
 		<div className="w-full h-full flex flex-col items-center justify-end">
 			<Image src="/assets/SVG/Speakers.svg" alt="" aria-hidden="true" className={speakersClass} width={120} height={120} style={{ height: "auto" }} unoptimized />
 			<Image src="/assets/SVG/SSBtn.svg" alt="" aria-hidden="true" className={ssBtnClass} width={250} height={250} style={{ height: "auto" }} unoptimized />
-			<Footer />
 		</div>
 	);
 }

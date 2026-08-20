@@ -1,6 +1,7 @@
 "use client";
 
 import Buttons from "./Buttons";
+import Footer from "./Footer";
 import { usePathname } from "next/navigation";
 import ProjectsBot from "../../PageParts/Bottom/Projects/ProjectsBot";
 import AboutTimeline from "../../PageParts/Bottom/About/AboutTimeline";
@@ -21,8 +22,11 @@ export default function Bottom() {
 	const height = sectionKey ? "h-auto" : "h-[41%] md:h-[95%]";
 
 	return (
-		<div className={`bg-cream w-full ${height} relative top-1 z-10 flex items-end overflow-x-hidden`}>
-			{SectionBottom ? <SectionBottom /> : <Buttons />}
+		<div className={`bg-cream w-full ${height} relative top-1 z-10 flex flex-col overflow-x-hidden`}>
+			<div className="w-full flex-1 min-h-0 flex items-end">
+				{SectionBottom ? <SectionBottom /> : <Buttons />}
+			</div>
+			<Footer />
 		</div>
 	);
 }
