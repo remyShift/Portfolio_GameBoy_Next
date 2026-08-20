@@ -25,7 +25,7 @@ export default function LanguageSetting() {
 							onClick={() => router.replace(pathname, { locale: code })}
 							aria-pressed={isActive}
 							aria-label={label}
-							className="flex items-center gap-2 sm:gap-3 font-pressStart2P text-[0.5rem] sm:text-xs md:text-sm uppercase"
+							className="flex items-center gap-2 sm:gap-3 py-1.5 font-pressStart2P leading-pixel text-[0.5rem] sm:text-xs md:text-sm uppercase"
 						>
 							<span
 								className={`text-wine text-xs transition-opacity ${isActive ? "opacity-100" : "opacity-0"}`}
