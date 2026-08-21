@@ -83,15 +83,18 @@ export function unlockAudioContext(): AudioContext {
 	return ctx;
 }
 
+// Why: arpege monte d'une octave — un haut-parleur de telephone chute de 20 a
+// 30 dB sous ~700 Hz, et l'ancien G4/C5 (392/523 Hz) n'y sortait pas du tout :
+// la premiere note reellement entendue etait la troisieme, a +180 ms
 const WELCOME_CHIME_NOTES: readonly {
 	readonly freq: number;
 	readonly start: number;
 	readonly dur: number;
 }[] = [
-	{ freq: 392, start: 0, dur: 0.09 },
-	{ freq: 523, start: 0.08, dur: 0.09 },
-	{ freq: 659, start: 0.18, dur: 0.1 },
-	{ freq: 784, start: 0.28, dur: 0.36 },
+	{ freq: 784, start: 0, dur: 0.09 },
+	{ freq: 1046, start: 0.08, dur: 0.09 },
+	{ freq: 1318, start: 0.18, dur: 0.1 },
+	{ freq: 1568, start: 0.28, dur: 0.36 },
 ];
 
 function scheduleWelcomeChime(
@@ -145,8 +148,10 @@ export function playNavClickBlip(
 		osc.connect(gain);
 		gain.connect(ctx.destination);
 		osc.type = 'square';
-		osc.frequency.setValueAtTime(720, startAt);
-		osc.frequency.exponentialRampToValueAtTime(500, startAt + 0.03);
+		// Why: meme raison que l'arpege — sous ~700 Hz le blip n'existe pas sur
+		// un haut-parleur de telephone
+		osc.frequency.setValueAtTime(1200, startAt);
+		osc.frequency.exponentialRampToValueAtTime(820, startAt + 0.03);
 		const peak = NAV_CLICK_BASE_GAIN * volume;
 		gain.gain.setValueAtTime(peak, startAt);
 		gain.gain.exponentialRampToValueAtTime(
