@@ -1,9 +1,14 @@
 import { getUiVolume } from './audioSettings';
 
-// Why: gains calibrés pour rester audibles au-dessus du lit musical
-// (pistes -18 LUFS × MUSIC_MAX_GAIN, cf. musicPlayer.ts) — ajuster ensemble
-const WELCOME_CHIME_BASE_GAIN = 0.06;
-const NAV_CLICK_BASE_GAIN = 0.018;
+// Why: gains calibrés pour rester au-dessus du lit musical, qui sort a
+// -19 dBFS crete au reglage par defaut (cf. MUSIC_MAX_GAIN dans musicPlayer.ts)
+// — les trois valeurs s'ajustent ensemble
+const WELCOME_CHIME_BASE_GAIN = 0.35;
+const NAV_CLICK_BASE_GAIN = 0.15;
+
+// Why: plancher de decroissance exprime en fraction du gain de depart, pour que
+// l'enveloppe garde la meme forme quel que soit le niveau
+const DECAY_FLOOR_RATIO = 0.01;
 
 // Why: marge minimale pour ne pas programmer un événement dans le quantum de
 // rendu déjà en cours (128 frames), sinon le premier son claque
@@ -83,10 +88,10 @@ const WELCOME_CHIME_NOTES: readonly {
 	readonly start: number;
 	readonly dur: number;
 }[] = [
-	{ freq: 392, start: 0, dur: 0.1 },
-	{ freq: 523, start: 0.12, dur: 0.1 },
-	{ freq: 659, start: 0.28, dur: 0.12 },
-	{ freq: 784, start: 0.44, dur: 0.4 },
+	{ freq: 392, start: 0, dur: 0.09 },
+	{ freq: 523, start: 0.08, dur: 0.09 },
+	{ freq: 659, start: 0.18, dur: 0.1 },
+	{ freq: 784, start: 0.28, dur: 0.36 },
 ];
 
 function scheduleWelcomeChime(
@@ -101,8 +106,12 @@ function scheduleWelcomeChime(
 		gain.connect(ctx.destination);
 		osc.type = 'triangle';
 		osc.frequency.value = freq;
-		gain.gain.setValueAtTime(WELCOME_CHIME_BASE_GAIN * volume, t0 + start);
-		gain.gain.exponentialRampToValueAtTime(0.0006 * volume, t0 + start + dur);
+		const peak = WELCOME_CHIME_BASE_GAIN * volume;
+		gain.gain.setValueAtTime(peak, t0 + start);
+		gain.gain.exponentialRampToValueAtTime(
+			peak * DECAY_FLOOR_RATIO,
+			t0 + start + dur,
+		);
 		osc.start(t0 + start);
 		osc.stop(t0 + start + dur + 0.03);
 	}
@@ -138,8 +147,12 @@ export function playNavClickBlip(
 		osc.type = 'square';
 		osc.frequency.setValueAtTime(720, startAt);
 		osc.frequency.exponentialRampToValueAtTime(500, startAt + 0.03);
-		gain.gain.setValueAtTime(NAV_CLICK_BASE_GAIN * volume, startAt);
-		gain.gain.exponentialRampToValueAtTime(0.0008 * volume, startAt + 0.035);
+		const peak = NAV_CLICK_BASE_GAIN * volume;
+		gain.gain.setValueAtTime(peak, startAt);
+		gain.gain.exponentialRampToValueAtTime(
+			peak * DECAY_FLOOR_RATIO,
+			startAt + 0.035,
+		);
 		osc.start(startAt);
 		osc.stop(startAt + 0.04);
 	} catch {

@@ -1,27 +1,33 @@
 import { getMusicVolume } from "./audioSettings";
 import { getSharedAudioContext } from "./retroAudio";
-import { resolveTrackSource } from "./trackCache";
+import { getLoadedTrack, loadTrack } from "./trackCache";
 
 const FADE_OUT_SECONDS = 0.4;
-// Why: fondu court — au-delà, les premières centaines de ms restent
-// inaudibles et la musique donne l'impression de ne pas démarrer
-const FADE_IN_SECONDS = 0.45;
-const MUSIC_MAX_GAIN = 0.07;
-const MUSIC_DB_RANGE = 30;
+// Why: fondu court — au-dela, les premieres centaines de ms restent sous le
+// seuil d'audibilite et la musique donne l'impression de ne pas demarrer
+const FADE_IN_SECONDS = 0.25;
+// Why: les pistes sont masterisees autour de -17 dBFS RMS ; ce gain les sort a
+// -18 dBFS au maximum du reglage et -27 dBFS au cran par defaut. L'ancienne
+// valeur (0.07 sur 30 dB) sortait a -52 dBFS, inaudible sur un telephone.
+const MUSIC_MAX_GAIN = 0.9;
+const MUSIC_DB_RANGE = 24;
 
 function musicGainFromVolume(volume: number): number {
 	if (volume <= 0) return 0;
 	volume = Math.min(1, volume);
-	// Why: perception logarithmique — chaque cran du réglage vaut 6 dB
-	// (gain doublé par niveau), sinon les niveaux hauts sont indistinguables
+	// Why: perception logarithmique — chaque cran du reglage vaut ~5 dB,
+	// sinon les niveaux hauts sont indistinguables
 	return MUSIC_MAX_GAIN * Math.pow(10, (-MUSIC_DB_RANGE * (1 - volume)) / 20);
 }
 
 type MusicPlayerState = {
-	element: HTMLAudioElement;
 	gain: GainNode;
+	source: AudioBufferSourceNode | null;
+	buffer: AudioBuffer | null;
 	currentTrack: string | null;
-	wasPlayingBeforeHidden: boolean;
+	startedAt: number;
+	startOffset: number;
+	pausedAt: number | null;
 	switchToken: number;
 };
 
@@ -32,30 +38,28 @@ type WindowWithMusicPlayer = Window & {
 function getPlayer(): MusicPlayerState {
 	const w = window as WindowWithMusicPlayer;
 	if (!w.__retroMusicPlayer) {
-		// Why: createMediaElementSource ne peut être appelé qu'une seule fois
-		// par élément — le singleton survit aux remounts React et au HMR.
+		// Why: le singleton survit aux remounts React et au HMR, sinon chaque
+		// remontage rebranche un graphe concurrent sur la meme sortie
 		const ctx = getSharedAudioContext();
-		const element = new Audio();
-		element.loop = true;
-		element.preload = "auto";
-		const source = ctx.createMediaElementSource(element);
 		const gain = ctx.createGain();
 		gain.gain.value = 0;
-		source.connect(gain);
 		gain.connect(ctx.destination);
 		w.__retroMusicPlayer = {
-			element,
 			gain,
+			source: null,
+			buffer: null,
 			currentTrack: null,
-			wasPlayingBeforeHidden: false,
+			startedAt: 0,
+			startOffset: 0,
+			pausedAt: null,
 			switchToken: 0,
 		};
 	}
 	return w.__retroMusicPlayer;
 }
 
-// Why: monter le graphe WebAudio au montage évite de le construire au premier
-// geste, là où chaque milliseconde s'entend
+// Why: monter le graphe WebAudio au montage evite de le construire au premier
+// geste, la ou chaque milliseconde s'entend
 export function prepareMusicPlayer(): void {
 	if (typeof window === "undefined") return;
 	getPlayer();
@@ -73,6 +77,42 @@ function rampGainTo(
 	player.gain.gain.linearRampToValueAtTime(target, now + seconds);
 }
 
+function startSource(
+	player: MusicPlayerState,
+	buffer: AudioBuffer,
+	offset: number,
+): void {
+	const ctx = getSharedAudioContext();
+	const source = ctx.createBufferSource();
+	source.buffer = buffer;
+	source.loop = true;
+	source.connect(player.gain);
+	source.start(0, offset % buffer.duration);
+
+	player.source = source;
+	player.buffer = buffer;
+	player.startedAt = ctx.currentTime;
+	player.startOffset = offset % buffer.duration;
+	player.pausedAt = null;
+}
+
+function stopSource(player: MusicPlayerState): void {
+	if (!player.source) return;
+	try {
+		player.source.stop();
+	} catch {
+		// Why: stop() jette si la source n'a jamais demarre
+	}
+	player.source.disconnect();
+	player.source = null;
+}
+
+function readPlaybackOffset(player: MusicPlayerState): number {
+	if (!player.source || !player.buffer) return 0;
+	const elapsed = getSharedAudioContext().currentTime - player.startedAt;
+	return (player.startOffset + elapsed) % player.buffer.duration;
+}
+
 function wait(seconds: number): Promise<void> {
 	return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 }
@@ -87,29 +127,25 @@ export async function playTrack(src: string): Promise<boolean> {
 	if (typeof window === "undefined") return false;
 	const player = getPlayer();
 
-	if (player.currentTrack === src && !player.element.paused) return true;
+	if (player.currentTrack === src && player.source) return true;
 
 	const token = ++player.switchToken;
 
-	if (!player.element.paused) {
+	if (player.source) {
 		rampGainTo(player, 0, FADE_OUT_SECONDS);
 		await wait(FADE_OUT_SECONDS);
-		// Why: une navigation plus récente a pu relancer un switch pendant le fade
+		// Why: une navigation plus recente a pu relancer un switch pendant le fondu
 		if (token !== player.switchToken) return false;
-		player.element.pause();
+		stopSource(player);
 	}
 
-	player.element.src = resolveTrackSource(src);
+	// Why: quand la piste est deja decodee, ce chemin reste synchrone et start()
+	// s'execute dans le geste utilisateur, seul moment ou WebKit ouvre la sortie
+	const buffer = getLoadedTrack(src) ?? (await loadTrack(src));
+	if (!buffer || token !== player.switchToken) return false;
+
 	player.currentTrack = src;
-
-	try {
-		await player.element.play();
-	} catch {
-		// Why: autoplay policy — le prochain geste utilisateur retentera
-		return false;
-	}
-
-	if (token !== player.switchToken) return false;
+	startSource(player, buffer, 0);
 	rampGainTo(player, musicGainFromVolume(getMusicVolume()), FADE_IN_SECONDS);
 	return true;
 }
@@ -122,11 +158,11 @@ export function stopMusic(): void {
 
 	const token = ++player.switchToken;
 	player.currentTrack = null;
-	if (player.element.paused) return;
+	if (!player.source) return;
 
 	rampGainTo(player, 0, FADE_OUT_SECONDS);
 	void wait(FADE_OUT_SECONDS).then(() => {
-		if (token === player.switchToken) player.element.pause();
+		if (token === player.switchToken) stopSource(player);
 	});
 }
 
@@ -140,17 +176,18 @@ export function applyMusicVolume(volume: number): void {
 		const token = ++player.switchToken;
 		rampGainTo(player, 0, FADE_OUT_SECONDS);
 		void wait(FADE_OUT_SECONDS).then(() => {
-			if (token === player.switchToken) player.element.pause();
+			if (token !== player.switchToken) return;
+			player.pausedAt = readPlaybackOffset(player);
+			stopSource(player);
 		});
 		return;
 	}
 
-	if (player.element.paused) {
+	if (!player.source) {
+		if (!player.buffer) return;
 		player.switchToken++;
-		void player.element.play().then(
-			() => rampGainTo(player, musicGainFromVolume(volume), FADE_IN_SECONDS),
-			() => undefined,
-		);
+		startSource(player, player.buffer, player.pausedAt ?? 0);
+		rampGainTo(player, musicGainFromVolume(volume), FADE_IN_SECONDS);
 		return;
 	}
 
@@ -161,30 +198,24 @@ export function pauseForHiddenTab(): void {
 	if (typeof window === "undefined") return;
 	const w = window as WindowWithMusicPlayer;
 	const player = w.__retroMusicPlayer;
-	if (!player) return;
+	if (!player || !player.source) return;
 
-	player.wasPlayingBeforeHidden = !player.element.paused;
-	if (player.wasPlayingBeforeHidden) {
-		player.switchToken++;
-		player.element.pause();
-	}
+	// Why: une AudioBufferSourceNode ne se met pas en pause — on retient la
+	// position pour repartir exactement la ou on s'etait arrete
+	player.switchToken++;
+	const offset = readPlaybackOffset(player);
+	stopSource(player);
+	player.pausedAt = offset;
 }
 
 export function resumeFromHiddenTab(): void {
 	if (typeof window === "undefined") return;
 	const w = window as WindowWithMusicPlayer;
 	const player = w.__retroMusicPlayer;
-	if (!player) return;
+	if (!player || player.source || player.pausedAt === null) return;
+	if (!player.buffer || !player.currentTrack || getMusicVolume() <= 0) return;
 
-	if (
-		player.wasPlayingBeforeHidden &&
-		player.currentTrack &&
-		getMusicVolume() > 0
-	) {
-		void player.element.play().then(
-			() => rampGainTo(player, musicGainFromVolume(getMusicVolume()), FADE_IN_SECONDS),
-			() => undefined,
-		);
-	}
-	player.wasPlayingBeforeHidden = false;
+	player.switchToken++;
+	startSource(player, player.buffer, player.pausedAt);
+	rampGainTo(player, musicGainFromVolume(getMusicVolume()), FADE_IN_SECONDS);
 }
