@@ -39,6 +39,9 @@ export function isTargetNavigableForClickSound(
 	return true;
 }
 
+// Why: à n'appeler que depuis un geste utilisateur, ou après. Sur iOS, un
+// AudioContext instancié hors geste reste sourd : le resume() du geste suivant
+// ne le réveille pas, et il faut plusieurs interactions pour obtenir du son.
 export function getSharedAudioContext(): AudioContext {
 	if (typeof window === 'undefined') {
 		throw new Error('getSharedAudioContext is browser-only');
@@ -50,12 +53,17 @@ export function getSharedAudioContext(): AudioContext {
 	return w.__retroAudioContext;
 }
 
-// Why: instancier l'AudioContext coûte 100 à 500 ms sur mobile (ouverture de la
-// route audio matérielle). Appelé au montage, ce coût est payé pendant le boot
-// au lieu de l'être au moment du geste, là où il s'entend.
-export function prepareAudioContext(): void {
-	if (typeof window === 'undefined') return;
-	getSharedAudioContext();
+type NavigatorWithAudioSession = Navigator & {
+	audioSession?: { type: string };
+};
+
+// Why: sur iOS le Web Audio ouvre par défaut une session « ambient » — coupée
+// par le bouton silencieux et traitée comme un fond sonore interruptible.
+// « playback » la bascule sur le canal média, comme une lecture de musique.
+// Doit être déclaré avant la création du contexte pour être pris en compte.
+function declarePlaybackSession(): void {
+	const audioSession = (navigator as NavigatorWithAudioSession).audioSession;
+	if (audioSession) audioSession.type = 'playback';
 }
 
 function warmUpAudioOutput(ctx: AudioContext): void {
@@ -75,6 +83,7 @@ function warmUpAudioOutput(ctx: AudioContext): void {
 // se résout parfois jamais, donc on ne l'attend pas : currentTime reste gelé
 // tant que le contexte dort, les sons programmés partent dès la reprise.
 export function unlockAudioContext(): AudioContext {
+	declarePlaybackSession();
 	const ctx = getSharedAudioContext();
 	if (ctx.state !== 'running') {
 		void ctx.resume().catch(() => undefined);

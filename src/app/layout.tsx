@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "sonner";
 import localFont from "next/font/local";
 import { getLocale } from "next-intl/server";
+import AudioDiagnostics from "@/components/AudioDiagnostics";
 import NavClickSound from "@/components/NavClickSound";
 import { EARLY_AUDIO_UNLOCK_SCRIPT } from "@/lib/audioUnlockScript";
 import PixelCursor from "@/components/PixelCursor";
@@ -65,6 +66,7 @@ export default async function RootLayout({
 				<Toaster position="top-center" richColors />
 				<SpeedInsights />
 				<NavClickSound />
+				<AudioDiagnostics />
 				<PixelCursor />
 			</body>
 		</html>

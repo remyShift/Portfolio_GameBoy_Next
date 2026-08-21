@@ -36,7 +36,8 @@ g.gain.setValueAtTime(p,t+N[i].start);
 g.gain.exponentialRampToValueAtTime(p*F,t+N[i].start+N[i].dur);
 o.start(t+N[i].start);o.stop(t+N[i].start+N[i].dur+0.03)}
 window.__retroChimeEndsAt=t+D;window.__retroEarlyChime=true}
-function unlock(){try{var C=window.AudioContext||window.webkitAudioContext;if(C){
+function unlock(){try{if(navigator.audioSession){navigator.audioSession.type='playback'}}catch(e){}
+try{var C=window.AudioContext||window.webkitAudioContext;if(C){
 var c=window.__retroAudioContext||(window.__retroAudioContext=new C());
 if(c.state!=='running'){c.resume()}chime(c)}}catch(e){}
 window.__retroUserGestured=true;
