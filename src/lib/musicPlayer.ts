@@ -6,10 +6,10 @@ const FADE_OUT_SECONDS = 0.4;
 // Why: fondu court — au-dela, les premieres centaines de ms restent sous le
 // seuil d'audibilite et la musique donne l'impression de ne pas demarrer
 const FADE_IN_SECONDS = 0.25;
-// Why: les pistes sont masterisees autour de -17 dBFS RMS ; ce gain les sort a
-// -18 dBFS au maximum du reglage et -27 dBFS au cran par defaut. L'ancienne
-// valeur (0.07 sur 30 dB) sortait a -52 dBFS, inaudible sur un telephone.
-const MUSIC_MAX_GAIN = 0.9;
+// Why: hausse mesuree de +10 dB par rapport a l'ancien 0.07 sur 30 dB, qui
+// sortait a -52 dBFS RMS. Echelle obtenue sur des pistes a -17 dBFS RMS :
+// -52 dBFS au cran 1, -42 dBFS au cran 3 (defaut), -32 dBFS au cran 5.
+const MUSIC_MAX_GAIN = 0.17;
 const MUSIC_DB_RANGE = 24;
 
 function musicGainFromVolume(volume: number): number {

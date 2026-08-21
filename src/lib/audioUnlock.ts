@@ -6,11 +6,13 @@ type NavigatorWithActivation = Navigator & {
 	userActivation?: { hasBeenActive: boolean };
 };
 
+type WindowWithGesture = Window & { __retroUserGestured?: boolean };
+
 const listeners = new Set<GestureListener>();
-let hasUserGestured = false;
+let gestureSeen = false;
 
 function handleUserGesture(): void {
-	hasUserGestured = true;
+	gestureSeen = true;
 	unlockAudioContext();
 	for (const listener of [...listeners]) listener();
 }
@@ -22,11 +24,14 @@ if (typeof window !== 'undefined') {
 	document.addEventListener('keydown', handleUserGesture, true);
 }
 
-// Why: notre écouteur n'existe qu'à partir de l'évaluation du bundle, alors que
-// le navigateur retient tout geste antérieur — sans ce rattrapage, un tap arrivé
-// avant restait invisible et l'audio attendait le suivant
-function hasPageBeenActivated(): boolean {
-	if (hasUserGestured) return true;
+// Why: cet écouteur n'existe qu'à partir de l'exécution du bundle, soit ~3 s
+// après le premier paint sur un téléphone. Le script inline du layout, lui,
+// tourne dès le parsing du HTML : c'est la seule source fiable sur WebKit, où
+// navigator.userActivation n'est pas implémenté — donc sur iPhone.
+export function hasUserGestured(): boolean {
+	if (gestureSeen) return true;
+	if (typeof window === 'undefined') return false;
+	if ((window as WindowWithGesture).__retroUserGestured) return true;
 	return (
 		(navigator as NavigatorWithActivation).userActivation?.hasBeenActive ?? false
 	);
@@ -37,7 +42,7 @@ function hasPageBeenActivated(): boolean {
 // était consommé sans lancer la musique, qui attendait un second geste
 export function runOnUserGesture(listener: GestureListener): () => void {
 	listeners.add(listener);
-	if (hasPageBeenActivated()) {
+	if (hasUserGestured()) {
 		unlockAudioContext();
 		listener();
 	}

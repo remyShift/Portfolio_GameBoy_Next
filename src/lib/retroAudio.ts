@@ -3,16 +3,16 @@ import { getUiVolume } from './audioSettings';
 // Why: gains calibrés pour rester au-dessus du lit musical, qui sort a
 // -19 dBFS crete au reglage par defaut (cf. MUSIC_MAX_GAIN dans musicPlayer.ts)
 // — les trois valeurs s'ajustent ensemble
-const WELCOME_CHIME_BASE_GAIN = 0.35;
-const NAV_CLICK_BASE_GAIN = 0.15;
+export const WELCOME_CHIME_BASE_GAIN = 0.18;
+const NAV_CLICK_BASE_GAIN = 0.06;
 
 // Why: plancher de decroissance exprime en fraction du gain de depart, pour que
 // l'enveloppe garde la meme forme quel que soit le niveau
-const DECAY_FLOOR_RATIO = 0.01;
+export const DECAY_FLOOR_RATIO = 0.01;
 
 // Why: marge minimale pour ne pas programmer un événement dans le quantum de
 // rendu déjà en cours (128 frames), sinon le premier son claque
-const SCHEDULE_LEAD_SECONDS = 0.02;
+export const SCHEDULE_LEAD_SECONDS = 0.02;
 
 const NAVIGABLE_FOR_SOUND =
 	"a, button, input, select, textarea, label, [role='button'], [tabindex]";
@@ -86,7 +86,7 @@ export function unlockAudioContext(): AudioContext {
 // Why: arpege monte d'une octave — un haut-parleur de telephone chute de 20 a
 // 30 dB sous ~700 Hz, et l'ancien G4/C5 (392/523 Hz) n'y sortait pas du tout :
 // la premiere note reellement entendue etait la troisieme, a +180 ms
-const WELCOME_CHIME_NOTES: readonly {
+export const WELCOME_CHIME_NOTES: readonly {
 	readonly freq: number;
 	readonly start: number;
 	readonly dur: number;
@@ -118,6 +118,15 @@ function scheduleWelcomeChime(
 		osc.start(t0 + start);
 		osc.stop(t0 + start + dur + 0.03);
 	}
+}
+
+type WindowWithEarlyChime = Window & { __retroEarlyChime?: boolean };
+
+// Why: le script inline a pu jouer l'arpege des le tap, avant l'hydratation —
+// le rejouer ici le ferait sonner deux fois
+export function hasEarlyChimePlayed(): boolean {
+	if (typeof window === 'undefined') return false;
+	return (window as WindowWithEarlyChime).__retroEarlyChime === true;
 }
 
 export function playWelcomeChime(
