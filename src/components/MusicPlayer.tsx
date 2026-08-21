@@ -7,13 +7,11 @@ import { getMusicVolume, subscribeToAudioSettings } from "@/lib/audioSettings";
 import {
 	applyMusicVolume,
 	playTrack,
-	prepareMusicPlayer,
 	pauseForHiddenTab,
 	resumeFromHiddenTab,
 	stopMusic,
 } from "@/lib/musicPlayer";
 import { runOnUserGesture } from "@/lib/audioUnlock";
-import { prepareAudioContext } from "@/lib/retroAudio";
 import { prefetchTrack } from "@/lib/trackCache";
 
 export default function MusicPlayer() {
@@ -22,11 +20,8 @@ export default function MusicPlayer() {
 
 	// Why: sans dependance a `armed` — le garder rendait le prechargement mort
 	// des la premiere piste lancee, et les cinq autres passaient par le reseau
-	// puis le decodeur au moment du clic de navigation
+	// au moment du clic de navigation
 	useEffect(() => {
-		prepareAudioContext();
-		prepareMusicPlayer();
-
 		const track = getTrackForPathname(pathname);
 		if (track && getMusicVolume() > 0) prefetchTrack(track);
 	}, [pathname]);

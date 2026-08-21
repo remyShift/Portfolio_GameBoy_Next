@@ -60,11 +60,11 @@ export function loadTrack(src: string): Promise<AudioBuffer | null> {
 	return load;
 }
 
-// Why: le decodage est lance pendant le boot pour que le tap trouve la piste
-// prete et demarre sans attendre ni reseau ni decodeur
+// Why: seuls les octets sont recuperes avant le geste. Decoder exigerait un
+// AudioContext, et en instancier un hors geste rend l'audio sourd sur iOS.
 export function prefetchTrack(src: string): void {
 	if (typeof window === 'undefined') return;
-	void loadTrack(src);
+	void fetchTrackBytes(src);
 }
 
 export function getLoadedTrack(src: string): AudioBuffer | null {

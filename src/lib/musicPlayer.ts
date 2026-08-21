@@ -61,13 +61,6 @@ function getPlayer(): MusicPlayerState {
 	return w.__retroMusicPlayer;
 }
 
-// Why: monter le graphe WebAudio au montage evite de le construire au premier
-// geste, la ou chaque milliseconde s'entend
-export function prepareMusicPlayer(): void {
-	if (typeof window === "undefined") return;
-	getPlayer();
-}
-
 function rampGainTo(
 	player: MusicPlayerState,
 	target: number,
