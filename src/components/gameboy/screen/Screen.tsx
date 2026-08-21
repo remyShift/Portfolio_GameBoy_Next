@@ -10,16 +10,18 @@ import "./Screen.css";
 import { useIsValidPath } from "@/hooks/useIsValidPath";
 import { useParallax } from "@/hooks/ParallaxProvider";
 import { clampParallax } from "@/hooks/usePointerParallax";
+import {
+	BOOT_SEEN_STORAGE_KEY,
+	BOOT_SEEN_VALUE,
+} from "@/constants/bootScreen";
 
 const CONTENT_PARALLAX_PX = 10;
 const CHROME_PARALLAX_PX = 4;
 const SHADOW_PARALLAX_PX = 4;
-const BOOT_SEEN_KEY = "boot-seen";
-const BOOT_SEEN_VALUE = "1";
 
 function shouldShowBootOnMount(): boolean {
 	if (typeof window === "undefined") return true;
-	return sessionStorage.getItem(BOOT_SEEN_KEY) !== BOOT_SEEN_VALUE;
+	return sessionStorage.getItem(BOOT_SEEN_STORAGE_KEY) !== BOOT_SEEN_VALUE;
 }
 
 export default function Screen({ children }: { children: React.ReactNode }) {
@@ -45,7 +47,7 @@ export default function Screen({ children }: { children: React.ReactNode }) {
 	const screenShadow = `inset ${sx}px ${10 + sy}px 14px -4px rgba(0,0,0,0.6), inset ${-sx}px ${-3 - sy}px 4px -1px rgba(255,255,255,0.1), inset 0 0 0.6rem 0.22rem #2a2a2a`;
 
 	const handleBootComplete = useCallback(() => {
-		sessionStorage.setItem(BOOT_SEEN_KEY, BOOT_SEEN_VALUE);
+		sessionStorage.setItem(BOOT_SEEN_STORAGE_KEY, BOOT_SEEN_VALUE);
 		setShowBoot(false);
 	}, []);
 

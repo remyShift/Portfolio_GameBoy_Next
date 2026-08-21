@@ -1,5 +1,8 @@
 import { getMusicVolume } from "./audioSettings";
-import { getSharedAudioContext } from "./retroAudio";
+import {
+	getSharedAudioContext,
+	getWelcomeChimeEndTime,
+} from "./retroAudio";
 import { getLoadedTrack, loadTrack } from "./trackCache";
 
 const FADE_OUT_SECONDS = 0.4;
@@ -69,29 +72,29 @@ function rampGainTo(
 	player: MusicPlayerState,
 	target: number,
 	seconds: number,
+	startAt: number = getSharedAudioContext().currentTime,
 ): void {
-	const ctx = getSharedAudioContext();
-	const now = ctx.currentTime;
-	player.gain.gain.cancelScheduledValues(now);
-	player.gain.gain.setValueAtTime(player.gain.gain.value, now);
-	player.gain.gain.linearRampToValueAtTime(target, now + seconds);
+	player.gain.gain.cancelScheduledValues(startAt);
+	player.gain.gain.setValueAtTime(player.gain.gain.value, startAt);
+	player.gain.gain.linearRampToValueAtTime(target, startAt + seconds);
 }
 
 function startSource(
 	player: MusicPlayerState,
 	buffer: AudioBuffer,
 	offset: number,
+	startAt: number = getSharedAudioContext().currentTime,
 ): void {
 	const ctx = getSharedAudioContext();
 	const source = ctx.createBufferSource();
 	source.buffer = buffer;
 	source.loop = true;
 	source.connect(player.gain);
-	source.start(0, offset % buffer.duration);
+	source.start(startAt, offset % buffer.duration);
 
 	player.source = source;
 	player.buffer = buffer;
-	player.startedAt = ctx.currentTime;
+	player.startedAt = startAt;
 	player.startOffset = offset % buffer.duration;
 	player.pausedAt = null;
 }
@@ -109,7 +112,11 @@ function stopSource(player: MusicPlayerState): void {
 
 function readPlaybackOffset(player: MusicPlayerState): number {
 	if (!player.source || !player.buffer) return 0;
-	const elapsed = getSharedAudioContext().currentTime - player.startedAt;
+	// Why: la source peut être programmée dans le futur, derrière l'arpège
+	const elapsed = Math.max(
+		0,
+		getSharedAudioContext().currentTime - player.startedAt,
+	);
 	return (player.startOffset + elapsed) % player.buffer.duration;
 }
 
@@ -145,8 +152,19 @@ export async function playTrack(src: string): Promise<boolean> {
 	if (!buffer || token !== player.switchToken) return false;
 
 	player.currentTrack = src;
-	startSource(player, buffer, 0);
-	rampGainTo(player, musicGainFromVolume(getMusicVolume()), FADE_IN_SECONDS);
+	// Why: sur le geste qui congédie le splash, l'arpège d'accueil est encore en
+	// train de sonner — la musique entre derrière lui plutôt que par-dessus
+	const startAt = Math.max(
+		getSharedAudioContext().currentTime,
+		getWelcomeChimeEndTime(),
+	);
+	startSource(player, buffer, 0, startAt);
+	rampGainTo(
+		player,
+		musicGainFromVolume(getMusicVolume()),
+		FADE_IN_SECONDS,
+		startAt,
+	);
 	return true;
 }
 
