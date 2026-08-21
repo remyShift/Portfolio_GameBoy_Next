@@ -3,7 +3,12 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { playWelcomeChime, unlockAudioContext } from "@/lib/retroAudio";
+import { hasUserGestured } from "@/lib/audioUnlock";
+import {
+	hasEarlyChimePlayed,
+	playWelcomeChime,
+	unlockAudioContext,
+} from "@/lib/retroAudio";
 
 type Phase = "crt" | "content" | "fadeout";
 
@@ -32,7 +37,8 @@ export default function BootAnimation({ onComplete }: BootAnimationProps) {
 		// Why: on programme le chime sans attendre la reprise du contexte —
 		// currentTime est gelé tant qu'il dort, les notes partent donc dès qu'il
 		// redémarre, alors qu'attendre resume() coûte des centaines de ms sur WebKit
-		playWelcomeChime(unlockAudioContext());
+		const ctx = unlockAudioContext();
+		if (!hasEarlyChimePlayed()) playWelcomeChime(ctx);
 
 		window.setTimeout(() => {
 			onComplete();
@@ -44,6 +50,14 @@ export default function BootAnimation({ onComplete }: BootAnimationProps) {
 	}, [runDismiss]);
 
 	useEffect(() => {
+		// Why: le tap arrivé avant l'hydratation n'a atteint aucun handler React.
+		// Sans ce rattrapage l'utilisateur a tapé dans le vide pendant plusieurs
+		// secondes et doit recommencer pour obtenir le moindre son.
+		if (hasUserGestured()) {
+			runDismiss();
+			return;
+		}
+
 		contentTimerRef.current = setTimeout(() => {
 			if (!dismissingRef.current) {
 				setPhase("content");

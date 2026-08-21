@@ -1,13 +1,18 @@
 import { getUiVolume } from './audioSettings';
 
-// Why: gains calibrés pour rester audibles au-dessus du lit musical
-// (pistes -18 LUFS × MUSIC_MAX_GAIN, cf. musicPlayer.ts) — ajuster ensemble
-const WELCOME_CHIME_BASE_GAIN = 0.06;
-const NAV_CLICK_BASE_GAIN = 0.018;
+// Why: gains calibrés pour rester au-dessus du lit musical, qui sort a
+// -19 dBFS crete au reglage par defaut (cf. MUSIC_MAX_GAIN dans musicPlayer.ts)
+// — les trois valeurs s'ajustent ensemble
+export const WELCOME_CHIME_BASE_GAIN = 0.18;
+const NAV_CLICK_BASE_GAIN = 0.06;
+
+// Why: plancher de decroissance exprime en fraction du gain de depart, pour que
+// l'enveloppe garde la meme forme quel que soit le niveau
+export const DECAY_FLOOR_RATIO = 0.01;
 
 // Why: marge minimale pour ne pas programmer un événement dans le quantum de
 // rendu déjà en cours (128 frames), sinon le premier son claque
-const SCHEDULE_LEAD_SECONDS = 0.02;
+export const SCHEDULE_LEAD_SECONDS = 0.02;
 
 const NAVIGABLE_FOR_SOUND =
 	"a, button, input, select, textarea, label, [role='button'], [tabindex]";
@@ -78,15 +83,18 @@ export function unlockAudioContext(): AudioContext {
 	return ctx;
 }
 
-const WELCOME_CHIME_NOTES: readonly {
+// Why: arpege monte d'une octave — un haut-parleur de telephone chute de 20 a
+// 30 dB sous ~700 Hz, et l'ancien G4/C5 (392/523 Hz) n'y sortait pas du tout :
+// la premiere note reellement entendue etait la troisieme, a +180 ms
+export const WELCOME_CHIME_NOTES: readonly {
 	readonly freq: number;
 	readonly start: number;
 	readonly dur: number;
 }[] = [
-	{ freq: 392, start: 0, dur: 0.1 },
-	{ freq: 523, start: 0.12, dur: 0.1 },
-	{ freq: 659, start: 0.28, dur: 0.12 },
-	{ freq: 784, start: 0.44, dur: 0.4 },
+	{ freq: 784, start: 0, dur: 0.09 },
+	{ freq: 1046, start: 0.08, dur: 0.09 },
+	{ freq: 1318, start: 0.18, dur: 0.1 },
+	{ freq: 1568, start: 0.28, dur: 0.36 },
 ];
 
 function scheduleWelcomeChime(
@@ -101,11 +109,24 @@ function scheduleWelcomeChime(
 		gain.connect(ctx.destination);
 		osc.type = 'triangle';
 		osc.frequency.value = freq;
-		gain.gain.setValueAtTime(WELCOME_CHIME_BASE_GAIN * volume, t0 + start);
-		gain.gain.exponentialRampToValueAtTime(0.0006 * volume, t0 + start + dur);
+		const peak = WELCOME_CHIME_BASE_GAIN * volume;
+		gain.gain.setValueAtTime(peak, t0 + start);
+		gain.gain.exponentialRampToValueAtTime(
+			peak * DECAY_FLOOR_RATIO,
+			t0 + start + dur,
+		);
 		osc.start(t0 + start);
 		osc.stop(t0 + start + dur + 0.03);
 	}
+}
+
+type WindowWithEarlyChime = Window & { __retroEarlyChime?: boolean };
+
+// Why: le script inline a pu jouer l'arpege des le tap, avant l'hydratation —
+// le rejouer ici le ferait sonner deux fois
+export function hasEarlyChimePlayed(): boolean {
+	if (typeof window === 'undefined') return false;
+	return (window as WindowWithEarlyChime).__retroEarlyChime === true;
 }
 
 export function playWelcomeChime(
@@ -136,10 +157,16 @@ export function playNavClickBlip(
 		osc.connect(gain);
 		gain.connect(ctx.destination);
 		osc.type = 'square';
-		osc.frequency.setValueAtTime(720, startAt);
-		osc.frequency.exponentialRampToValueAtTime(500, startAt + 0.03);
-		gain.gain.setValueAtTime(NAV_CLICK_BASE_GAIN * volume, startAt);
-		gain.gain.exponentialRampToValueAtTime(0.0008 * volume, startAt + 0.035);
+		// Why: meme raison que l'arpege — sous ~700 Hz le blip n'existe pas sur
+		// un haut-parleur de telephone
+		osc.frequency.setValueAtTime(1200, startAt);
+		osc.frequency.exponentialRampToValueAtTime(820, startAt + 0.03);
+		const peak = NAV_CLICK_BASE_GAIN * volume;
+		gain.gain.setValueAtTime(peak, startAt);
+		gain.gain.exponentialRampToValueAtTime(
+			peak * DECAY_FLOOR_RATIO,
+			startAt + 0.035,
+		);
 		osc.start(startAt);
 		osc.stop(startAt + 0.04);
 	} catch {

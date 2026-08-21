@@ -9,8 +9,13 @@ vi.mock("next-intl", () => ({
 const playWelcomeChime = vi.fn();
 const fakeCtx = { state: "running" as const, currentTime: 0 };
 
+vi.mock("@/lib/audioUnlock", () => ({
+	hasUserGestured: () => false,
+}));
+
 vi.mock("@/lib/retroAudio", () => ({
 	unlockAudioContext: () => fakeCtx,
+	hasEarlyChimePlayed: () => false,
 	playWelcomeChime: (...args: unknown[]) => playWelcomeChime(...args),
 }));
 

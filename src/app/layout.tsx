@@ -6,6 +6,7 @@ import { Toaster } from "sonner";
 import localFont from "next/font/local";
 import { getLocale } from "next-intl/server";
 import NavClickSound from "@/components/NavClickSound";
+import { EARLY_AUDIO_UNLOCK_SCRIPT } from "@/lib/audioUnlockScript";
 import PixelCursor from "@/components/PixelCursor";
 import { Analytics } from "@vercel/analytics/next"
 
@@ -56,6 +57,10 @@ export default async function RootLayout({
 		<html lang={locale} className={`${pressStart2P.variable} ${gillSans.variable} h-dvh font-gillSans`}>
 			<Analytics />
 			<body className="w-full h-full">
+				{/* Why: contenu litteral du depot, aucune donnee externe — seul moyen
+				    d'executer du code avant le bundle, cf. audioUnlockScript.ts */}
+				{/* eslint-disable-next-line @eslint-react/dom-no-dangerously-set-innerhtml */}
+				<script dangerouslySetInnerHTML={{ __html: EARLY_AUDIO_UNLOCK_SCRIPT }} />
 				{children}
 				<Toaster position="top-center" richColors />
 				<SpeedInsights />

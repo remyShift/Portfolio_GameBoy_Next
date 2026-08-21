@@ -20,15 +20,16 @@ export default function MusicPlayer() {
 	const pathname = usePathname();
 	const [armed, setArmed] = useState(false);
 
+	// Why: sans dependance a `armed` — le garder rendait le prechargement mort
+	// des la premiere piste lancee, et les cinq autres passaient par le reseau
+	// puis le decodeur au moment du clic de navigation
 	useEffect(() => {
-		if (armed) return;
-
 		prepareAudioContext();
 		prepareMusicPlayer();
 
 		const track = getTrackForPathname(pathname);
 		if (track && getMusicVolume() > 0) prefetchTrack(track);
-	}, [armed, pathname]);
+	}, [pathname]);
 
 	useEffect(() => {
 		if (armed) return;
