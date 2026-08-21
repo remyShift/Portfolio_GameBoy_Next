@@ -120,7 +120,22 @@ function scheduleWelcomeChime(
 	}
 }
 
-type WindowWithEarlyChime = Window & { __retroEarlyChime?: boolean };
+type WindowWithEarlyChime = Window & {
+	__retroEarlyChime?: boolean;
+	__retroChimeEndsAt?: number;
+};
+
+export const WELCOME_CHIME_SECONDS = WELCOME_CHIME_NOTES.reduce(
+	(end, note) => Math.max(end, note.start + note.dur),
+	0,
+);
+
+// Why: le lit musical doit entrer derrière l'arpège et non par-dessus — les
+// deux partaient sur le même geste et se chevauchaient
+export function getWelcomeChimeEndTime(): number {
+	if (typeof window === 'undefined') return 0;
+	return (window as WindowWithEarlyChime).__retroChimeEndsAt ?? 0;
+}
 
 // Why: le script inline a pu jouer l'arpege des le tap, avant l'hydratation —
 // le rejouer ici le ferait sonner deux fois
@@ -138,7 +153,10 @@ export function playWelcomeChime(
 	try {
 		// Why: currentTime bondit quand le contexte sort de veille — sans ce
 		// plancher, les notes se programment dans le passé et la rampe est tronquée
-		scheduleWelcomeChime(ctx, Math.max(time, ctx.currentTime) + SCHEDULE_LEAD_SECONDS, volume);
+		const t0 = Math.max(time, ctx.currentTime) + SCHEDULE_LEAD_SECONDS;
+		scheduleWelcomeChime(ctx, t0, volume);
+		(window as WindowWithEarlyChime).__retroChimeEndsAt =
+			t0 + WELCOME_CHIME_SECONDS;
 	} catch {
 		// ignore
 	}

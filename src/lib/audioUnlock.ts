@@ -2,10 +2,6 @@ import { unlockAudioContext } from './retroAudio';
 
 type GestureListener = () => void;
 
-type NavigatorWithActivation = Navigator & {
-	userActivation?: { hasBeenActive: boolean };
-};
-
 type WindowWithGesture = Window & { __retroUserGestured?: boolean };
 
 const listeners = new Set<GestureListener>();
@@ -26,15 +22,14 @@ if (typeof window !== 'undefined') {
 
 // Why: cet écouteur n'existe qu'à partir de l'exécution du bundle, soit ~3 s
 // après le premier paint sur un téléphone. Le script inline du layout, lui,
-// tourne dès le parsing du HTML : c'est la seule source fiable sur WebKit, où
-// navigator.userActivation n'est pas implémenté — donc sur iPhone.
+// tourne dès le parsing du HTML et couvre cette fenêtre.
+// Why: surtout pas navigator.userActivation.hasBeenActive — Chromium propage
+// l'activation à travers la navigation, donc il est déjà vrai au chargement et
+// congédiait le splash sans que personne n'ait touché l'écran.
 export function hasUserGestured(): boolean {
 	if (gestureSeen) return true;
 	if (typeof window === 'undefined') return false;
-	if ((window as WindowWithGesture).__retroUserGestured) return true;
-	return (
-		(navigator as NavigatorWithActivation).userActivation?.hasBeenActive ?? false
-	);
+	return (window as WindowWithGesture).__retroUserGestured === true;
 }
 
 // Why: le geste précède souvent le montage de celui qui veut y réagir —
